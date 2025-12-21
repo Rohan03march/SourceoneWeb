@@ -1,68 +1,455 @@
-<!doctype html>
-<html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>SourceOne | Coming Soon</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html lang="en">
 
-        <meta name="author" content="SoonLaunch">
-		<link rel="shortcut icon" type="image/x-icon" href="assets/img/SourceOnebg.png">
-        <!-- Place favicon.ico in the root directory -->
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Sourceone - One Source Solution</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
 
-		<!-- ========================= CSS here ========================= -->
-		<link rel="stylesheet" href="assets/css/bootstrap-4.5.0.min.css">
-        <link rel="stylesheet" href="assets/css/lineicons.css">
-		<link rel="stylesheet" href="assets/css/animate.css">
-		<link rel="stylesheet" href="assets/css/style.css">
-    </head>
-    <body>
-        <!--[if lte IE 9]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-        <![endif]-->
+  <!-- Favicons -->
+  <link href="assets/img/SourceOnebg.png" rel="icon">
 
-        <!-- ========================= main-wrapper start ========================= -->
-        <main class="main-14">
-            <div class="main-wrapper demo-14">
-                <!-- shapes start  -->
-                <img src="assets/img/shape-1.svg" alt="" class="shape shape-1">
-                <img src="assets/img/shape-2.svg" alt="" class="shape shape-2">
-                <img src="assets/img/shape-3.svg" alt="" class="shape shape-3">
-                <img src="assets/img/shape-4.svg" alt="" class="shape shape-4">
-                <img src="assets/img/shape-5.svg" alt="" class="shape shape-5">
-                <img src="assets/img/shape-6.svg" alt="" class="shape shape-6">
-                <!-- shapes end  -->
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-xl-5 col-lg-6 col-md-6">
-                            <!-- img-wrapper start  -->
-                            <div class="img-wrapper wow fadeInLeft" data-wow-delay=".2s">
-                                <img src="assets/img/img-1.svg" alt="">
-                            </div>
-                            <!-- img-wrapper end  -->
-                        </div>
-                        <div class="col-xl-7 col-lg-6 col-md-6 odd-col">
-                            <!-- content-wrapper start  -->
-                                <h1 class="wow fadeInDown" data-wow-delay=".2s">Coming Soon</h1>
-                                <p class="wow fadeInUp" data-wow-delay=".4s">We’re building something meaningful to make things simpler and smarter. <br>
-Stay tuned — we’ll be live soon.</p>
-                            </div>
-                            <!-- content-wrapper end  -->
-                        </div>
-                    </div>
-                </div> <!-- end container -->
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header fixed-top">
+
+    <div class="topbar d-flex align-items-center">
+      <div class="container d-flex justify-content-center justify-content-md-between">
+        <div class="contact-info d-flex align-items-center">
+          <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:info@sourceone.in">info@sourceone.in</a></i>
+          <i class="bi bi-phone d-flex align-items-center ms-4"><span>+91-9741965944, 080-23476868</span></i>
+        </div>
+        <div class="social-links d-none d-md-flex align-items-center">
+          <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+    </div><!-- End Top Bar -->
+
+    <div class="branding d-flex align-items-center">
+
+      <div class="container position-relative d-flex align-items-center justify-content-between">
+        <a href="index.html" class="logo d-flex align-items-center">
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <img src="assets/img/SourceOnebg.png" alt=""> 
+          <h1 class="sitename">Sourceone</h1>
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="#hero" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+      </div>
+
+    </div>
+
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section dark-background">
+
+      <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row justify-content-start">
+          <div class="col-lg-8">
+            <h2>Manpower, Security & Housekeeping</h2>
+            <p><p>Dedicated professionals ensuring efficient solutions.</p></p>
+            <a href="#about" class="btn-get-started">Get Started</a>
+          </div>
+        </div>
+      </div>
+
+    </section><!-- /Hero Section -->
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <span>About Us<br></span>
+        <h2>About Us<br></h2>
+        <p>We specialize in delivering dependable manpower, security, and housekeeping services that help businesses operate smoothly, safely, and efficiently.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="100">
+            <img src="assets/img/about.jpg" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-6 order-2 order-lg-1 content" data-aos="fade-up" data-aos-delay="200">
+            <h3>Complete Facility Support <br> Under One Roof</h3>
+            <p class="fst-italic">
+             We help businesses maintain productivity, safety, and cleanliness through professional facility support services.
+            </p>
+            <ul>
+              <li><i class="bi bi-check-circle"></i> <span>Well-trained staff to support your daily operations and workforce needs.</span></li>
+              <li><i class="bi bi-check-circle"></i> <span>Professional security personnel ensuring safety, discipline, and peace of mind.</span></li>
+              <li><i class="bi bi-check-circle"></i> <span>Reliable housekeeping services maintaining hygiene and a clean work environment.</span></li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /About Section -->
+
+    <!-- Cards Section -->
+<section id="cards" class="cards section">
+
+  <div class="container">
+
+    <div class="row no-gutters">
+
+      <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="100">
+        <span>01</span>
+        <h4>Skilled Manpower</h4>
+        <p>Trained and reliable workforce to support daily operations across various industries.</p>
+      </div><!-- End Card Item -->
+
+      <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="200">
+        <span>02</span>
+        <h4>Professional Security</h4>
+        <p>Experienced security personnel ensuring safety, discipline, and controlled access.</p>
+      </div><!-- End Card Item -->
+
+      <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="300">
+        <span>03</span>
+        <h4>Quality Housekeeping</h4>
+        <p>Efficient cleaning and maintenance services for hygienic and organized spaces.</p>
+      </div><!-- End Card Item -->
+
+      <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="400">
+        <span>04</span>
+        <h4>Trained Workforce</h4>
+        <p>Staff trained to meet operational standards, safety protocols, and service quality.</p>
+      </div><!-- End Card Item -->
+
+      <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="500">
+        <span>05</span>
+        <h4>Reliable Support</h4>
+        <p>Consistent service delivery with quick response and dependable on-site support.</p>
+      </div><!-- End Card Item -->
+
+      <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="600">
+        <span>06</span>
+        <h4>Compliance & Safety</h4>
+        <p>Operations aligned with safety norms, statutory compliance, and industry standards.</p>
+      </div><!-- End Card Item -->
+
+    </div>
+
+  </div>
+
+</section><!-- /Cards Section -->
+
+
+    <!-- Clients Section -->
+    <section id="clients" class="clients section light-background">
+
+      <div class="container">
+
+        <div class="swiper init-swiper">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": "auto",
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              },
+              "breakpoints": {
+                "320": {
+                  "slidesPerView": 2,
+                  "spaceBetween": 40
+                },
+                "480": {
+                  "slidesPerView": 3,
+                  "spaceBetween": 60
+                },
+                "640": {
+                  "slidesPerView": 4,
+                  "spaceBetween": 80
+                },
+                "992": {
+                  "slidesPerView": 6,
+                  "spaceBetween": 120
+                }
+              }
+            }
+          </script>
+          <div class="swiper-wrapper align-items-center">
+            <div class="swiper-slide"><img src="assets/img/clients/client-1.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/client-2.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/client-3.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/client-4.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/client-5.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/client-6.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/client-7.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/client-8.png" class="img-fluid" alt=""></div>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Clients Section -->
+
+   <!-- Services Section -->
+<section id="services" class="services section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <span>Services</span>
+    <h2>Our Services</h2>
+    <p>Comprehensive facility management services designed to support safety, productivity, and cleanliness.</p>
+  </div><!-- End Section Title -->
+
+  <div class="container">
+
+    <div class="row gy-4">
+
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="service-item position-relative">
+          <div class="icon">
+            <i class="bi bi-people"></i>
+          </div>
+          <a href="#" class="stretched-link">
+            <h3>Manpower Supply</h3>
+          </a>
+          <p>Skilled and unskilled manpower to meet operational needs across industries.</p>
+        </div>
+      </div><!-- End Service Item -->
+
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="service-item position-relative">
+          <div class="icon">
+            <i class="bi bi-shield-check"></i>
+          </div>
+          <a href="#" class="stretched-link">
+            <h3>Security Services</h3>
+          </a>
+          <p>Professional security personnel ensuring safety, access control, and asset protection.</p>
+        </div>
+      </div><!-- End Service Item -->
+
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="service-item position-relative">
+          <div class="icon">
+            <i class="bi bi-bucket"></i>
+          </div>
+          <a href="#" class="stretched-link">
+            <h3>Housekeeping Services</h3>
+          </a>
+          <p>Complete cleaning and maintenance services for hygienic workplaces.</p>
+        </div>
+      </div><!-- End Service Item -->
+
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+        <div class="service-item position-relative">
+          <div class="icon">
+            <i class="bi bi-building-check"></i>
+          </div>
+          <a href="#" class="stretched-link">
+            <h3>Facility Management</h3>
+          </a>
+          <p>End-to-end facility support ensuring smooth and efficient daily operations.</p>
+        </div>
+      </div><!-- End Service Item -->
+
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+        <div class="service-item position-relative">
+          <div class="icon">
+            <i class="bi bi-clipboard-check"></i>
+          </div>
+          <a href="#" class="stretched-link">
+            <h3>Compliance & Supervision</h3>
+          </a>
+          <p>Strict adherence to statutory norms with regular supervision and reporting.</p>
+        </div>
+      </div><!-- End Service Item -->
+
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+        <div class="service-item position-relative">
+          <div class="icon">
+            <i class="bi bi-headset"></i>
+          </div>
+          <a href="#" class="stretched-link">
+            <h3>On-Demand Support</h3>
+          </a>
+          <p>Quick-response support to handle urgent manpower or facility requirements.</p>
+        </div>
+      </div><!-- End Service Item -->
+
+    </div>
+
+  </div>
+
+</section><!-- /Services Section -->
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <span>Contact</span>
+        <h2>Contact</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-6">
+            <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="200">
+              <i class="bi bi-geo-alt"></i>
+              <h3>Address</h3>
+              <p id="address">#49/3, MEC Road, Industrial suburb, Marappanapalya, Yeshwanthpura,<br> Bengaluru - 560022</p>
             </div>
-        </main>
-        <!-- ========================= main-wrapper end ========================= -->
-        
-		<!-- ========================= JS here ========================= -->
-		<script src="assets/js/vendor/modernizr-3.5.0.min.js"></script>
-		<script src="assets/js/vendor/jquery-3.5.1.min.js"></script>
-		<script src="assets/js/popper.min.js"></script>
-		<script src="assets/js/bootstrap-4.5.0.min.js"></script>
-        <script src="assets/js/countdown.js"></script>
-        <script src="assets/js/wow.min.js"></script>
-		<script src="assets/js/main.js"></script>
-    </body>
+          </div><!-- End Info Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="300">
+              <i class="bi bi-telephone"></i>
+              <h3>Call Us</h3>
+              <p>+91-9741965944</p>
+              <p>080-23476868</p>
+            </div>
+          </div><!-- End Info Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="400">
+              <i class="bi bi-envelope"></i>
+              <h3>Email Us</h3>
+              <p>info@sourceone.in</p>
+              <p>sourceone.chandan@gmail.com</p>
+            </div>
+          </div><!-- End Info Item -->
+
+        </div>
+
+        <div class="row gy-4 mt-1">
+         <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+  <div class="map-container">
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.257648716682!2d77.54856127447383!3d13.01925791383279!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3d7a85917257%3A0xda2d0b93068ab9cb!2s49%2C%20MEC%20Rd%2C%20near%20ULLAS%20THEATER%2C%20Marappanapalya%2C%20Yeswanthpur%2C%20Bengaluru%2C%20Karnataka%20560022!5e0!3m2!1sen!2sin!4v1766306589829!5m2!1sen!2sin"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div><!-- End Google Maps -->
+
+
+        <div class="col-lg-6">
+  <form id="contact-form" class="php-email-form" action="javascript:void(0);" data-aos="fade-up" data-aos-delay="400">
+    <div class="row gy-4">
+
+      <div class="col-md-6">
+        <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+      </div>
+
+      <div class="col-md-6">
+        <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+      </div>
+
+      <div class="col-md-12">
+        <input type="text" name="subject" class="form-control" placeholder="Subject" required>
+      </div>
+
+      <div class="col-md-12">
+        <textarea name="message" class="form-control" rows="6" placeholder="Message" required></textarea>
+      </div>
+
+      <div class="col-md-12 text-center">
+        <div class="loading" style="display:none;">Loading</div>
+        <div class="error-message" style="display:none;"></div>
+        <div class="sent-message" style="display:none;">
+          Your message has been sent. Thank you!
+        </div>
+
+        <button type="submit">Send Message</button>
+      </div>
+
+    </div>
+  </form>
+</div>
+
+
+        </div>
+
+      </div>
+
+    </section><!-- /Contact Section -->
+
+  </main>
+
+  <footer id="footer" class="footer position-relative dark-background">
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Sourceone</strong> <span>All Rights Reserved</span></p>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+
+</body>
+
 </html>

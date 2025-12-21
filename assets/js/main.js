@@ -205,35 +205,76 @@
 
 //Email 
 
-  (function () {
-    emailjs.init("bQeh4P_XaN0fbDxXr"); // 🔴 replace
-  })();
+ (function () {
+  "use strict";
 
-  document.getElementById("contact-form").addEventListener("submit", function (e) {
-    e.preventDefault();
+  /**
+   * Initialize animations (AOS)
+   */
+  document.addEventListener("DOMContentLoaded", function () {
 
-    const loading = this.querySelector(".loading");
-    const errorMessage = this.querySelector(".error-message");
-    const sentMessage = this.querySelector(".sent-message");
+    if (typeof AOS !== "undefined") {
+      AOS.init({
+        duration: 800,
+        easing: "ease-in-out",
+        once: true,
+        mirror: false
+      });
+    }
 
-    loading.style.display = "block";
-    errorMessage.style.display = "none";
-    sentMessage.style.display = "none";
+    /**
+     * -----------------------------
+     * EmailJS Contact Form Handler
+     * -----------------------------
+     */
 
-    emailjs.sendForm(
-      "service_i04awne",   // 🔴 replace
-      "template_6bfwkjf",  // 🔴 replace
-      this
-    )
-    .then(() => {
-      loading.style.display = "none";
-      sentMessage.style.display = "block";
-      this.reset();
-    })
-    .catch((error) => {
-      loading.style.display = "none";
-      errorMessage.innerHTML = "Failed to send message. Please try again.";
-      errorMessage.style.display = "block";
-      console.error(error);
+    // 🔑 Initialize EmailJS (PUBLIC KEY ONLY)
+    emailjs.init("bQeh4P_XaN0fbDxXr");
+
+    const form = document.getElementById("contact-form");
+
+    if (!form) {
+      console.warn("⚠️ Contact form not found. Skipping EmailJS init.");
+      return;
+    }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault(); // 🚫 STOP PAGE RELOAD
+
+      console.log("📨 Contact form submit captured");
+
+      const loading = form.querySelector(".loading");
+      const errorMessage = form.querySelector(".error-message");
+      const sentMessage = form.querySelector(".sent-message");
+
+      // Reset UI states
+      loading.style.display = "block";
+      errorMessage.style.display = "none";
+      sentMessage.style.display = "none";
+
+      emailjs.sendForm(
+        "service_yj7xunj",   // EmailJS Service ID
+        "template_6bfwkjf",  // EmailJS Template ID
+        form
+      )
+      .then((response) => {
+        console.log("✅ EmailJS SUCCESS:", response);
+
+        loading.style.display = "none";
+        sentMessage.style.display = "block";
+        form.reset();
+      })
+      .catch((error) => {
+        console.error("❌ EmailJS ERROR:", error);
+
+        loading.style.display = "none";
+
+        // Show real error if available
+        errorMessage.textContent = error.text || "Failed to send message. Please try again.";
+        errorMessage.style.display = "block";
+      });
     });
+
   });
+
+})();

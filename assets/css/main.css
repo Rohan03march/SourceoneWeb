@@ -22,7 +22,7 @@
   --background-color: #0e0e0e;        /* Main background - soft black */
   --default-color: #d1d1d1;           /* Body text - light gray */
   --heading-color: #ffffff;           /* Headings - pure white */
-  --accent-color: #e63946;            /* Brand accent - premium red */
+  --accent-color: #c93660;            /* Brand accent - premium red */
   --surface-color: #161616;           /* Cards / boxes */
   --contrast-color: #ffffff;          /* Text on accent backgrounds */
 }
@@ -30,7 +30,7 @@
 /* Nav Menu Colors */
 :root {
   --nav-color: #e5e5e5;                /* Menu text */
-  --nav-hover-color: #e63946;          /* Hover / active */
+  --nav-hover-color: #d33762;          /* Hover / active */
   --nav-mobile-background-color: #0e0e0e;
   --nav-dropdown-background-color: #161616;
   --nav-dropdown-color: #e5e5e5;

@@ -38,12 +38,12 @@
           <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:info@sourceone.in">info@sourceone.in</a></i>
           <i class="bi bi-phone d-flex align-items-center ms-4"><span>+91-9741965944, 080-23476868</span></i>
         </div>
-        <div class="social-links d-none d-md-flex align-items-center">
+        <!-- <div class="social-links d-none d-md-flex align-items-center">
           <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
           <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
           <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
           <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-        </div>
+        </div> -->
       </div>
     </div><!-- End Top Bar -->
 
@@ -60,6 +60,7 @@
           <ul>
             <li><a href="#hero" class="active">Home</a></li>
             <li><a href="#about">About</a></li>
+            <li><a href="#team">Our Team</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#contact">Contact</a></li>
             <!-- <li><a href="https://www.source1.co.in/newsubmissionform">Apply For Job</a></li> -->
@@ -106,7 +107,7 @@
         <div class="row gy-4">
 
           <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="100">
-            <img src="assets/img/about.jpg" class="img-fluid" alt="">
+            <img src="assets/img/Team/about.jpeg" class="img-fluid" alt="">
           </div>
 
           <div class="col-lg-6 order-2 order-lg-1 content" data-aos="fade-up" data-aos-delay="200">
@@ -219,19 +220,79 @@
           <div class="swiper-wrapper align-items-center">
             <div class="swiper-slide"><img src="assets/img/clients/Zepto.png" class="img-fluid" alt=""></div>
             <div class="swiper-slide"><img src="assets/img/clients/Amazon_Logo_1.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/Bigbasket.com_idYEgdK4CK_1.png" class="img-fluid" alt=""></div>
             <div class="swiper-slide"><img src="assets/img/clients/Blinkit_idCmcpCDCZ_1.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/dunkin.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/Zomato_Logo_1.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/KFC.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/popeyes.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/axis.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/john-distilleries.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/buildmet-fibres.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/waycool.png" class="img-fluid" alt=""></div>
           </div>
         </div>
 
       </div>
 
     </section><!-- /Clients Section -->
+
+    <!-- Team Section -->
+<section id="team" class="about section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <span>Team</span>
+    <h2>Our Team</h2>
+    <p>
+      A team driven by experience, responsibility, and a shared commitment to
+      delivering dependable support across various industries.
+    </p>
+  </div>
+  <!-- End Section Title -->
+
+  <div class="container">
+    <div class="team-masonry">
+      <img src="/assets/img/Team/about.jpeg" alt="Team Member">
+      <img src="/assets/img/Team/team1.jpeg" alt="Team Member">
+      <img src="/assets/img/Team/team2.jpeg" alt="Team Member">
+      <img src="/assets/img/Team/team3.jpeg" alt="Team Member">
+    </div>
+  </div>
+
+  <style>
+    .team-masonry {
+  column-count: 2;
+  column-gap: 20px;
+}
+
+.team-masonry img {
+  width: 100%;
+  display: block;
+  margin-bottom: 20px;
+  border-radius: 14px;
+  break-inside: avoid;
+  object-fit: cover;
+  background: #f3f3f3;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.team-masonry img:hover {
+  transform: scale(1.04);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+@media (max-width: 992px) {
+  .team-masonry {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 576px) {
+  .team-masonry {
+    column-count: 1;
+  }
+}
+
+  </style>
+
+</section>
+<!-- /Team Section -->
+
 
    <!-- Services Section -->
 <section id="services" class="services section">
@@ -433,12 +494,12 @@
     <span>All Rights Reserved</span>
   </p>
 
-  <div class="social-links d-flex justify-content-center align-items-center gap-1 mt-2">
+  <!-- <div class="social-links d-flex justify-content-center align-items-center gap-1 mt-2">
     <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
     <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
     <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
     <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-  </div>
+  </div> -->
 </div>
 
 
@@ -465,7 +526,7 @@
   
 
   <!--Stop view source -->
-
+<!-- 
   <script>
   // Disable right click
   document.addEventListener("contextmenu", function (e) {
@@ -506,7 +567,7 @@
       return false;
     }
   });
-</script>
+</script> -->
 
 
 </body>

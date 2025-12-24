@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Careers | Sourceone - One Source Solution</title>
+  <meta name="description" content="Careers at Sourceone - Join our team and grow with a trusted facility management company.">
+  <meta name="keywords" content="Sourceone careers, jobs, manpower jobs, security jobs, housekeeping jobs">
+
+  <!-- Favicons -->
+  <link href="assets/img/SourceOnebg.png" rel="icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins&family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link href="assets/css/main.css" rel="stylesheet">
+</head>
+
+<body class="index-page">
+
+<!-- ===== HEADER ===== -->
+<header id="header" class="header fixed-top">
+  <div class="topbar d-flex align-items-center">
+    <div class="container d-flex justify-content-center justify-content-md-between">
+      <div class="contact-info d-flex align-items-center">
+        <i class="bi bi-envelope"><a href="mailto:info@sourceone.in">info@sourceone.in</a></i>
+        <i class="bi bi-phone ms-4"><span>+91-9741965944, 080-23476868</span></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="branding d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="assets/img/SourceOnebg.png" alt="">
+        <h1 class="sitename">Sourceone</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/careers.html" class="active">Careers</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main class="main">
+
+<!-- ===== HERO ===== -->
+<section class="hero section dark-background">
+  <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in">
+  <div class="container" data-aos="fade-up">
+    <h2>Careers at Sourceone</h2>
+    <p>Build your future with a team that values responsibility, growth, and dedication.</p>
+  </div>
+</section>
+
+<!-- ===== JOBS ===== -->
+<section class="jobs section light-background">
+
+  <div class="container section-title" data-aos="fade-up">
+    <span>Careers</span>
+    <h2>Current Open Positions</h2>
+    <p>Explore opportunities and apply to join the Sourceone team.</p>
+  </div>
+
+  <div class="container">
+    <div id="jobsContainer"></div>
+  </div>
+
+  <!-- ===== STYLES ===== -->
+  <style>
+    .jobs .job-card {
+      background: var(--surface-color);
+      border-radius: 14px;
+      padding: 20px 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.7);
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .job-header h4 {
+      margin: 0;
+      font-weight: 600;
+      color: var(--heading-color);
+    }
+
+    .meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    .location {
+      font-size: 14px;
+      color: var(--default-color);
+    }
+
+    .location i {
+      color: #d33762;
+      margin-right: 4px;
+    }
+
+    .job-type {
+      font-size: 12px;
+      padding: 3px 12px;
+      border-radius: 20px;
+      background: rgba(211, 55, 98, 0.15);
+      color: #d33762;
+      font-weight: 500;
+    }
+
+    .job-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .job-actions .btn {
+      background-color: #d33762;
+      border-color: #d33762;
+      color: #ffffff;
+      font-size: 14px;
+      padding: 6px 14px;
+    }
+
+    .job-actions .btn:hover {
+      background-color: #c12f57;
+    }
+
+    .job-requirements {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .job-requirements ul {
+      margin-top: 15px;
+      padding-left: 20px;
+    }
+
+    .job-requirements li {
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: var(--default-color);
+    }
+
+    .job-card.active .job-requirements {
+      max-height: 300px;
+    }
+
+    @media (max-width: 768px) {
+      .job-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .job-actions {
+        width: 100%;
+        flex-direction: column;
+      }
+
+      .job-actions .btn {
+        width: 100%;
+      }
+    }
+  </style>
+
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer id="footer" class="footer dark-background">
+  <div class="container text-center mt-4">
+    <p>© Copyright <strong>Sourceone</strong>. All Rights Reserved</p>
+  </div>
+</footer>
+
+<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+  <i class="bi bi-arrow-up-short"></i>
+</a>
+
+<!-- Vendor JS -->
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/js/main.js"></script>
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyAENr32Pk-Sq44tuBPj8c_xXk4qzEa3GJw",
+    authDomain: "login-9338e.firebaseapp.com",
+    databaseURL: "https://login-9338e-default-rtdb.firebaseio.com",
+    projectId: "login-9338e",
+    storageBucket: "login-9338e.appspot.com",
+    messagingSenderId: "649880075591",
+    appId: "1:649880075591:web:a5cd336a03d80e9b656062"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
+  const jobsContainer = document.getElementById("jobsContainer");
+
+  db.ref("jobs").on("value", snapshot => {
+    jobsContainer.innerHTML = "";
+
+    snapshot.forEach(child => {
+      const job = child.val();
+
+      const reqList = job.requirements
+        .split("\n")
+        .filter(r => r.trim())
+        .map(r => `<li>${r.replace("•", "").trim()}</li>`)
+        .join("");
+
+      jobsContainer.innerHTML += `
+        <div class="job-card" data-aos="fade-up">
+          <div class="job-header">
+            <div>
+              <h4>${job.position}</h4>
+              <div class="meta">
+                <span class="location">
+                  <i class="bi bi-geo-alt"></i> ${job.location}
+                </span>
+                <span class="job-type">${job.jobType}</span>
+              </div>
+            </div>
+
+            <div class="job-actions">
+              <button class="btn toggle-req">Requirements</button>
+              <a href="https://www.source1.co.in/newsubmissionform" class="btn">Apply</a>
+            </div>
+          </div>
+
+          <div class="job-requirements">
+            <ul>${reqList}</ul>
+          </div>
+        </div>
+      `;
+    });
+
+    attachToggle();
+    AOS.refresh();
+  });
+
+  function attachToggle() {
+    document.querySelectorAll(".toggle-req").forEach(btn => {
+      btn.onclick = () => {
+        document.querySelectorAll(".job-card").forEach(card => {
+          if (card !== btn.closest(".job-card")) {
+            card.classList.remove("active");
+          }
+        });
+
+        const card = btn.closest(".job-card");
+        card.classList.toggle("active");
+        btn.textContent = card.classList.contains("active")
+          ? "Hide Requirements"
+          : "Requirements";
+      };
+    });
+  }
+</script>
+<script>
+  // Disable right click
+  document.addEventListener("contextmenu", function (e) {
+    e.preventDefault();
+  });
+
+  // Disable keyboard shortcuts
+  document.addEventListener("keydown", function (e) {
+
+    // F12
+    if (e.key === "F12") {
+      e.preventDefault();
+      return false;
+    }
+
+    // Ctrl + Shift + I / J / C / K
+    if (e.ctrlKey && e.shiftKey && 
+        ["I", "J", "C", "K"].includes(e.key.toUpperCase())) {
+      e.preventDefault();
+      return false;
+    }
+
+    // Ctrl + U (View Source)
+    if (e.ctrlKey && e.key.toUpperCase() === "U") {
+      e.preventDefault();
+      return false;
+    }
+
+    // Ctrl + S (Save page)
+    if (e.ctrlKey && e.key.toUpperCase() === "S") {
+      e.preventDefault();
+      return false;
+    }
+
+    // Ctrl + P (Print)
+    if (e.ctrlKey && e.key.toUpperCase() === "P") {
+      e.preventDefault();
+      return false;
+    }
+  });
+</script>
+
+
+</body>
+</html>

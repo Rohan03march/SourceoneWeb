@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Careers & Jobs | Sourceone - One Source Solution</title>
+  <meta name="description" content="Apply for open positions at Sourceone. We offer manpower supply, security, and housekeeping jobs across various locations in Bangalore.">
+  <meta name="keywords" content="jobs, careers, sourceone, manpower, security guard, housekeeping, bangalore">
+
+  <!-- Favicons -->
+  <link href="assets/img/SourceOnebg.png" rel="icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- Custom Styles for Jobs Page -->
+  <style>
+    /* Hero Banner Override */
+    .hero-jobs {
+      min-height: 45vh;
+      background: linear-gradient(135deg, rgba(14, 14, 14, 0.9), rgba(22, 22, 22, 0.95)), url('assets/img/hero-bg.jpg') center center no-repeat;
+      background-size: cover;
+      padding-top: 130px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-jobs h1 {
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--heading-color);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .hero-jobs p {
+      font-size: 16px;
+      color: var(--default-color);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Filter & Search Bar */
+    .search-filter-section {
+      margin-top: -40px;
+      position: relative;
+      z-index: 10;
+      padding-bottom: 40px;
+    }
+
+    .filter-card {
+      background: var(--surface-color);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    }
+
+    .filter-control {
+      background: #0b0b0d;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--default-color);
+      padding: 12px 16px;
+      border-radius: 8px;
+      width: 100%;
+      transition: all 0.3s ease;
+      font-size: 14px;
+    }
+
+    .filter-control:focus {
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 2px rgba(201, 54, 96, 0.25);
+      outline: none;
+      color: #fff;
+    }
+
+    .filter-control option {
+      background: var(--surface-color);
+      color: var(--default-color);
+    }
+
+    /* Jobs Grid */
+    .jobs-section {
+      padding-bottom: 80px;
+    }
+
+    .jobs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 24px;
+    }
+
+    .job-card {
+      background: var(--surface-color);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 330px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+      transition: all 0.35s ease;
+    }
+
+    .job-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent-color);
+      box-shadow: 0 12px 28px rgba(201, 54, 96, 0.18);
+    }
+
+    .job-badge {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+    }
+
+    .job-badge.full-time {
+      background: rgba(46, 204, 113, 0.12);
+      color: #2ecc71;
+    }
+
+    .job-badge.part-time {
+      background: rgba(52, 152, 219, 0.12);
+      color: #3498db;
+    }
+
+    .job-badge.contract {
+      background: rgba(241, 196, 15, 0.12);
+      color: #f1c40f;
+    }
+
+    .job-badge.default {
+      background: rgba(201, 54, 96, 0.12);
+      color: var(--accent-color);
+    }
+
+    .job-card-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--heading-color);
+    }
+
+    .job-card-meta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--default-color);
+      margin-bottom: 16px;
+      opacity: 0.8;
+    }
+
+    .job-card-meta i {
+      color: var(--accent-color);
+      font-size: 14px;
+    }
+
+    .job-card-req {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #b3b3b3;
+      margin-bottom: 24px;
+      white-space: pre-line;
+      flex-grow: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .btn-apply-now {
+      background: var(--accent-color);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 24px;
+      font-weight: 600;
+      width: 100%;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .btn-apply-now:hover {
+      background: color-mix(in srgb, var(--accent-color), transparent 15%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(201, 54, 96, 0.3);
+      color: #fff;
+    }
+
+    /* Spinner */
+    .spinner-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 0;
+    }
+
+    .premium-spinner {
+      width: 45px;
+      height: 45px;
+      border: 3px solid rgba(255, 255, 255, 0.05);
+      border-top: 3px solid var(--accent-color);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 16px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Modal Styling */
+    .apply-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1050;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease;
+    }
+
+    .apply-modal.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .apply-modal-backdrop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(4px);
+    }
+
+    .apply-modal-dialog {
+      background: var(--surface-color);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      width: 92%;
+      max-width: 520px;
+      position: relative;
+      z-index: 10;
+      transform: scale(0.9);
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.6);
+    }
+
+    .apply-modal.active .apply-modal-dialog {
+      transform: scale(1);
+    }
+
+    .apply-modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .apply-modal-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0;
+      color: var(--heading-color);
+    }
+
+    .apply-modal-close {
+      background: transparent;
+      border: none;
+      color: var(--default-color);
+      font-size: 28px;
+      cursor: pointer;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+
+    .apply-modal-close:hover {
+      color: var(--accent-color);
+    }
+
+    .apply-modal-body {
+      padding: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #d1d1d1;
+    }
+
+    .apply-modal-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      padding: 16px 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 0 0 16px 16px;
+    }
+
+    .btn-modal-cancel {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: var(--default-color);
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-weight: 600;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .btn-modal-cancel:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+    }
+
+    .btn-modal-submit {
+      background: var(--accent-color);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 22px;
+      font-weight: 600;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .btn-modal-submit:hover {
+      background: color-mix(in srgb, var(--accent-color), transparent 15%);
+      box-shadow: 0 4px 10px rgba(201, 54, 96, 0.2);
+    }
+
+    .btn-modal-submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    /* Style for read-only metadata fields */
+    .readonly-field {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      color: #888888;
+      cursor: not-allowed;
+    }
+  </style>
+
+</head>
+
+<body class="index-page">
+
+  <!-- Header -->
+  <header id="header" class="header fixed-top">
+
+    <div class="topbar d-flex align-items-center">
+      <div class="container d-flex justify-content-center justify-content-md-between">
+        <div class="contact-info d-flex align-items-center">
+          <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:info@sourceone.in">info@sourceone.in</a></i>
+          <i class="bi bi-phone d-flex align-items-center ms-4"><span>+91-9741965944, 080-23476868</span></i>
+        </div>
+      </div>
+    </div><!-- End Top Bar -->
+
+    <div class="branding d-flex align-items-center">
+
+      <div class="container position-relative d-flex align-items-center justify-content-between">
+        <a href="index.html" class="logo d-flex align-items-center">
+          <img src="assets/img/SourceOnebg.png" alt="Sourceone Logo"> 
+          <h1 class="sitename">Sourceone</h1>
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="index.html#hero">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#team">Our Team</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="jobs.html" class="active">Jobs</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+      </div>
+
+    </div>
+
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero-jobs" class="hero-jobs dark-background">
+      <div class="container text-center" data-aos="fade-up" data-aos-delay="100">
+        <h1>Careers & Openings</h1>
+        <p>Explore dynamic and rewarding job openings across Bangalore. Find your fit and apply in less than a minute.</p>
+      </div>
+    </section><!-- /Hero Section -->
+
+
+
+    <!-- Jobs Container -->
+    <section class="jobs-section">
+      <div class="container">
+        
+        <!-- Loading State -->
+        <div id="loadingSpinner" class="spinner-container">
+          <div class="premium-spinner"></div>
+          <p style="color: var(--default-color); font-weight: 500;">Loading open positions...</p>
+        </div>
+
+        <!-- Empty State -->
+        <div id="emptyState" style="display: none; text-align: center; padding: 60px 20px;" data-aos="fade-up">
+          <i class="bi bi-briefcase" style="font-size: 48px; color: var(--accent-color); margin-bottom: 16px; display: inline-block;"></i>
+          <h3 style="font-weight: 700; margin-bottom: 8px;">No Openings Found</h3>
+          <p style="color: var(--default-color); max-width: 500px; margin: 0 auto;">There are no current openings matching your search criteria. Try modifying your filters or check back later.</p>
+        </div>
+
+        <!-- Jobs Grid -->
+        <div id="jobsList" class="jobs-grid" style="display: none;" data-aos="fade-up" data-aos-delay="200">
+          <!-- Dynamically populated -->
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer" class="footer position-relative dark-background">
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Sourceone</strong> <span>All Rights Reserved</span></p>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Apply Modal Overlay -->
+  <div id="applyModal" class="apply-modal">
+    <div class="apply-modal-backdrop" onclick="closeApplyModal()"></div>
+    <div class="apply-modal-dialog">
+      <div class="apply-modal-header">
+        <h3 class="apply-modal-title">Apply for Position</h3>
+        <button type="button" id="closeModalBtn" class="apply-modal-close" onclick="closeApplyModal()">&times;</button>
+      </div>
+      <form id="applyForm">
+        <div class="apply-modal-body">
+          <input type="hidden" id="modalJobId">
+          
+          <div class="row">
+            <div class="col-md-6 form-group">
+              <label for="modalPosition">Position Applying For</label>
+              <input type="text" id="modalPosition" class="filter-control readonly-field" readonly required>
+            </div>
+            <div class="col-md-6 form-group">
+              <label for="modalJobType">Job Type</label>
+              <input type="text" id="modalJobType" class="filter-control readonly-field" readonly required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="applicantName">Full Name (As Per Aadhaar)</label>
+            <input type="text" id="applicantName" class="filter-control" placeholder="Enter your full name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="applicantPhone">Phone Number</label>
+            <input type="tel" id="applicantPhone" class="filter-control" placeholder="10-digit mobile number" required pattern="[0-9]{10}">
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 form-group">
+              <label for="applicantGender">Gender</label>
+              <select id="applicantGender" class="filter-control" required>
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Others</option>
+              </select>
+            </div>
+            <div class="col-md-6 form-group">
+              <label for="applicantLocation">Preferred Location</label>
+              <input type="text" id="applicantLocation" class="filter-control readonly-field" readonly required>
+            </div>
+          </div>
+        </div>
+        <div class="apply-modal-footer">
+          <button type="button" class="btn-modal-cancel" onclick="closeApplyModal()">Cancel</button>
+          <button type="submit" id="submitBtn" class="btn-modal-submit">Submit Application</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+  <!-- Firebase Legacy Compat SDK (Matches existing project setup) -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+  <!-- Main Template JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- Custom logic for Jobs Page and Firebase connection -->
+  <script>
+    // Firebase Config provided by User
+    const firebaseConfig = {
+      apiKey: "AIzaSyAENr32Pk-Sq44tuBPj8c_xXk4qzEa3GJw",
+      authDomain: "login-9338e.firebaseapp.com",
+      databaseURL: "https://login-9338e-default-rtdb.firebaseio.com",
+      projectId: "login-9338e",
+      storageBucket: "login-9338e.appspot.com",
+      messagingSenderId: "649880075591",
+      appId: "1:649880075591:web:a5cd336a03d80e9b656062",
+      measurementId: "G-GT8TRDM62Y",
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+
+    // Data lists
+    let allJobs = [];
+ 
+    // Load jobs on DOM ready
+    document.addEventListener("DOMContentLoaded", () => {
+      loadJobs();
+ 
+      // Setup form submission
+      document.getElementById('applyForm').addEventListener('submit', handleApplyFormSubmit);
+    });
+ 
+    // Fetch jobs from Firebase Realtime DB
+    function loadJobs() {
+      const loadingSpinner = document.getElementById('loadingSpinner');
+      const jobsList = document.getElementById('jobsList');
+      const emptyState = document.getElementById('emptyState');
+ 
+      loadingSpinner.style.display = 'flex';
+      jobsList.style.display = 'none';
+      emptyState.style.display = 'none';
+ 
+      db.ref("jobs").once("value")
+        .then((snapshot) => {
+          allJobs = [];
+ 
+          if (snapshot.exists()) {
+            snapshot.forEach((childSnapshot) => {
+              const job = { id: childSnapshot.key, ...childSnapshot.val() };
+              allJobs.push(job);
+            });
+          }
+ 
+          // Sort jobs by createdAt desc
+          allJobs.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+ 
+          // Render
+          renderJobs();
+        })
+        .catch((error) => {
+          console.error("Error loading jobs from Firebase:", error);
+          loadingSpinner.innerHTML = `
+            <i class="bi bi-exclamation-triangle" style="font-size: 32px; color: var(--accent-color); margin-bottom: 8px;"></i>
+            <p class="text-danger" style="font-weight: 500;">Failed to load job listings. Please check your internet connection.</p>
+          `;
+        });
+    }
+ 
+    // Render cards using grid layout
+    function renderJobs() {
+      const jobsList = document.getElementById('jobsList');
+      const emptyState = document.getElementById('emptyState');
+      const loadingSpinner = document.getElementById('loadingSpinner');
+ 
+      loadingSpinner.style.display = 'none';
+ 
+      if (allJobs.length === 0) {
+        jobsList.style.display = 'none';
+        emptyState.style.display = 'block';
+        return;
+      }
+ 
+      emptyState.style.display = 'none';
+      jobsList.style.display = 'grid';
+      jobsList.innerHTML = '';
+ 
+      allJobs.forEach(job => {
+        const card = document.createElement('div');
+        card.className = 'job-card';
+ 
+        // Badge class determination
+        let badgeClass = 'default';
+        const typeVal = (job.jobType || '').toLowerCase();
+        if (typeVal.includes('full')) badgeClass = 'full-time';
+        else if (typeVal.includes('part')) badgeClass = 'part-time';
+        else if (typeVal.includes('contract')) badgeClass = 'contract';
+ 
+        // Render card content
+        card.innerHTML = `
+          <div>
+            <span class="job-badge ${badgeClass}">${job.jobType || 'Full-Time'}</span>
+            <h4 class="job-card-title">${job.position || 'N/A'}</h4>
+            <div class="job-card-meta">
+              <i class="bi bi-geo-alt"></i>
+              <span>${job.location || 'N/A'}</span>
+            </div>
+            <p class="job-card-req">${job.requirements || ''}</p>
+          </div>
+          <div>
+            <button class="btn-apply-now" onclick="openApplyModal('${job.id}', '${encodeURIComponent(job.position || '')}', '${encodeURIComponent(job.jobType || '')}', '${encodeURIComponent(job.location || '')}')">
+              Apply Now <i class="bi bi-arrow-right"></i>
+            </button>
+          </div>
+        `;
+        jobsList.appendChild(card);
+      });
+    }
+
+    // Modal triggers
+    function openApplyModal(jobId, position, jobType, location) {
+      document.getElementById('modalJobId').value = jobId;
+      document.getElementById('modalPosition').value = decodeURIComponent(position);
+      document.getElementById('modalJobType').value = decodeURIComponent(jobType);
+      document.getElementById('applicantLocation').value = decodeURIComponent(location);
+
+      const modal = document.getElementById('applyModal');
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeApplyModal() {
+      const modal = document.getElementById('applyModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+      document.getElementById('applyForm').reset();
+    }
+
+    // Phone normalization (matches admin system)
+    function normalizePhone(rawPhone) {
+      return rawPhone.replace(/\D/g, '').slice(-10);
+    }
+
+    // Handle Form Submit
+    async function handleApplyFormSubmit(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('applicantName').value.trim();
+      const rawPhone = document.getElementById('applicantPhone').value.trim();
+      const gender = document.getElementById('applicantGender').value;
+      const location = document.getElementById('applicantLocation').value.trim();
+      const position = document.getElementById('modalPosition').value;
+      const jobType = document.getElementById('modalJobType').value;
+
+      if (!name || !rawPhone || !gender || !location) {
+        alert("Please fill all required fields.");
+        return;
+      }
+
+      const phoneKey = normalizePhone(rawPhone);
+      if (phoneKey.length !== 10) {
+        alert("Please enter a valid 10-digit mobile number.");
+        return;
+      }
+
+      const submitBtn = document.getElementById('submitBtn');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting...';
+
+      try {
+        // Query if phoneKey already exists under applications path
+        const userRef = db.ref("applications/" + phoneKey);
+        const snapshot = await userRef.once("value");
+
+        if (snapshot.exists()) {
+          alert("You already submitted your application. Please wait for our team to contact you.");
+        } else {
+          // Submit details matching admin expectations
+          await userRef.set({
+            name: name,
+            location: location,
+            job: jobType,
+            phoneNumber: phoneKey,
+            gender: gender,
+            position: position,
+            status: "yet",
+            timestamp: firebase.database.ServerValue.TIMESTAMP
+          });
+
+          alert("Application submitted successfully! Our team will contact you soon.");
+          closeApplyModal();
+        }
+      } catch (err) {
+        console.error("Submission failed:", err);
+        alert("An error occurred during submission. Please try again.");
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Application';
+      }
+    }
+  </script>
+
+  <!-- Prevent source inspection shortcuts -->
+  <script>
+    // Disable right click context menu
+    document.addEventListener("contextmenu", function (e) {
+      e.preventDefault();
+    });
+
+    // Disable common developer shortcut combinations
+    document.addEventListener("keydown", function (e) {
+      // F12 key
+      if (e.key === "F12") {
+        e.preventDefault();
+        return false;
+      }
+
+      // Ctrl + Shift + I / J / C / K
+      if (e.ctrlKey && e.shiftKey && ["I", "J", "C", "K"].includes(e.key.toUpperCase())) {
+        e.preventDefault();
+        return false;
+      }
+
+      // Ctrl + U (View Source)
+      if (e.ctrlKey && e.key.toUpperCase() === "U") {
+        e.preventDefault();
+        return false;
+      }
+
+      // Ctrl + S (Save page)
+      if (e.ctrlKey && e.key.toUpperCase() === "S") {
+        e.preventDefault();
+        return false;
+      }
+
+      // Ctrl + P (Print)
+      if (e.ctrlKey && e.key.toUpperCase() === "P") {
+        e.preventDefault();
+        return false;
+      }
+    });
+  </script>
+
+</body>
+
+</html>

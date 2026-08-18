@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Account & Data Deletion Request - SourceOne Onboarding App | Sourceone</title>
+  <meta name="description" content="Request account and personal data deletion for the SourceOne Onboarding mobile application. Learn about our data deletion policy and step-by-step instructions.">
+  <meta name="keywords" content="account deletion, data deletion, sourceone onboarding, privacy, delete account, data privacy">
+
+  <!-- Favicons -->
+  <link href="assets/img/SourceOnebg.png" rel="icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- Custom Styles for Account Deletion Page -->
+  <style>
+    .hero-deletion {
+      min-height: 40vh;
+      background: linear-gradient(135deg, rgba(14, 14, 14, 0.92), rgba(22, 22, 22, 0.96)), url('assets/img/hero-bg.jpg') center center no-repeat;
+      background-size: cover;
+      padding-top: 130px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero-deletion h1 {
+      font-size: 38px;
+      font-weight: 700;
+      color: #ffffff;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-deletion p {
+      font-size: 16px;
+      color: #b0b0b0;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    .deletion-container {
+      padding: 60px 0;
+      color: #d0d0d0;
+    }
+
+    .deletion-card {
+      background: var(--surface-color, #121214);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 35px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+      margin-bottom: 30px;
+    }
+
+    .deletion-card h2 {
+      color: #ffffff;
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--accent-color, #c93660);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .deletion-card h2 i {
+      color: var(--accent-color, #c93660);
+      font-size: 26px;
+    }
+
+    .step-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 18px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .step-number {
+      background: var(--accent-color, #c93660);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 18px;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .step-content h3 {
+      font-size: 17px;
+      color: #ffffff;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .step-content p {
+      font-size: 14px;
+      color: #b8b8b8;
+      margin-bottom: 0;
+      line-height: 1.6;
+    }
+
+    .info-alert {
+      background: rgba(201, 54, 96, 0.12);
+      border-left: 4px solid var(--accent-color, #c93660);
+      padding: 18px 22px;
+      border-radius: 0 10px 10px 0;
+      margin: 20px 0;
+    }
+
+    .info-alert h4 {
+      color: #ff6b8b;
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .info-alert p {
+      color: #d8d8d8;
+      font-size: 14px;
+      margin-bottom: 0;
+      line-height: 1.6;
+    }
+
+    .action-btn-container {
+      margin-top: 25px;
+      text-align: center;
+    }
+
+    .email-btn {
+      background: linear-gradient(135deg, #c93660, #a02045);
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 16px;
+      padding: 14px 32px;
+      border-radius: 30px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 8px 20px rgba(201, 54, 96, 0.35);
+      transition: all 0.3s ease;
+    }
+
+    .email-btn:hover {
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 25px rgba(201, 54, 96, 0.5);
+    }
+
+    .deleted-items-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .deleted-item-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 10px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .deleted-item-card i {
+      font-size: 22px;
+      color: var(--accent-color, #c93660);
+    }
+
+    .deleted-item-card span {
+      font-size: 14px;
+      color: #e0e0e0;
+      font-weight: 500;
+    }
+  </style>
+</head>
+
+<body class="delete-account-page">
+
+  <!-- Header -->
+  <header id="header" class="header fixed-top">
+    <div class="topbar d-flex align-items-center">
+      <div class="container d-flex justify-content-center justify-content-md-between">
+        <div class="contact-info d-flex align-items-center">
+          <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:info@sourceone.in">info@sourceone.in</a></i>
+          <i class="bi bi-phone d-flex align-items-center ms-4"><span>+91-9741965944, 080-23476868</span></i>
+        </div>
+      </div>
+    </div><!-- End Top Bar -->
+
+    <div class="branding d-flex align-items-center">
+      <div class="container position-relative d-flex align-items-center justify-content-between">
+        <a href="index.html" class="logo d-flex align-items-center">
+          <img src="assets/img/SourceOnebg.png" alt="SourceOne Logo">
+          <h1 class="sitename">Sourceone</h1>
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#team">Our Team</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="jobs.html">Jobs</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Banner -->
+    <section class="hero-deletion">
+      <div class="container" data-aos="fade-up">
+        <h1>Account & Data Deletion</h1>
+        <p>SourceOne Onboarding Mobile & Web Application</p>
+      </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="deletion-container">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+
+            <!-- Overview Card -->
+            <div class="deletion-card" data-aos="fade-up">
+              <h2><i class="bi bi-trash3-fill"></i> Requesting Account & Data Deletion</h2>
+              <p>
+                At <strong>SourceOne Management Services</strong>, we respect your right to privacy and control over your personal data. If you have registered on or used the <strong>SourceOne Onboarding App</strong> and wish to delete your account along with all associated personal information, you can submit a deletion request by following the procedure outlined below.
+              </p>
+              <div class="info-alert">
+                <h4><i class="bi bi-shield-exclamation me-2"></i>Permanent Data Removal</h4>
+                <p>
+                  Once your account deletion request is verified and processed, <strong>all your personal data, uploaded documents, profile details, and account credentials will be permanently erased</strong> from our active databases and servers.
+                </p>
+              </div>
+            </div>
+
+            <!-- Steps Card -->
+            <div class="deletion-card" data-aos="fade-up">
+              <h2><i class="bi bi-list-check"></i> Step-by-Step Deletion Process</h2>
+              
+              <div class="step-box">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h3>Compose an Email Request</h3>
+                  <p>Send an email directly from your registered email address to <strong><a href="mailto:info@sourceone.in" style="color: #ff6b8b; font-weight: 600;">info@sourceone.in</a></strong>.</p>
+                </div>
+              </div>
+
+              <div class="step-box">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h3>Set the Email Subject Line</h3>
+                  <p>Use the subject line: <strong>"Account Deletion Request - SourceOne Onboarding App"</strong>.</p>
+                </div>
+              </div>
+
+              <div class="step-box">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h3>Provide Identification Details</h3>
+                  <p>Include the following details in your email body to help us locate your account:</p>
+                  <ul class="mt-2 mb-0 text-white-50" style="font-size: 14px;">
+                    <li>Full Legal Name</li>
+                    <li>Registered Mobile Number</li>
+                    <li>Registered Email Address</li>
+                    <li>Candidate / Employee ID (if assigned)</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="step-box">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                  <h3>Verification & Processing</h3>
+                  <p>Our Data Compliance team will verify your identity and process the complete deletion of your account and personal data within <strong>7 to 15 business days</strong>. You will receive a confirmation email upon completion.</p>
+                </div>
+              </div>
+
+              <div class="action-btn-container">
+                <a href="mailto:info@sourceone.in?subject=Account%20Deletion%20Request%20-%20SourceOne%20Onboarding%20App&body=Hello%20SourceOne%20Team%2C%0A%0AI%20would%20like%20to%20request%20the%20permanent%20deletion%20of%20my%20account%20and%20all%20associated%20data%20from%20the%20SourceOne%20Onboarding%20App.%0A%0AMy%20Details%3A%0A-%20Full%20Name%3A%20%0A-%20Registered%20Mobile%20Number%3A%20%0A-%20Registered%20Email%3A%20%0A-%20Candidate%2FEmployee%20ID%20(if%20any)%3A%20%0A%0AThank%20you." class="email-btn">
+                  <i class="bi bi-envelope-at-fill"></i> Send Account Deletion Request Email
+                </a>
+              </div>
+            </div>
+
+            <!-- What Gets Deleted Card -->
+            <div class="deletion-card" data-aos="fade-up">
+              <h2><i class="bi bi-x-circle-fill"></i> What Data Will Be Permanently Deleted?</h2>
+              <p>Upon processing your deletion request, the following information associated with your account will be permanently removed from our active storage systems:</p>
+              
+              <div class="deleted-items-grid">
+                <div class="deleted-item-card">
+                  <i class="bi bi-person-badge"></i>
+                  <span>Personal Profile & Identification</span>
+                </div>
+                <div class="deleted-item-card">
+                  <i class="bi bi-card-heading"></i>
+                  <span>Government ID Copies (Aadhaar, PAN, Passport)</span>
+                </div>
+                <div class="deleted-item-card">
+                  <i class="bi bi-camera"></i>
+                  <span>Facial Verification Photos & Selfies</span>
+                </div>
+                <div class="deleted-item-card">
+                  <i class="bi bi-bank"></i>
+                  <span>Bank Account Details & IFSC</span>
+                </div>
+                <div class="deleted-item-card">
+                  <i class="bi bi-file-earmark-text"></i>
+                  <span>Uploaded Certificates & Resumes</span>
+                </div>
+                <div class="deleted-item-card">
+                  <i class="bi bi-telephone"></i>
+                  <span>Phone Number & Contact Logs</span>
+                </div>
+                <div class="deleted-item-card">
+                  <i class="bi bi-geo-alt"></i>
+                  <span>Address & Location Records</span>
+                </div>
+                <div class="deleted-item-card">
+                  <i class="bi bi-key"></i>
+                  <span>App Login Credentials & Tokens</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Legal Exceptions Card -->
+            <div class="deletion-card" data-aos="fade-up">
+              <h2><i class="bi bi-file-earmark-lock-fill"></i> Statutory & Legal Retention Exceptions</h2>
+              <p>
+                In accordance with Indian labor statutes and tax regulations, certain records related to past employment, statutory contributions (PF/ESIC filings, Income Tax deductions), and legal audits may be retained in encrypted archives for the minimum retention period mandated by law. These records will not be used for any operational, commercial, or active processing purposes.
+              </p>
+            </div>
+
+            <!-- Contact Box -->
+            <div class="deletion-card text-center" data-aos="fade-up">
+              <h2><i class="bi bi-headset"></i> Need Further Assistance?</h2>
+              <p class="mb-3">If you have any questions regarding our account deletion process or data handling, please contact our support team:</p>
+              <p class="mb-1"><strong>SourceOne Management Services</strong></p>
+              <p class="mb-1">Email: <a href="mailto:info@sourceone.in" style="color: var(--accent-color); font-weight: 600;">info@sourceone.in</a></p>
+              <p class="mb-0">Phone: <strong>+91-9741965944, 080-23476868</strong></p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer" class="footer position-relative dark-background">
+    <div class="container copyright text-center mt-4">
+      <p>
+        © <span>Copyright</span>
+        <strong class="px-1 sitename">Sourceone</strong>
+        <span>All Rights Reserved</span>
+      </p>
+      <div class="mt-2">
+        <a href="privacy-policy.html" class="text-light text-decoration-underline me-3">Privacy Policy</a>
+        <a href="delete-account.html" class="text-light text-decoration-underline me-3">Account Deletion</a>
+        <a href="index.html#contact" class="text-light text-decoration-underline">Contact Us</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

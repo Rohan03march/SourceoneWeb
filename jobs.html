@@ -96,6 +96,42 @@
       color: var(--default-color);
     }
 
+    .btn-filter-reset {
+      background: #0b0b0d;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--default-color);
+      padding: 12px 16px;
+      border-radius: 8px;
+      width: 100%;
+      transition: all 0.3s ease;
+      font-size: 14px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .btn-filter-reset:hover {
+      background: rgba(201, 54, 96, 0.15);
+      border-color: var(--accent-color);
+      color: #fff;
+    }
+
+    .jobs-count-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      font-size: 14px;
+      color: #a0a0a0;
+    }
+
+    .jobs-count-bar strong {
+      color: #fff;
+    }
+
     /* Jobs Grid */
     .jobs-section {
       padding-bottom: 80px;
@@ -152,6 +188,12 @@
       color: #f1c40f;
     }
 
+    .job-badge.both {
+      background: rgba(168, 85, 247, 0.15);
+      color: #c084fc;
+      border: 1px solid rgba(168, 85, 247, 0.25);
+    }
+
     .job-badge.default {
       background: rgba(201, 54, 96, 0.12);
       color: var(--accent-color);
@@ -167,11 +209,18 @@
     .job-card-meta {
       display: flex;
       align-items: center;
-      gap: 6px;
+      flex-wrap: wrap;
+      gap: 14px;
       font-size: 13px;
       color: var(--default-color);
       margin-bottom: 16px;
-      opacity: 0.8;
+      opacity: 0.85;
+    }
+
+    .job-card-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
 
     .job-card-meta i {
@@ -446,7 +495,39 @@
       </div>
     </section><!-- /Hero Section -->
 
-
+    <!-- Search & Filter Bar -->
+    <section class="search-filter-section">
+      <div class="container" data-aos="fade-up" data-aos-delay="150">
+        <div class="filter-card">
+          <div class="row g-3 align-items-center">
+            <div class="col-lg-4 col-md-6">
+              <div style="position: relative;">
+                <i class="bi bi-search" style="position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--accent-color); font-size: 14px;"></i>
+                <input type="text" id="searchInput" class="filter-control" style="padding-left: 38px;" placeholder="Search position or keywords...">
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <select id="locationFilter" class="filter-control">
+                <option value="">All Locations</option>
+              </select>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <select id="jobTypeFilter" class="filter-control">
+                <option value="">All Job Types</option>
+                <option value="full">Full-Time</option>
+                <option value="part">Part-Time</option>
+                <option value="both">Both (Full & Part Time)</option>
+              </select>
+            </div>
+            <div class="col-lg-2 col-md-6">
+              <button type="button" id="resetFiltersBtn" class="btn-filter-reset">
+                <i class="bi bi-arrow-counterclockwise"></i> Reset
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Jobs Container -->
     <section class="jobs-section">
@@ -458,13 +539,21 @@
           <p style="color: var(--default-color); font-weight: 500;">Loading open positions...</p>
         </div>
 
+        <!-- Jobs Count Header -->
+        <div id="jobsCountBar" class="jobs-count-bar" style="display: none;">
+          <div>Showing <strong id="jobsCountNum">0</strong> open position(s)</div>
+        </div>
+
         <!-- Empty State -->
         <div id="emptyState" style="display: none; text-align: center; padding: 60px 20px;" data-aos="fade-up">
           <i class="bi bi-briefcase"
             style="font-size: 48px; color: var(--accent-color); margin-bottom: 16px; display: inline-block;"></i>
           <h3 style="font-weight: 700; margin-bottom: 8px;">No Openings Found</h3>
-          <p style="color: var(--default-color); max-width: 500px; margin: 0 auto;">There are no current openings
+          <p style="color: var(--default-color); max-width: 500px; margin: 0 auto 20px;">There are no current openings
             matching your search criteria. Try modifying your filters or check back later.</p>
+          <button type="button" class="btn-modal-cancel" onclick="resetFilters()" style="display: inline-flex; align-items: center; gap: 6px;">
+            <i class="bi bi-arrow-counterclockwise"></i> Clear Filters
+          </button>
         </div>
 
         <!-- Jobs Grid -->
@@ -508,9 +597,15 @@
               <label for="modalPosition">Position Applying For</label>
               <input type="text" id="modalPosition" class="filter-control readonly-field" readonly required>
             </div>
-            <div class="col-md-6 form-group">
-              <label for="modalJobType">Job Type</label>
-              <input type="text" id="modalJobType" class="filter-control readonly-field" readonly required>
+            <div class="col-md-6 form-group" id="modalJobTypeContainer">
+              <label for="modalJobType" id="modalJobTypeLabel">Job Type</label>
+              <input type="text" id="modalJobType" class="filter-control readonly-field" readonly>
+              <select id="modalJobTypeSelect" class="filter-control" style="display: none;">
+                <option value="">-- Select Option --</option>
+                <option value="Full-Time">Full-Time</option>
+                <option value="Part-Time">Part-Time</option>
+              </select>
+              <small id="modalJobTypeHelp" style="display: none; color: #9da3af; font-size: 11px; margin-top: 5px;">This position offers both options. Please choose one.</small>
             </div>
           </div>
 
@@ -591,6 +686,17 @@
 
       // Setup form submission
       document.getElementById('applyForm').addEventListener('submit', handleApplyFormSubmit);
+
+      // Setup filter events
+      const searchInput = document.getElementById('searchInput');
+      const locationFilter = document.getElementById('locationFilter');
+      const jobTypeFilter = document.getElementById('jobTypeFilter');
+      const resetBtn = document.getElementById('resetFiltersBtn');
+
+      if (searchInput) searchInput.addEventListener('input', filterJobs);
+      if (locationFilter) locationFilter.addEventListener('change', filterJobs);
+      if (jobTypeFilter) jobTypeFilter.addEventListener('change', filterJobs);
+      if (resetBtn) resetBtn.addEventListener('click', resetFilters);
     });
 
     // Fetch jobs from Firebase Realtime DB
@@ -598,10 +704,12 @@
       const loadingSpinner = document.getElementById('loadingSpinner');
       const jobsList = document.getElementById('jobsList');
       const emptyState = document.getElementById('emptyState');
+      const countBar = document.getElementById('jobsCountBar');
 
       loadingSpinner.style.display = 'flex';
       jobsList.style.display = 'none';
       emptyState.style.display = 'none';
+      if (countBar) countBar.style.display = 'none';
 
       db.ref("jobs").once("value")
         .then((snapshot) => {
@@ -617,8 +725,11 @@
           // Sort jobs by createdAt desc
           allJobs.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
 
-          // Render
-          renderJobs();
+          // Populate location filter dropdown
+          populateLocationFilter();
+
+          // Render with active filters
+          filterJobs();
         })
         .catch((error) => {
           console.error("Error loading jobs from Firebase:", error);
@@ -629,15 +740,98 @@
         });
     }
 
+    // Populate locations dynamically from loaded jobs
+    function populateLocationFilter() {
+      const locSelect = document.getElementById('locationFilter');
+      if (!locSelect) return;
+
+      const currentVal = locSelect.value;
+      const locations = new Set();
+      allJobs.forEach(job => {
+        if (job.location && job.location.trim()) {
+          locations.add(job.location.trim());
+        }
+      });
+
+      const sortedLocs = Array.from(locations).sort((a, b) => a.localeCompare(b));
+
+      locSelect.innerHTML = '<option value="">All Locations</option>';
+      sortedLocs.forEach(loc => {
+        const opt = document.createElement('option');
+        opt.value = loc.toLowerCase();
+        opt.textContent = loc;
+        locSelect.appendChild(opt);
+      });
+
+      locSelect.value = currentVal;
+    }
+
+    // Filter jobs based on search term, location, and job type
+    function filterJobs() {
+      const searchTerm = (document.getElementById('searchInput')?.value || '').trim().toLowerCase();
+      const selectedLocation = (document.getElementById('locationFilter')?.value || '').trim().toLowerCase();
+      const selectedType = (document.getElementById('jobTypeFilter')?.value || '').trim().toLowerCase();
+
+      const filtered = allJobs.filter(job => {
+        const position = (job.position || '').toLowerCase();
+        const location = (job.location || '').toLowerCase();
+        const requirements = (job.requirements || '').toLowerCase();
+        const jobType = (job.jobType || '').toLowerCase();
+
+        // Search text matching across title, location, requirements
+        const matchesSearch = !searchTerm ||
+          position.includes(searchTerm) ||
+          location.includes(searchTerm) ||
+          requirements.includes(searchTerm);
+
+        // Location matching
+        const matchesLocation = !selectedLocation || location === selectedLocation;
+
+        // Job type matching
+        let matchesType = true;
+        if (selectedType === 'full') {
+          matchesType = jobType.includes('full') || jobType === 'both';
+        } else if (selectedType === 'part') {
+          matchesType = jobType.includes('part') || jobType === 'both';
+        } else if (selectedType === 'both') {
+          matchesType = jobType === 'both' || (jobType.includes('full') && jobType.includes('part'));
+        }
+
+        return matchesSearch && matchesLocation && matchesType;
+      });
+
+      renderJobs(filtered);
+    }
+
+    // Reset all filters
+    function resetFilters() {
+      const searchInput = document.getElementById('searchInput');
+      const locationFilter = document.getElementById('locationFilter');
+      const jobTypeFilter = document.getElementById('jobTypeFilter');
+      if (searchInput) searchInput.value = '';
+      if (locationFilter) locationFilter.value = '';
+      if (jobTypeFilter) jobTypeFilter.value = '';
+      filterJobs();
+    }
+
     // Render cards using grid layout
-    function renderJobs() {
+    function renderJobs(jobsToRender) {
       const jobsList = document.getElementById('jobsList');
       const emptyState = document.getElementById('emptyState');
       const loadingSpinner = document.getElementById('loadingSpinner');
+      const countBar = document.getElementById('jobsCountBar');
+      const countNum = document.getElementById('jobsCountNum');
 
       loadingSpinner.style.display = 'none';
 
-      if (allJobs.length === 0) {
+      const list = jobsToRender !== undefined ? jobsToRender : allJobs;
+
+      if (countBar && countNum) {
+        countNum.textContent = list.length;
+        countBar.style.display = list.length > 0 ? 'flex' : 'none';
+      }
+
+      if (list.length === 0) {
         jobsList.style.display = 'none';
         emptyState.style.display = 'block';
         return;
@@ -647,30 +841,46 @@
       jobsList.style.display = 'grid';
       jobsList.innerHTML = '';
 
-      allJobs.forEach(job => {
+      list.forEach(job => {
         const card = document.createElement('div');
         card.className = 'job-card';
 
-        // Badge class determination
+        // Normalize job type
+        const rawType = (job.jobType || '').trim();
+        const typeVal = rawType.toLowerCase();
+        const isBoth = typeVal === 'both' || (typeVal.includes('full') && typeVal.includes('part'));
+
+        // Badge class & display determination
         let badgeClass = 'default';
-        const typeVal = (job.jobType || '').toLowerCase();
-        if (typeVal.includes('full')) badgeClass = 'full-time';
-        else if (typeVal.includes('part')) badgeClass = 'part-time';
-        else if (typeVal.includes('contract')) badgeClass = 'contract';
+        let displayType = rawType || 'Full-Time';
+
+        if (isBoth) {
+          badgeClass = 'both';
+          displayType = 'Full-Time & Part-Time';
+        } else if (typeVal.includes('full')) {
+          badgeClass = 'full-time';
+          displayType = 'Full-Time';
+        } else if (typeVal.includes('part')) {
+          badgeClass = 'part-time';
+          displayType = 'Part-Time';
+        } else if (typeVal.includes('contract')) {
+          badgeClass = 'contract';
+          displayType = 'Contract';
+        }
 
         // Render card content
         card.innerHTML = `
           <div>
-            <span class="job-badge ${badgeClass}">${job.jobType || 'Full-Time'}</span>
+            <span class="job-badge ${badgeClass}">${displayType}</span>
             <h4 class="job-card-title">${job.position || 'N/A'}</h4>
             <div class="job-card-meta">
-              <i class="bi bi-geo-alt"></i>
-              <span>${job.location || 'N/A'}</span>
+              <span><i class="bi bi-geo-alt"></i> ${job.location || 'N/A'}</span>
+              <span><i class="bi bi-clock"></i> ${displayType}</span>
             </div>
             <p class="job-card-req">${job.requirements || ''}</p>
           </div>
           <div>
-            <button class="btn-apply-now" onclick="openApplyModal('${job.id}', '${encodeURIComponent(job.position || '')}', '${encodeURIComponent(job.jobType || '')}', '${encodeURIComponent(job.location || '')}')">
+            <button class="btn-apply-now" onclick="openApplyModal('${job.id}', '${encodeURIComponent(job.position || '')}', '${encodeURIComponent(rawType || '')}', '${encodeURIComponent(job.location || '')}')">
               Apply Now <i class="bi bi-arrow-right"></i>
             </button>
           </div>
@@ -681,10 +891,45 @@
 
     // Modal triggers
     function openApplyModal(jobId, position, jobType, location) {
+      const decodedPos = decodeURIComponent(position || '');
+      const decodedType = decodeURIComponent(jobType || '');
+      const decodedLoc = decodeURIComponent(location || '');
+
       document.getElementById('modalJobId').value = jobId;
-      document.getElementById('modalPosition').value = decodeURIComponent(position);
-      document.getElementById('modalJobType').value = decodeURIComponent(jobType);
-      document.getElementById('applicantLocation').value = decodeURIComponent(location);
+      document.getElementById('modalPosition').value = decodedPos;
+      document.getElementById('applicantLocation').value = decodedLoc;
+
+      const normType = decodedType.toLowerCase().trim();
+      const isBoth = normType === 'both' || (normType.includes('full') && normType.includes('part'));
+
+      const typeInput = document.getElementById('modalJobType');
+      const typeSelect = document.getElementById('modalJobTypeSelect');
+      const typeHelp = document.getElementById('modalJobTypeHelp');
+      const typeLabel = document.getElementById('modalJobTypeLabel');
+
+      if (isBoth) {
+        typeInput.style.display = 'none';
+        typeInput.removeAttribute('required');
+        typeInput.value = '';
+
+        typeSelect.style.display = 'block';
+        typeSelect.setAttribute('required', 'required');
+        typeSelect.value = '';
+
+        if (typeHelp) typeHelp.style.display = 'block';
+        if (typeLabel) typeLabel.innerHTML = 'Job Type <span style="color: var(--accent-color);">*</span>';
+      } else {
+        typeSelect.style.display = 'none';
+        typeSelect.removeAttribute('required');
+        typeSelect.value = '';
+
+        typeInput.style.display = 'block';
+        typeInput.setAttribute('required', 'required');
+        typeInput.value = decodedType || 'Full-Time';
+
+        if (typeHelp) typeHelp.style.display = 'none';
+        if (typeLabel) typeLabel.textContent = 'Job Type';
+      }
 
       const modal = document.getElementById('applyModal');
       modal.classList.add('active');
@@ -696,6 +941,8 @@
       modal.classList.remove('active');
       document.body.style.overflow = '';
       document.getElementById('applyForm').reset();
+      const typeSelect = document.getElementById('modalJobTypeSelect');
+      if (typeSelect) typeSelect.value = '';
     }
 
     // Phone normalization (matches admin system)
@@ -712,9 +959,23 @@
       const gender = document.getElementById('applicantGender').value;
       const location = document.getElementById('applicantLocation').value.trim();
       const position = document.getElementById('modalPosition').value;
-      const jobType = document.getElementById('modalJobType').value;
 
-      if (!name || !rawPhone || !gender || !location) {
+      const typeSelect = document.getElementById('modalJobTypeSelect');
+      const isSelectVisible = typeSelect && typeSelect.style.display !== 'none';
+      let jobType = '';
+
+      if (isSelectVisible) {
+        jobType = typeSelect.value.trim();
+        if (!jobType) {
+          alert("Please select a Job Type (Full-Time or Part-Time).");
+          typeSelect.focus();
+          return;
+        }
+      } else {
+        jobType = document.getElementById('modalJobType').value.trim();
+      }
+
+      if (!name || !rawPhone || !gender || !location || !jobType) {
         alert("Please fill all required fields.");
         return;
       }

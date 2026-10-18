@@ -413,14 +413,217 @@
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="team-masonry">
-          <img src="assets/img/Team/about.jpeg" alt="Sourceone Operations Leadership" loading="lazy">
-          <img src="assets/img/Team/team4.jpeg" alt="Sourceone Field Supervision" loading="lazy">
-          <img src="assets/img/Team/team2.jpeg" alt="Sourceone Security Staff" loading="lazy">
-          <img src="assets/img/Team/team3.jpeg" alt="Sourceone Housekeeping Team" loading="lazy">
-          <img src="assets/img/Team/team7.jpg" alt="Sourceone Training Drill" loading="lazy">
-          <img src="assets/img/Team/team5.jpeg" alt="Sourceone On-site Workforce" loading="lazy">
+
+        <!-- Mobile Swipe Guide / Header Hint -->
+        <div class="team-gallery-header d-flex align-items-center justify-content-between mb-3">
+          <div class="team-swipe-hint d-inline-flex align-items-center">
+            <span class="swipe-badge"><i class="bi bi-hand-index-thumb"></i> Swipe Gallery</span>
+            <span class="swipe-count"><i class="bi bi-images"></i> 7 Field Units</span>
+          </div>
+          <div class="team-gallery-desktop-count d-none d-md-flex align-items-center gap-2">
+            <span class="desktop-badge"><i class="bi bi-shield-check text-danger"></i> Verified Ground Operations</span>
+          </div>
         </div>
+
+        <!-- Team Gallery Swiper Slider -->
+        <div class="swiper init-swiper team-gallery-swiper">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 650,
+              "autoplay": {
+                "delay": 3800,
+                "disableOnInteraction": false,
+                "pauseOnMouseEnter": true
+              },
+              "slidesPerView": 1.18,
+              "spaceBetween": 14,
+              "centeredSlides": false,
+              "pagination": {
+                "el": ".team-swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              },
+              "navigation": {
+                "nextEl": ".team-nav-next",
+                "prevEl": ".team-nav-prev"
+              },
+              "breakpoints": {
+                "480": {
+                  "slidesPerView": 1.4,
+                  "spaceBetween": 16
+                },
+                "768": {
+                  "slidesPerView": 2.2,
+                  "spaceBetween": 20
+                },
+                "992": {
+                  "slidesPerView": 3,
+                  "spaceBetween": 24
+                },
+                "1200": {
+                  "slidesPerView": 3.2,
+                  "spaceBetween": 26
+                }
+              }
+            }
+          </script>
+
+          <div class="swiper-wrapper">
+
+            <!-- Slide 1: Operations Leadership -->
+            <div class="swiper-slide">
+              <div class="team-gallery-card">
+                <div class="team-card-media">
+                  <img src="assets/img/Team/about.jpeg" alt="Sourceone Operations Leadership" loading="lazy">
+                  <div class="team-card-top-badges">
+                    <span class="team-status-tag"><i class="bi bi-patch-check-fill"></i> Leadership</span>
+                    <a href="assets/img/Team/about.jpeg" class="glightbox team-zoom-btn" data-gallery="team-gallery" data-title="Operations Leadership &amp; Field Directors" aria-label="Expand image">
+                      <i class="bi bi-arrows-fullscreen"></i>
+                    </a>
+                  </div>
+                  <div class="team-card-overlay">
+                    <span class="team-role-pill">Executive Directorate</span>
+                    <h4 class="team-card-title">Operations Leadership</h4>
+                    <p class="team-card-desc">Over two decades of tactical workforce governance, client SLA stewardship, and statutory compliance management.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2: Field Supervision -->
+            <div class="swiper-slide">
+              <div class="team-gallery-card">
+                <div class="team-card-media">
+                  <img src="assets/img/Team/team4.jpeg" alt="Sourceone Field Supervision" loading="lazy">
+                  <div class="team-card-top-badges">
+                    <span class="team-status-tag"><i class="bi bi-eye-fill"></i> 24/7 Patrol</span>
+                    <a href="assets/img/Team/team4.jpeg" class="glightbox team-zoom-btn" data-gallery="team-gallery" data-title="Field Supervision &amp; Surprise Night Audits" aria-label="Expand image">
+                      <i class="bi bi-arrows-fullscreen"></i>
+                    </a>
+                  </div>
+                  <div class="team-card-overlay">
+                    <span class="team-role-pill">Area Supervisors</span>
+                    <h4 class="team-card-title">Field Supervision &amp; Audits</h4>
+                    <p class="team-card-desc">Mobile patrolling units conducting surprise midnight checks and post inspections across all active deployment zones.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3: Security Personnel -->
+            <div class="swiper-slide">
+              <div class="team-gallery-card">
+                <div class="team-card-media">
+                  <img src="assets/img/Team/team2.jpeg" alt="Sourceone Security Staff" loading="lazy">
+                  <div class="team-card-top-badges">
+                    <span class="team-status-tag"><i class="bi bi-shield-fill-check"></i> PSARA Guard</span>
+                    <a href="assets/img/Team/team2.jpeg" class="glightbox team-zoom-btn" data-gallery="team-gallery" data-title="Manned Guarding &amp; Perimeter Security" aria-label="Expand image">
+                      <i class="bi bi-arrows-fullscreen"></i>
+                    </a>
+                  </div>
+                  <div class="team-card-overlay">
+                    <span class="team-role-pill">Manned Security</span>
+                    <h4 class="team-card-title">Security &amp; Gate Control</h4>
+                    <p class="team-card-desc">Police-verified, rigorously trained security guards enforcing entry logging, visitor vetting, and emergency protocols.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 4: Housekeeping & Facility Specialists -->
+            <div class="swiper-slide">
+              <div class="team-gallery-card">
+                <div class="team-card-media">
+                  <img src="assets/img/Team/team3.jpeg" alt="Sourceone Housekeeping Team" loading="lazy">
+                  <div class="team-card-top-badges">
+                    <span class="team-status-tag"><i class="bi bi-stars"></i> Facility Care</span>
+                    <a href="assets/img/Team/team3.jpeg" class="glightbox team-zoom-btn" data-gallery="team-gallery" data-title="Housekeeping &amp; Deep Sanitation Specialists" aria-label="Expand image">
+                      <i class="bi bi-arrows-fullscreen"></i>
+                    </a>
+                  </div>
+                  <div class="team-card-overlay">
+                    <span class="team-role-pill">Facility Sanitation</span>
+                    <h4 class="team-card-title">Housekeeping Specialists</h4>
+                    <p class="team-card-desc">Mechanized cleaning experts maintaining pristine hygiene, waste segregation, and corporate workspace sanitation.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 5: Training & Drills -->
+            <div class="swiper-slide">
+              <div class="team-gallery-card">
+                <div class="team-card-media">
+                  <img src="assets/img/Team/team7.jpg" alt="Sourceone Training Drill" loading="lazy">
+                  <div class="team-card-top-badges">
+                    <span class="team-status-tag"><i class="bi bi-lightning-charge-fill"></i> Drill Academy</span>
+                    <a href="assets/img/Team/team7.jpg" class="glightbox team-zoom-btn" data-gallery="team-gallery" data-title="Tactical Drills &amp; Emergency Readiness" aria-label="Expand image">
+                      <i class="bi bi-arrows-fullscreen"></i>
+                    </a>
+                  </div>
+                  <div class="team-card-overlay">
+                    <span class="team-role-pill">Skills &amp; Safety</span>
+                    <h4 class="team-card-title">Tactical Readiness Drills</h4>
+                    <p class="team-card-desc">Mandatory fire-safety, crisis evacuation drills, and customer-first etiquette workshops for all active personnel.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 6: Industrial & Warehouse Staff -->
+            <div class="swiper-slide">
+              <div class="team-gallery-card">
+                <div class="team-card-media">
+                  <img src="assets/img/Team/team5.jpeg" alt="Sourceone On-site Workforce" loading="lazy">
+                  <div class="team-card-top-badges">
+                    <span class="team-status-tag"><i class="bi bi-boxes"></i> Industrial Staff</span>
+                    <a href="assets/img/Team/team5.jpeg" class="glightbox team-zoom-btn" data-gallery="team-gallery" data-title="Logistics &amp; Industrial Workforce" aria-label="Expand image">
+                      <i class="bi bi-arrows-fullscreen"></i>
+                    </a>
+                  </div>
+                  <div class="team-card-overlay">
+                    <span class="team-role-pill">Workforce Solutions</span>
+                    <h4 class="team-card-title">Industrial &amp; Logistics Crew</h4>
+                    <p class="team-card-desc">High-throughput sorting, packaging, material-handling, and inventory manpower powering leading e-commerce hubs.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 7: Dedicated Ground Deployment -->
+            <div class="swiper-slide">
+              <div class="team-gallery-card">
+                <div class="team-card-media">
+                  <img src="assets/img/Team/team1.jpeg" alt="Sourceone Ground Staff" loading="lazy">
+                  <div class="team-card-top-badges">
+                    <span class="team-status-tag"><i class="bi bi-people-fill"></i> On-Site Crew</span>
+                    <a href="assets/img/Team/team1.jpeg" class="glightbox team-zoom-btn" data-gallery="team-gallery" data-title="Dedicated On-Site Team Members" aria-label="Expand image">
+                      <i class="bi bi-arrows-fullscreen"></i>
+                    </a>
+                  </div>
+                  <div class="team-card-overlay">
+                    <span class="team-role-pill">Ground Force</span>
+                    <h4 class="team-card-title">Dedicated On-Site Squad</h4>
+                    <p class="team-card-desc">Disciplined, fully-uniformed teams delivering seamless day-to-day facility and operations support.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Slider Controls -->
+          <div class="team-slider-controls d-flex align-items-center justify-content-between mt-4">
+            <div class="team-swiper-pagination swiper-pagination position-relative"></div>
+            <div class="team-slider-nav-btns d-none d-md-flex align-items-center gap-2">
+              <button class="team-nav-btn team-nav-prev" aria-label="Previous unit"><i class="bi bi-chevron-left"></i></button>
+              <button class="team-nav-btn team-nav-next" aria-label="Next unit"><i class="bi bi-chevron-right"></i></button>
+            </div>
+          </div>
+
+        </div>
+
       </div>
 
     </section><!-- /Team Section -->

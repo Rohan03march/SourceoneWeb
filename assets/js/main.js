@@ -117,6 +117,10 @@
         new Swiper(swiperElement, config);
       }
     });
+
+    if (typeof glightbox !== 'undefined' && glightbox && typeof glightbox.reload === 'function') {
+      glightbox.reload();
+    }
   }
 
   window.addEventListener("load", initSwiper);

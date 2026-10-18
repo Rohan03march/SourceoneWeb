@@ -278,3 +278,51 @@
   });
 
 })();
+
+/**
+ * Copy Address helper with animated feedback
+ */
+function copyAddressText(btn) {
+  const addr = "2nd Floor, Thirumala Plaza, 7/1, Sanjay Nagar Main Rd, Amarjyothi Layout, RMV 2nd Stage, Bengaluru, Karnataka 560094";
+  
+  const showSuccess = () => {
+    const label = btn.querySelector('span');
+    const icon = btn.querySelector('i');
+    const origText = label ? label.textContent : "Copy Address";
+    
+    if (label) label.textContent = "Copied!";
+    if (icon) icon.className = "bi bi-check2";
+    btn.classList.add('copied');
+    
+    setTimeout(() => {
+      if (label) label.textContent = origText;
+      if (icon) icon.className = "bi bi-clipboard";
+      btn.classList.remove('copied');
+    }, 2000);
+  };
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(addr)
+      .then(showSuccess)
+      .catch(() => fallbackCopy(addr, showSuccess));
+  } else {
+    fallbackCopy(addr, showSuccess);
+  }
+}
+
+function fallbackCopy(text, callback) {
+  const ta = document.createElement("textarea");
+  ta.value = text;
+  ta.style.position = "fixed";
+  ta.style.left = "-9999px";
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try {
+    document.execCommand('copy');
+    if (callback) callback();
+  } catch (err) {
+    console.error("Copy failed", err);
+  }
+  document.body.removeChild(ta);
+}

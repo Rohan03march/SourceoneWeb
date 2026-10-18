@@ -411,26 +411,27 @@ h6 {
 /* Mobile Navigation */
 @media (max-width: 1199px) {
   .mobile-nav-toggle {
-    color: var(--nav-color);
-    font-size: 28px;
+    color: #ffffff;
+    font-size: 26px;
     line-height: 0;
-    margin-right: 6px;
+    margin-right: 0;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.25s;
     width: 40px;
     height: 40px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    flex-shrink: 0;
   }
 
   .mobile-nav-toggle:hover {
     color: var(--accent-color);
-    border-color: rgba(201, 54, 96, 0.4);
-    background: rgba(201, 54, 96, 0.1);
+    border-color: rgba(201, 54, 96, 0.45);
+    background: rgba(201, 54, 96, 0.15);
   }
 
   .navmenu {
@@ -441,8 +442,6 @@ h6 {
   .navmenu ul {
     display: none;
     list-style: none;
-    position: absolute;
-    inset: 70px 18px 24px 18px;
     padding: 20px 14px;
     margin: 0;
     border-radius: 20px;
@@ -450,14 +449,13 @@ h6 {
     border: 1px solid rgba(255, 255, 255, 0.12);
     overflow-y: auto;
     transition: 0.3s;
-    z-index: 9998;
     box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(201, 54, 96, 0.12);
   }
 
   .navmenu a,
   .navmenu a:focus {
     color: #e5e5e5;
-    padding: 12px 18px;
+    padding: 13px 18px;
     font-family: var(--nav-font);
     font-size: 16px;
     font-weight: 600;
@@ -521,35 +519,90 @@ h6 {
     display: block;
   }
 
-  .mobile-nav-active {
-    overflow: hidden;
+  /* Active State - Full viewport overlay above everything */
+  body.mobile-nav-active {
+    overflow: hidden !important;
+    touch-action: none;
   }
 
-  .mobile-nav-active .mobile-nav-toggle {
-    color: #ffffff;
-    position: fixed;
-    font-size: 24px;
-    top: 18px;
-    right: 18px;
-    margin-right: 0;
-    z-index: 9999;
-    background: rgba(255, 255, 255, 0.12);
-    border-color: rgba(255, 255, 255, 0.25);
+  body.mobile-nav-active #header {
+    z-index: 999999 !important;
   }
 
-  .mobile-nav-active .navmenu {
-    position: fixed;
-    overflow: hidden;
-    inset: 0;
-    background: rgba(10, 10, 10, 0.92);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+  body.mobile-nav-active .header .topbar {
+    display: none !important;
+  }
+
+  body.mobile-nav-active .header .btn-nav-quote {
+    display: none !important;
+  }
+
+  body.mobile-nav-active .header .logo {
+    position: fixed !important;
+    top: 14px !important;
+    left: 18px !important;
+    z-index: 100000 !important;
+  }
+
+  body.mobile-nav-active .mobile-nav-toggle {
+    color: #ffffff !important;
+    position: fixed !important;
+    font-size: 24px !important;
+    top: 14px !important;
+    right: 18px !important;
+    margin-right: 0 !important;
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 50% !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 100000 !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5) !important;
+    transition: all 0.25s ease !important;
+  }
+
+  body.mobile-nav-active .mobile-nav-toggle:hover {
+    background: var(--accent-color) !important;
+    border-color: var(--accent-color) !important;
+    transform: rotate(90deg) !important;
+  }
+
+  body.mobile-nav-active .navmenu {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    background: rgba(10, 10, 10, 0.96) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
     transition: 0.3s;
+    z-index: 99999 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 16px !important;
+    overflow: hidden !important;
   }
 
-  .mobile-nav-active .navmenu>ul {
-    display: flex;
-    flex-direction: column;
+  body.mobile-nav-active .navmenu>ul {
+    display: flex !important;
+    flex-direction: column !important;
+    position: relative !important;
+    inset: auto !important;
+    margin-top: 56px !important;
+    width: 100% !important;
+    max-height: calc(100dvh - 84px) !important;
+    background: linear-gradient(165deg, #181818 0%, #121212 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 20px !important;
+    padding: 20px 16px !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 30px rgba(201, 54, 96, 0.15) !important;
   }
 }
 

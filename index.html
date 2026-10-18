@@ -35,19 +35,15 @@
   <header id="header" class="header fixed-top">
 
     <div class="topbar d-flex align-items-center">
-      <div class="container d-flex justify-content-center justify-content-md-between">
-        <div class="contact-info d-flex align-items-center">
-          <i class="bi bi-envelope d-flex align-items-center"><a
-              href="mailto:info@sourceone.in">info@sourceone.in</a></i>
-          <i class="bi bi-phone d-flex align-items-center ms-4"><span>+91-7676729792, 080-23476868,
-              +91-7619197172</span></i>
+      <div class="container d-flex justify-content-center justify-content-md-between align-items-center">
+        <div class="contact-info d-flex align-items-center flex-wrap">
+          <i class="bi bi-envelope d-flex align-items-center me-3"><a href="mailto:info@sourceone.in">info@sourceone.in</a></i>
+          <i class="bi bi-phone d-flex align-items-center me-3"><a href="tel:+917676729792">+91-7676729792</a></i>
+          <i class="bi bi-telephone d-none d-lg-flex align-items-center"><a href="tel:08023476868">080-23476868</a></i>
         </div>
-        <!-- <div class="social-links d-none d-md-flex align-items-center">
-          <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
-          <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-          <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-          <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-        </div> -->
+        <div class="d-none d-md-flex align-items-center">
+          <span class="topbar-badge"><i class="bi bi-patch-check-fill me-1"></i> Verified & Licensed Facility Partner</span>
+        </div>
       </div>
     </div><!-- End Top Bar -->
 
@@ -55,21 +51,22 @@
 
       <div class="container position-relative d-flex align-items-center justify-content-between">
         <a href="index.html" class="logo d-flex align-items-center">
-          <!-- Uncomment the line below if you also wish to use an image logo -->
-          <img src="assets/img/SourceOnebg.png" alt="">
+          <img src="assets/img/SourceOnebg.png" alt="Sourceone Logo">
           <h1 class="sitename">Sourceone</h1>
         </a>
 
-        <nav id="navmenu" class="navmenu">
+        <nav id="navmenu" class="navmenu d-flex align-items-center">
           <ul>
             <li><a href="#hero" class="active">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#team">Our Team</a></li>
+            <li><a href="#cards">Why Us</a></li>
             <li><a href="#services">Services</a></li>
+            <li><a href="#team">Our Team</a></li>
             <li><a href="#contact">Contact</a></li>
             <li><a href="jobs.html">Jobs</a></li>
           </ul>
-          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+          <a class="btn-nav-quote d-none d-sm-inline-flex" href="#contact"><i class="bi bi-chat-quote-fill"></i> Get a Quote</a>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list ms-2"></i>
         </nav>
       </div>
 
@@ -82,16 +79,51 @@
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
 
-      <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in">
+      <img src="assets/img/hero-bg.jpg" alt="Sourceone Workforce Solutions" data-aos="fade-in">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row justify-content-start">
-          <div class="col-lg-8">
-            <h2>Manpower, Security & Housekeeping</h2>
-            <p>Dedicated professionals ensuring efficient solutions.</p>
-            <a href="#about" class="btn-get-started">Get Started</a>
+          <div class="col-lg-9 col-xl-8">
+            <span class="hero-badge"><i class="bi bi-shield-check"></i> Premier Facility & Workforce Partner</span>
+            <h2>Integrated Manpower, <span class="hero-highlight">Security</span> & Facility Support</h2>
+            <p class="hero-desc">Dedicated, police-verified personnel and 24/7 supervised facility management ensuring smooth, secure, and compliant business operations across Karnataka.</p>
+            <div class="hero-btns">
+              <a href="#contact" class="btn-hero-primary"><i class="bi bi-chat-dots-fill"></i> Request a Proposal</a>
+              <a href="#services" class="btn-hero-secondary"><i class="bi bi-grid-fill"></i> Explore Services</a>
+            </div>
           </div>
         </div>
+
+        <!-- Hero Stats Strip -->
+        <div class="hero-stats-strip" data-aos="fade-up" data-aos-delay="250">
+          <div class="row gy-3">
+            <div class="col-6 col-lg-3">
+              <div class="hero-stat-card">
+                <span class="hero-stat-number">500<span>+</span></span>
+                <span class="hero-stat-label">Workforce Deployed</span>
+              </div>
+            </div>
+            <div class="col-6 col-lg-3">
+              <div class="hero-stat-card">
+                <span class="hero-stat-number">50<span>+</span></span>
+                <span class="hero-stat-label">Enterprise Clients</span>
+              </div>
+            </div>
+            <div class="col-6 col-lg-3">
+              <div class="hero-stat-card">
+                <span class="hero-stat-number">100<span>%</span></span>
+                <span class="hero-stat-label">Statutory Compliance</span>
+              </div>
+            </div>
+            <div class="col-6 col-lg-3">
+              <div class="hero-stat-card">
+                <span class="hero-stat-number">24<span>/7</span></span>
+                <span class="hero-stat-label">On-Site Supervision</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
 
     </section><!-- /Hero Section -->
@@ -100,35 +132,69 @@
     <section id="about" class="about section">
 
       <!-- Section Title -->
+      <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <span>About Us<br></span>
-        <h2>About Us<br></h2>
-        <p>We specialize in delivering dependable manpower, security, and housekeeping services that help businesses
-          operate smoothly, safely, and efficiently.</p>
+        <span>About Us</span>
+        <h2>About Sourceone</h2>
+        <p>Specializing in delivering dependable manpower, security, and facility solutions that empower businesses to operate safely and efficiently.</p>
       </div><!-- End Section Title -->
 
       <div class="container">
 
-        <div class="row gy-4">
+        <div class="row gy-5 align-items-center">
 
-          <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="100">
-            <img src="assets/img/Team/team1.jpeg" class="img-fluid" alt="">
+          <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="200">
+            <div class="about-img-frame">
+              <img src="assets/img/Team/team1.jpeg" class="img-fluid" alt="Sourceone Operations Team">
+              <div class="about-floating-badge">
+                <div class="badge-icon">
+                  <i class="bi bi-trophy-fill"></i>
+                </div>
+                <div>
+                  <h6 class="badge-title">10+ Years of Operational Excellence</h6>
+                  <span class="badge-sub">Trusted by top supply-chain & corporate leaders</span>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="col-lg-6 order-2 order-lg-1 content" data-aos="fade-up" data-aos-delay="200">
-            <h3>Complete Facility Support Under One Roof</h3>
-            <p class="fst-italic">
-              We help businesses maintain productivity, safety, and cleanliness through professional facility support
-              services.
+          <div class="col-lg-6 order-2 order-lg-1 content" data-aos="fade-up" data-aos-delay="100">
+            <span class="about-badge"><i class="bi bi-building-check me-1"></i> Total Facility Support</span>
+            <h3>Complete Facility Management Under One Roof</h3>
+            <p class="about-lead">
+              We help businesses maintain productivity, safety, and pristine hygiene through standardized, professional facility support services tailored to your industry scale.
             </p>
-            <ul>
-              <li><i class="bi bi-check-circle"></i> <span>Well-trained staff to support your daily operations and
-                  workforce needs.</span></li>
-              <li><i class="bi bi-check-circle"></i> <span>Professional security personnel ensuring safety, discipline,
-                  and peace of mind.</span></li>
-              <li><i class="bi bi-check-circle"></i> <span>Reliable housekeeping services maintaining hygiene and a
-                  clean work environment.</span></li>
-            </ul>
+
+            <div class="about-feature-box">
+              <div class="feature-icon-badge">
+                <i class="bi bi-people-fill"></i>
+              </div>
+              <div class="feature-text">
+                <h5>Skilled & Background-Verified Staff</h5>
+                <p>Thoroughly trained and police-verified workforce aligned with your daily operational and shift demands.</p>
+              </div>
+            </div>
+
+            <div class="about-feature-box">
+              <div class="feature-icon-badge">
+                <i class="bi bi-shield-check"></i>
+              </div>
+              <div class="feature-text">
+                <h5>Strict Statutory Compliance</h5>
+                <p>100% adherence to PF, ESI, Minimum Wages Act, labor laws, and statutory safety standards with transparent billing.</p>
+              </div>
+            </div>
+
+            <div class="about-feature-box">
+              <div class="feature-icon-badge">
+                <i class="bi bi-clock-history"></i>
+              </div>
+              <div class="feature-text">
+                <h5>Active 24/7 Field Supervision</h5>
+                <p>Dedicated field officers conducting regular day and night audits to ensure zero downtime and strict discipline.</p>
+              </div>
+            </div>
+
           </div>
 
         </div>
@@ -137,47 +203,96 @@
 
     </section><!-- /About Section -->
 
-    <!-- Cards Section -->
+    <!-- Cards Section (Core Capabilities) -->
     <section id="cards" class="cards section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <span>Why Us</span>
+        <h2>Why Partner With Sourceone</h2>
+        <p>Built on accountability, compliance, and rapid workforce mobilization to support businesses of any scale.</p>
+      </div><!-- End Section Title -->
 
       <div class="container">
 
-        <div class="row no-gutters">
+        <div class="row gy-4">
 
-          <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="100">
-            <span>01</span>
-            <h4>Skilled Manpower</h4>
-            <p>Trained and reliable workforce to support daily operations across various industries.</p>
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="capability-card">
+              <div class="cap-header">
+                <div class="cap-icon">
+                  <i class="bi bi-people-fill"></i>
+                </div>
+                <span class="cap-number">01</span>
+              </div>
+              <h4>Skilled Manpower</h4>
+              <p>Trained and dependable workforce across warehousing, assembly, logistics, and corporate administration.</p>
+            </div>
           </div><!-- End Card Item -->
 
-          <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="200">
-            <span>02</span>
-            <h4>Professional Security</h4>
-            <p>Experienced security personnel ensuring safety, discipline, and controlled access.</p>
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="capability-card">
+              <div class="cap-header">
+                <div class="cap-icon">
+                  <i class="bi bi-shield-lock-fill"></i>
+                </div>
+                <span class="cap-number">02</span>
+              </div>
+              <h4>Professional Security</h4>
+              <p>Disciplined, vigilant security personnel trained in perimeter control, access management, and asset security.</p>
+            </div>
           </div><!-- End Card Item -->
 
-          <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="300">
-            <span>03</span>
-            <h4>Quality Housekeeping</h4>
-            <p>Efficient cleaning and maintenance services for hygienic and organized spaces.</p>
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="capability-card">
+              <div class="cap-header">
+                <div class="cap-icon">
+                  <i class="bi bi-stars"></i>
+                </div>
+                <span class="cap-number">03</span>
+              </div>
+              <h4>Quality Housekeeping</h4>
+              <p>Systematic, high-grade cleaning solutions that maintain clean, sanitized, and presentable work environments.</p>
+            </div>
           </div><!-- End Card Item -->
 
-          <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="400">
-            <span>04</span>
-            <h4>Trained Workforce</h4>
-            <p>Staff trained to meet operational standards, safety protocols, and service quality.</p>
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="capability-card">
+              <div class="cap-header">
+                <div class="cap-icon">
+                  <i class="bi bi-award-fill"></i>
+                </div>
+                <span class="cap-number">04</span>
+              </div>
+              <h4>Trained & Certified Staff</h4>
+              <p>Comprehensive pre-deployment training in safety protocols, emergency handling, and operational SOPs.</p>
+            </div>
           </div><!-- End Card Item -->
 
-          <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="500">
-            <span>05</span>
-            <h4>Reliable Support</h4>
-            <p>Consistent service delivery with quick response and dependable on-site support.</p>
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="capability-card">
+              <div class="cap-header">
+                <div class="cap-icon">
+                  <i class="bi bi-headset"></i>
+                </div>
+                <span class="cap-number">05</span>
+              </div>
+              <h4>Dedicated Field Support</h4>
+              <p>Proactive field managers and rapid replacement staff ensuring continuous operations without disruptions.</p>
+            </div>
           </div><!-- End Card Item -->
 
-          <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="600">
-            <span>06</span>
-            <h4>Compliance & Safety</h4>
-            <p>Operations aligned with safety norms, statutory compliance, and industry standards.</p>
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+            <div class="capability-card">
+              <div class="cap-header">
+                <div class="cap-icon">
+                  <i class="bi bi-patch-check-fill"></i>
+                </div>
+                <span class="cap-number">06</span>
+              </div>
+              <h4>Statutory Compliance</h4>
+              <p>Complete peace of mind with 100% PF, ESI, Minimum Wage compliance, transparent audits, and statutory filings.</p>
+            </div>
           </div><!-- End Card Item -->
 
         </div>
@@ -190,7 +305,14 @@
     <!-- Clients Section -->
     <section id="clients" class="clients section light-background">
 
-      <div class="container">
+      <!-- Section Title -->
+      <div class="container section-title pb-2 mb-4" data-aos="fade-up">
+        <span>Partners</span>
+        <h2>Trusted by Leading Brands</h2>
+        <p>Proudly powering daily operations for premier logistics leaders, enterprises, and manufacturing giants.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
 
         <div class="swiper init-swiper">
           <script type="application/json" class="swiper-config">
@@ -198,7 +320,7 @@
               "loop": true,
               "speed": 600,
               "autoplay": {
-                "delay": 5000
+                "delay": 3500
               },
               "slidesPerView": "auto",
               "pagination": {
@@ -209,36 +331,34 @@
               "breakpoints": {
                 "320": {
                   "slidesPerView": 2,
-                  "spaceBetween": 40
+                  "spaceBetween": 20
                 },
                 "480": {
                   "slidesPerView": 3,
-                  "spaceBetween": 60
+                  "spaceBetween": 24
                 },
                 "640": {
                   "slidesPerView": 4,
-                  "spaceBetween": 80
+                  "spaceBetween": 28
                 },
                 "992": {
                   "slidesPerView": 6,
-                  "spaceBetween": 120
+                  "spaceBetween": 30
                 }
               }
             }
           </script>
           <div class="swiper-wrapper align-items-center">
-            <div class="swiper-slide"><img src="assets/img/clients/Zepto.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/Amazon_Logo_1.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/Blinkit_idCmcpCDCZ_1.png" class="img-fluid" alt="">
-            </div>
-            <div class="swiper-slide"><img src="assets/img/clients/john-distilleries.png" class="img-fluid" alt="">
-            </div>
-            <div class="swiper-slide"><img src="assets/img/clients/buildmet-fibres.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/waycool.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/udaan.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/birla.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/parle.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/sashi.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><div class="client-logo-card"><img src="assets/img/clients/Zepto.png" class="img-fluid" alt="Zepto"></div></div>
+            <div class="swiper-slide"><div class="client-logo-card"><img src="assets/img/clients/Amazon_Logo_1.png" class="img-fluid" alt="Amazon"></div></div>
+            <div class="swiper-slide"><div class="client-logo-card"><img src="assets/img/clients/Blinkit_idCmcpCDCZ_1.png" class="img-fluid" alt="Blinkit"></div></div>
+            <div class="swiper-slide"><div class="client-logo-card"><img src="assets/img/clients/john-distilleries.png" class="img-fluid" alt="John Distilleries"></div></div>
+            <div class="swiper-slide"><div class="client-logo-card"><img src="assets/img/clients/buildmet-fibres.png" class="img-fluid" alt="Buildmet Fibres"></div></div>
+            <div class="swiper-slide"><div class="client-logo-card"><img src="assets/img/clients/waycool.png" class="img-fluid" alt="Waycool"></div></div>
+            <div class="swiper-slide"><div class="client-logo-card"><img src="assets/img/clients/udaan.png" class="img-fluid" alt="Udaan"></div></div>
+            <div class="swiper-slide"><div class="client-logo-card"><img src="assets/img/clients/birla.png" class="img-fluid" alt="Birla"></div></div>
+            <div class="swiper-slide"><div class="client-logo-card"><img src="assets/img/clients/parle.png" class="img-fluid" alt="Parle"></div></div>
+            <div class="swiper-slide"><div class="client-logo-card"><img src="assets/img/clients/sashi.png" class="img-fluid" alt="Sashi"></div></div>
           </div>
         </div>
 
@@ -251,63 +371,23 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <span>Team</span>
-        <h2>Our Team</h2>
-        <p>
-          A team driven by experience, responsibility, and a shared commitment to
-          delivering dependable support across various industries.
-        </p>
-      </div>
-      <!-- End Section Title -->
+        <span>Our People</span>
+        <h2>Meet Our Operations Team</h2>
+        <p>A team driven by discipline, experience, and an unwavering commitment to operational excellence.</p>
+      </div><!-- End Section Title -->
 
-      <div class="container">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="team-masonry">
-          <img src="/assets/img/Team/about.jpeg" alt="Team Member">
-          <img src="/assets/img/Team/team4.jpeg" alt="Team Member">
-          <img src="/assets/img/Team/team2.jpeg" alt="Team Member">
-          <img src="/assets/img/Team/team3.jpeg" alt="Team Member">
-          <img src="/assets/img/Team/team7.jpg" alt="Team Member">
-          <img src="/assets/img/Team/team5.jpeg" alt="Team Member">
+          <img src="assets/img/Team/about.jpeg" alt="Sourceone Operations Leadership" loading="lazy">
+          <img src="assets/img/Team/team4.jpeg" alt="Sourceone Field Supervision" loading="lazy">
+          <img src="assets/img/Team/team2.jpeg" alt="Sourceone Security Staff" loading="lazy">
+          <img src="assets/img/Team/team3.jpeg" alt="Sourceone Housekeeping Team" loading="lazy">
+          <img src="assets/img/Team/team7.jpg" alt="Sourceone Training Drill" loading="lazy">
+          <img src="assets/img/Team/team5.jpeg" alt="Sourceone On-site Workforce" loading="lazy">
         </div>
       </div>
 
-      <style>
-        .team-masonry {
-          column-count: 3;
-          column-gap: 20px;
-        }
-
-        .team-masonry img {
-          width: 100%;
-          display: block;
-          margin-bottom: 20px;
-          border-radius: 14px;
-          break-inside: avoid;
-          object-fit: cover;
-          background: #f3f3f3;
-          transition: transform 0.35s ease, box-shadow 0.35s ease;
-        }
-
-        .team-masonry img:hover {
-          transform: scale(1.04);
-          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
-        }
-
-        @media (max-width: 992px) {
-          .team-masonry {
-            column-count: 3;
-          }
-        }
-
-        @media (max-width: 576px) {
-          .team-masonry {
-            column-count: 3;
-          }
-        }
-      </style>
-
-    </section>
-    <!-- /Team Section -->
+    </section><!-- /Team Section -->
 
 
     <!-- Services Section -->
@@ -315,9 +395,9 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <span>Services</span>
-        <h2>Our Services</h2>
-        <p>Comprehensive facility management services designed to support safety, productivity, and cleanliness.</p>
+        <span>What We Do</span>
+        <h2>Our Core Services</h2>
+        <p>Comprehensive workforce and facility solutions engineered to optimize security, productivity, and cleanliness.</p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -325,74 +405,98 @@
         <div class="row gy-4">
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item position-relative">
+            <div class="service-item">
               <div class="icon">
-                <i class="bi bi-people"></i>
+                <i class="bi bi-people-fill"></i>
               </div>
-              <a href="#" class="stretched-link">
-                <h3>Manpower Supply</h3>
-              </a>
-              <p>Skilled and unskilled manpower to meet operational needs across industries.</p>
+              <h3>Manpower Supply</h3>
+              <p>Reliable skilled, semi-skilled, and unskilled workforce tailored for warehousing, production, and corporate needs.</p>
+              <ul class="service-points">
+                <li><i class="bi bi-check2"></i> Warehouse & Logistics Associates</li>
+                <li><i class="bi bi-check2"></i> Assembly & Production Line Workers</li>
+                <li><i class="bi bi-check2"></i> Shift Staffing & Seasonal Scaling</li>
+              </ul>
+              <a href="#contact" class="service-cta">Inquire Now <i class="bi bi-arrow-right"></i></a>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item position-relative">
+            <div class="service-item">
               <div class="icon">
                 <i class="bi bi-shield-check"></i>
               </div>
-              <a href="#" class="stretched-link">
-                <h3>Security Services</h3>
-              </a>
-              <p>Professional security personnel ensuring safety, access control, and asset protection.</p>
+              <h3>Security Services</h3>
+              <p>Vigilant, police-verified security personnel ensuring complete asset protection, discipline, and access management.</p>
+              <ul class="service-points">
+                <li><i class="bi bi-check2"></i> Manned Guarding & Gatekeeping</li>
+                <li><i class="bi bi-check2"></i> Ingress/Egress & Material Movement Log</li>
+                <li><i class="bi bi-check2"></i> 24/7 Patrolling & Night Audits</li>
+              </ul>
+              <a href="#contact" class="service-cta">Inquire Now <i class="bi bi-arrow-right"></i></a>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item position-relative">
+            <div class="service-item">
               <div class="icon">
-                <i class="bi bi-bucket"></i>
+                <i class="bi bi-stars"></i>
               </div>
-              <a href="#" class="stretched-link">
-                <h3>Housekeeping Services</h3>
-              </a>
-              <p>Complete cleaning and maintenance services for hygienic workplaces.</p>
+              <h3>Housekeeping Services</h3>
+              <p>Professional cleaning and hygiene management maintaining spotless, sanitized, and organized work facilities.</p>
+              <ul class="service-points">
+                <li><i class="bi bi-check2"></i> Daily Corporate Office Sanitization</li>
+                <li><i class="bi bi-check2"></i> Industrial & Warehouse Floor Cleaning</li>
+                <li><i class="bi bi-check2"></i> Waste Management & Restroom Care</li>
+              </ul>
+              <a href="#contact" class="service-cta">Inquire Now <i class="bi bi-arrow-right"></i></a>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="service-item position-relative">
+            <div class="service-item">
               <div class="icon">
                 <i class="bi bi-building-check"></i>
               </div>
-              <a href="#" class="stretched-link">
-                <h3>Facility Management</h3>
-              </a>
-              <p>End-to-end facility support ensuring smooth and efficient daily operations.</p>
+              <h3>Facility Management</h3>
+              <p>Integrated facility administration ensuring smooth day-to-day operations and building infrastructure support.</p>
+              <ul class="service-points">
+                <li><i class="bi bi-check2"></i> Reception & Front Desk Support</li>
+                <li><i class="bi bi-check2"></i> Mailroom & Pantry Management</li>
+                <li><i class="bi bi-check2"></i> Multi-Site Coordination & Reporting</li>
+              </ul>
+              <a href="#contact" class="service-cta">Inquire Now <i class="bi bi-arrow-right"></i></a>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-            <div class="service-item position-relative">
+            <div class="service-item">
               <div class="icon">
                 <i class="bi bi-clipboard-check"></i>
               </div>
-              <a href="#" class="stretched-link">
-                <h3>Compliance & Supervision</h3>
-              </a>
-              <p>Strict adherence to statutory norms with regular supervision and reporting.</p>
+              <h3>Compliance & Supervision</h3>
+              <p>Strict regulatory adherence and field audits giving your business complete legal and operational peace of mind.</p>
+              <ul class="service-points">
+                <li><i class="bi bi-check2"></i> 100% PF, ESI & Statutory Adherence</li>
+                <li><i class="bi bi-check2"></i> Biometric Attendance Auditing</li>
+                <li><i class="bi bi-check2"></i> Transparent Monthly Invoicing</li>
+              </ul>
+              <a href="#contact" class="service-cta">Inquire Now <i class="bi bi-arrow-right"></i></a>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-            <div class="service-item position-relative">
+            <div class="service-item">
               <div class="icon">
                 <i class="bi bi-headset"></i>
               </div>
-              <a href="#" class="stretched-link">
-                <h3>On-Demand Support</h3>
-              </a>
-              <p>Quick-response support to handle urgent manpower or facility requirements.</p>
+              <h3>On-Demand Support</h3>
+              <p>Rapid response workforce deployment to manage emergency shortages, project surges, and sudden operational spikes.</p>
+              <ul class="service-points">
+                <li><i class="bi bi-check2"></i> Emergency Replacement Staff within Hours</li>
+                <li><i class="bi bi-check2"></i> Festival & Event Surge Staffing</li>
+                <li><i class="bi bi-check2"></i> Single Point Account Manager</li>
+              </ul>
+              <a href="#contact" class="service-cta">Inquire Now <i class="bi bi-arrow-right"></i></a>
             </div>
           </div><!-- End Service Item -->
 
@@ -608,20 +712,81 @@
 
   <footer id="footer" class="footer position-relative dark-background">
 
-    <div class="container copyright text-center mt-4">
-      <p>
-        © <span>Copyright</span>
-        <strong class="px-1 sitename">Sourceone</strong>
-        <span>All Rights Reserved</span>
-      </p>
-      <!-- <div class="social-links d-flex justify-content-center align-items-center gap-1 mt-2">
-    <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
-    <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-    <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-    <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-  </div> -->
+    <div class="footer-top">
+      <div class="container">
+        <div class="row gy-4">
+
+          <div class="col-lg-4 col-md-6 footer-about">
+            <a href="index.html" class="logo d-flex align-items-center">
+              <img src="assets/img/SourceOnebg.png" alt="Sourceone Logo">
+              <h1 class="sitename">Sourceone</h1>
+            </a>
+            <p>
+              Sourceone is a premier facility management and workforce solutions provider headquartered in Bengaluru. We empower corporate hubs, e-commerce leaders, and industries with dependable manpower, certified security, and high-standard housekeeping.
+            </p>
+            <div class="social-links d-flex align-items-center">
+              <a href="tel:+917676729792" title="Call Us"><i class="bi bi-telephone-fill"></i></a>
+              <a href="mailto:info@sourceone.in" title="Email Us"><i class="bi bi-envelope-fill"></i></a>
+              <a href="https://maps.google.com/?q=13.037173,77.574487" target="_blank" rel="noopener noreferrer" title="View Location"><i class="bi bi-geo-alt-fill"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-3 col-6 footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#hero"><i class="bi bi-chevron-right"></i> Home</a></li>
+              <li><a href="#about"><i class="bi bi-chevron-right"></i> About Us</a></li>
+              <li><a href="#cards"><i class="bi bi-chevron-right"></i> Why Us</a></li>
+              <li><a href="#services"><i class="bi bi-chevron-right"></i> Services</a></li>
+              <li><a href="#team"><i class="bi bi-chevron-right"></i> Our Team</a></li>
+              <li><a href="jobs.html"><i class="bi bi-chevron-right"></i> Careers / Jobs</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-3 col-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><a href="#services"><i class="bi bi-chevron-right"></i> Manpower Supply</a></li>
+              <li><a href="#services"><i class="bi bi-chevron-right"></i> Security Personnel</a></li>
+              <li><a href="#services"><i class="bi bi-chevron-right"></i> Housekeeping Services</a></li>
+              <li><a href="#services"><i class="bi bi-chevron-right"></i> Facility Management</a></li>
+              <li><a href="#services"><i class="bi bi-chevron-right"></i> Statutory Compliance</a></li>
+              <li><a href="#services"><i class="bi bi-chevron-right"></i> On-Demand Staffing</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-12 footer-contact">
+            <h4>Bengaluru HQ</h4>
+            <p>
+              <strong>Sourceone Facility Solutions</strong><br>
+              2nd Floor, Thirumala Plaza, #7/1,<br>
+              Sanjay Nagar Main Road, RMV 2nd Stage,<br>
+              Bengaluru, Karnataka &ndash; 560094
+            </p>
+            <p class="mt-3">
+              <strong>Phone:</strong> <a href="tel:+917676729792">+91-7676729792</a>, <a href="tel:08023476868">080-23476868</a><br>
+              <strong>Email:</strong> <a href="mailto:info@sourceone.in">info@sourceone.in</a>
+            </p>
+            <p>
+              <strong>Hours:</strong> Mon &ndash; Sat: 9:30 AM &ndash; 6:30 PM
+            </p>
+          </div>
+
+        </div>
+      </div>
     </div>
 
+    <div class="container copyright text-center">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+        <p class="mb-0">
+          © Copyright <strong class="sitename">Sourceone</strong>. All Rights Reserved.
+        </p>
+        <div>
+          <a href="privacy-policy.html" class="text-muted text-decoration-none me-3"><small>Privacy Policy</small></a>
+          <a href="#contact" class="text-muted text-decoration-none"><small>Support & Inquiries</small></a>
+        </div>
+      </div>
+    </div>
 
   </footer>
 

@@ -208,10 +208,13 @@
   <!-- Header -->
   <header id="header" class="header fixed-top">
     <div class="topbar d-flex align-items-center">
-      <div class="container d-flex justify-content-center justify-content-md-between">
+      <div class="container d-flex justify-content-center justify-content-md-between align-items-center">
         <div class="contact-info d-flex align-items-center">
-          <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:info@sourceone.in">info@sourceone.in</a></i>
-          <i class="bi bi-phone d-flex align-items-center ms-4"><span>+91-9741965944, 080-23476868</span></i>
+          <i class="bi bi-envelope d-flex align-items-center me-3"><a href="mailto:info@sourceone.in">info@sourceone.in</a></i>
+          <i class="bi bi-phone d-flex align-items-center"><a href="tel:+919741965944">+91-9741965944</a></i>
+        </div>
+        <div class="topbar-right d-none d-md-flex align-items-center">
+          <span class="topbar-badge">24/7 Verified Support</span>
         </div>
       </div>
     </div><!-- End Top Bar -->
@@ -219,22 +222,33 @@
     <div class="branding d-flex align-items-center">
       <div class="container position-relative d-flex align-items-center justify-content-between">
         <a href="index.html" class="logo d-flex align-items-center">
-          <img src="assets/img/SourceOnebg.png" alt="SourceOne Logo">
+          <img src="assets/img/SourceOnebg.png" alt="Sourceone Logo">
           <h1 class="sitename">Sourceone</h1>
         </a>
 
-        <nav id="navmenu" class="navmenu">
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="index.html#about">About</a></li>
-            <li><a href="index.html#team">Our Team</a></li>
-            <li><a href="index.html#services">Services</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
-            <li><a href="jobs.html">Jobs</a></li>
-            <li><a href="privacy-policy.html">Privacy Policy</a></li>
-          </ul>
-          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-        </nav>
+        <div class="header-right d-flex align-items-center gap-2">
+          <nav id="navmenu" class="navmenu d-flex align-items-center">
+            <ul>
+              <li><a href="index.html#hero">Home</a></li>
+              <li><a href="index.html#about">About</a></li>
+              <li><a href="index.html#cards">Why Us</a></li>
+              <li><a href="index.html#services">Services</a></li>
+              <li><a href="index.html#team">Our Team</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+              <li><a href="jobs.html">Jobs</a></li>
+              <li><a href="recruiter.html">Recruiter</a></li>
+              <!-- Mobile Drawer Quote Button -->
+              <li class="mobile-drawer-quote-li d-xl-none mt-2 pt-2 border-top border-secondary border-opacity-25">
+                <a class="btn-drawer-quote" href="index.html#contact"><i class="bi bi-chat-quote-fill"></i> Get a Free Quote</a>
+              </li>
+            </ul>
+            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+          </nav>
+
+          <a class="btn-nav-quote" href="index.html#contact">
+            <i class="bi bi-chat-quote-fill"></i> <span class="btn-quote-text"><span class="d-none d-sm-inline">Get a </span>Quote</span>
+          </a>
+        </div>
       </div>
     </div>
   </header>
@@ -392,6 +406,7 @@
         <span>All Rights Reserved</span>
       </p>
       <div class="mt-2">
+        <a href="recruiter.html" class="text-light text-decoration-underline me-3">For Recruiters</a>
         <a href="https://play.google.com/store/apps/details?id=com.sourceone.app&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" class="text-light text-decoration-underline me-3"><i class="bi bi-google-play me-1"></i>Picker & Packer App</a>
         <a href="privacy-policy.html" class="text-light text-decoration-underline me-3">Privacy Policy</a>
         <a href="delete-account.html" class="text-light text-decoration-underline me-3">Account Deletion</a>

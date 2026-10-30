@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>For Recruiters - Post a Job & Hire Workforce | Sourceone</title>
+  <meta name="description"
+    content="Sourceone Recruiter Portal. Submit your workforce and staffing requirements in 4 simple steps. Hire verified warehouse associates, security guards, housekeeping, and facility management staff across Bangalore.">
+  <meta name="keywords"
+    content="recruiter, hire manpower, staffing requirement, warehouse staffing, security guards hire, bangalore facility workforce">
+
+  <!-- Favicons -->
+  <link href="assets/img/SourceOnebg.png" rel="icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- Custom Styles for Recruiter Multi-Step Form -->
+  <style>
+    /* Hero Banner */
+    .hero-recruiter {
+      min-height: 42vh;
+      background: linear-gradient(135deg, rgba(14, 14, 14, 0.92), rgba(22, 22, 22, 0.96)), url('assets/img/hero-bg.jpg') center center no-repeat;
+      background-size: cover;
+      padding-top: 130px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero-recruiter h1 {
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--heading-color);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .hero-recruiter p {
+      font-size: 16px;
+      color: var(--default-color);
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    /* Recruiter Section */
+    .recruiter-section {
+      margin-top: -45px;
+      position: relative;
+      z-index: 10;
+      padding-bottom: 80px;
+    }
+
+    .wizard-card {
+      background: var(--surface-color);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 36px 40px;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55);
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (max-width: 768px) {
+      .wizard-card {
+        padding: 24px 20px;
+      }
+    }
+
+    /* Stepper Header */
+    .stepper-header {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      margin-bottom: 36px;
+    }
+
+    .stepper-header::before {
+      content: "";
+      position: absolute;
+      top: 22px;
+      left: 30px;
+      right: 30px;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.1);
+      z-index: 1;
+    }
+
+    .stepper-progress-fill {
+      position: absolute;
+      top: 22px;
+      left: 30px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-color), #2ecc71);
+      z-index: 2;
+      transition: width 0.4s ease;
+      width: 0%;
+    }
+
+    .step-node {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      flex: 1;
+      cursor: default;
+    }
+
+    .step-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #111114;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      color: #888888;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 10px;
+      font-weight: 700;
+      font-size: 15px;
+      transition: all 0.35s ease;
+    }
+
+    .step-node.active .step-circle {
+      background: var(--accent-color);
+      border-color: var(--accent-color);
+      color: #ffffff;
+      box-shadow: 0 0 16px rgba(201, 54, 96, 0.6);
+      transform: scale(1.08);
+    }
+
+    .step-node.completed .step-circle {
+      background: #2ecc71;
+      border-color: #2ecc71;
+      color: #ffffff;
+    }
+
+    .step-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #888888;
+      transition: color 0.3s;
+    }
+
+    .step-node.active .step-label {
+      color: #ffffff;
+    }
+
+    .step-node.completed .step-label {
+      color: #2ecc71;
+    }
+
+    @media (max-width: 576px) {
+      .step-label {
+        display: none;
+      }
+    }
+
+    /* Form Fields */
+    .form-step {
+      display: none;
+      animation: fadeInStep 0.4s ease forwards;
+    }
+
+    .form-step.active {
+      display: block;
+    }
+
+    @keyframes fadeInStep {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .step-intro {
+      margin-bottom: 28px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .step-intro h3 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .step-intro h3 i {
+      color: var(--accent-color);
+      font-size: 24px;
+    }
+
+    .step-intro p {
+      font-size: 14px;
+      color: #a8a8a8;
+      margin-bottom: 0;
+    }
+
+    .recruiter-control {
+      background: #0b0b0d;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      padding: 12px 16px;
+      border-radius: 8px;
+      width: 100%;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .recruiter-control:focus {
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 3px rgba(201, 54, 96, 0.25);
+      outline: none;
+      background: #111114;
+      color: #ffffff;
+    }
+
+    .recruiter-control option {
+      background: #161616;
+      color: #ffffff;
+    }
+
+    .form-group-wrap {
+      margin-bottom: 20px;
+    }
+
+    .form-group-wrap label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: #e2e2e2;
+      margin-bottom: 8px;
+    }
+
+    .form-group-wrap label .req-star {
+      color: var(--accent-color);
+      margin-left: 2px;
+    }
+
+    .field-hint {
+      font-size: 11px;
+      color: #9da3af;
+      margin-top: 5px;
+      display: block;
+    }
+
+    /* Option Pills Grid */
+    .pill-options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 6px;
+    }
+
+    .pill-radio-card {
+      position: relative;
+    }
+
+    .pill-radio-card input[type="radio"],
+    .pill-radio-card input[type="checkbox"] {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .pill-label {
+      background: #0b0b0d;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 10px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #cfcfcf;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      height: 100%;
+    }
+
+    .pill-label i {
+      font-size: 18px;
+      color: #888888;
+      transition: color 0.25s;
+    }
+
+    .pill-radio-card input:checked+.pill-label {
+      background: rgba(201, 54, 96, 0.15);
+      border-color: var(--accent-color);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(201, 54, 96, 0.25);
+    }
+
+    .pill-radio-card input:checked+.pill-label i {
+      color: var(--accent-color);
+    }
+
+    /* Wizard Navigation Footer */
+    .wizard-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 36px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .btn-step-prev {
+      background: #0b0b0d;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #d1d1d1;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+    }
+
+    .btn-step-prev:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+    }
+
+    .btn-step-next {
+      background: var(--accent-color);
+      border: none;
+      color: #ffffff;
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+      margin-left: auto;
+    }
+
+    .btn-step-next:hover {
+      background: color-mix(in srgb, var(--accent-color), transparent 15%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(201, 54, 96, 0.35);
+      color: #ffffff;
+    }
+
+    .btn-submit-req {
+      background: linear-gradient(135deg, #2ecc71, #27ae60);
+      border: none;
+      color: #ffffff;
+      padding: 13px 32px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      margin-left: auto;
+      box-shadow: 0 6px 18px rgba(46, 204, 113, 0.3);
+    }
+
+    .btn-submit-req:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(46, 204, 113, 0.45);
+      color: #ffffff;
+    }
+
+    .btn-submit-req:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    /* Trust Strip */
+    .recruiter-trust-strip {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 14px;
+      padding: 18px 24px;
+      margin-top: 30px;
+    }
+
+    .trust-stat-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .trust-stat-icon {
+      font-size: 26px;
+      color: var(--accent-color);
+    }
+
+    .trust-stat-info h5 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 2px;
+    }
+
+    .trust-stat-info p {
+      font-size: 12px;
+      color: #a0a0a0;
+      margin-bottom: 0;
+    }
+
+    /* Success State */
+    .submission-success-card {
+      text-align: center;
+      padding: 50px 20px;
+      display: none;
+      animation: fadeInStep 0.5s ease forwards;
+    }
+
+    .success-icon-wrap {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      background: rgba(46, 204, 113, 0.15);
+      border: 2px solid #2ecc71;
+      color: #2ecc71;
+      font-size: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 22px;
+    }
+
+    .submission-success-card h3 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 12px;
+    }
+
+    .submission-success-card p {
+      font-size: 15px;
+      color: #b8b8b8;
+      max-width: 550px;
+      margin: 0 auto 24px;
+      line-height: 1.6;
+    }
+
+    .lead-ref-badge {
+      display: inline-block;
+      background: #0b0b0d;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-size: 13px;
+      color: #ffffff;
+      margin-bottom: 28px;
+    }
+  </style>
+
+</head>
+
+<body class="index-page">
+
+  <!-- Header -->
+  <header id="header" class="header fixed-top">
+
+    <div class="topbar d-flex align-items-center">
+      <div class="container d-flex justify-content-center justify-content-md-between align-items-center">
+        <div class="contact-info d-flex align-items-center">
+          <i class="bi bi-envelope d-flex align-items-center me-3"><a
+              href="mailto:info@sourceone.in">info@sourceone.in</a></i>
+          <i class="bi bi-phone d-flex align-items-center"><a href="tel:+919741965944">+91-9741965944</a></i>
+        </div>
+        <div class="topbar-right d-none d-md-flex align-items-center">
+          <span class="topbar-badge">24/7 Verified Support</span>
+        </div>
+      </div>
+    </div><!-- End Top Bar -->
+
+    <div class="branding d-flex align-items-center">
+
+      <div class="container position-relative d-flex align-items-center justify-content-between">
+        <a href="index.html" class="logo d-flex align-items-center">
+          <img src="assets/img/SourceOnebg.png" alt="Sourceone Logo">
+          <h1 class="sitename">Sourceone</h1>
+        </a>
+
+        <div class="header-right d-flex align-items-center gap-2">
+          <nav id="navmenu" class="navmenu d-flex align-items-center">
+            <ul>
+              <li><a href="index.html#hero">Home</a></li>
+              <li><a href="index.html#about">About</a></li>
+              <li><a href="index.html#cards">Why Us</a></li>
+              <li><a href="index.html#services">Services</a></li>
+              <li><a href="index.html#team">Our Team</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+              <li><a href="jobs.html">Jobs</a></li>
+              <li><a href="recruiter.html" class="active">Recruiter</a></li>
+              <!-- Mobile Drawer Quote Button -->
+              <li class="mobile-drawer-quote-li d-xl-none mt-2 pt-2 border-top border-secondary border-opacity-25">
+                <a class="btn-drawer-quote" href="index.html#contact"><i class="bi bi-chat-quote-fill"></i> Get a Free
+                  Quote</a>
+              </li>
+            </ul>
+            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+          </nav>
+
+          <a class="btn-nav-quote" href="index.html#contact">
+            <i class="bi bi-chat-quote-fill"></i> <span class="btn-quote-text"><span class="d-none d-sm-inline">Get a
+              </span>Quote</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section class="hero-recruiter dark-background">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <h1>Hire Verified Workforce</h1>
+        <p>Post your staffing and manpower requirements in 4 simple steps.</p>
+      </div>
+    </section>
+
+    <!-- Recruiter Wizard Section -->
+    <section class="recruiter-section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+
+            <div class="wizard-card" data-aos="fade-up" data-aos-delay="150">
+
+              <!-- Stepper Header -->
+              <div class="stepper-header" id="stepperHeader">
+                <div class="stepper-progress-fill" id="stepperProgressFill"></div>
+
+                <div class="step-node active" id="stepNode1">
+                  <div class="step-circle">1</div>
+                  <div class="step-label">About Company</div>
+                </div>
+
+                <div class="step-node" id="stepNode2">
+                  <div class="step-circle">2</div>
+                  <div class="step-label">Job Description</div>
+                </div>
+
+                <div class="step-node" id="stepNode3">
+                  <div class="step-circle">3</div>
+                  <div class="step-label">Job Type</div>
+                </div>
+
+                <div class="step-node" id="stepNode4">
+                  <div class="step-circle">4</div>
+                  <div class="step-label">Requirements</div>
+                </div>
+              </div>
+
+              <!-- Main Form -->
+              <form id="recruiterForm">
+
+                <!-- STEP 1: About Your Company -->
+                <div class="form-step active" id="step1">
+                  <div class="step-intro">
+                    <h3><i class="bi bi-building"></i> Step 1: About Your Company</h3>
+                    <p>Tell us about your organization and how soon you need candidates deployed.</p>
+                  </div>
+
+                  <div class="row g-3">
+                    <div class="col-md-6 form-group-wrap">
+                      <label for="companyName">Company Name <span class="req-star">*</span></label>
+                      <input type="text" id="companyName" class="recruiter-control"
+                        placeholder="E.g., Flipkart Logistics Pvt Ltd" required>
+                    </div>
+
+                    <div class="col-md-6 form-group-wrap">
+                      <label for="contactPersonName">Contact Person Name <span class="req-star">*</span></label>
+                      <input type="text" id="contactPersonName" class="recruiter-control"
+                        placeholder="E.g., Ramesh Kumar" required>
+                    </div>
+
+                    <div class="col-md-6 form-group-wrap">
+                      <label for="contactPhone">Phone Number <span class="req-star">*</span></label>
+                      <input type="tel" id="contactPhone" class="recruiter-control" placeholder="10-digit mobile number"
+                        required pattern="[0-9]{10}">
+                      <span class="field-hint">We'll contact this number for requirement verification</span>
+                    </div>
+
+                    <div class="col-md-6 form-group-wrap">
+                      <label for="contactEmail">Official Email Address <span class="req-star">*</span></label>
+                      <input type="email" id="contactEmail" class="recruiter-control"
+                        placeholder="E.g., hr@yourcompany.com" required>
+                    </div>
+
+                    <div class="col-md-6 form-group-wrap">
+                      <label for="contactProfile">Contact Person Profile / Designation <span
+                          class="req-star">*</span></label>
+                      <select id="contactProfile" class="recruiter-control" required>
+                        <option value="">-- Select Your Role --</option>
+                        <option value="HR Manager">HR Manager / HR Head</option>
+                        <option value="Talent Acquisition">Talent Acquisition Lead / Recruiter</option>
+                        <option value="Founder / Director">Founder / Managing Director</option>
+                        <option value="Operations Manager">Operations / Plant Manager</option>
+                        <option value="Warehouse Manager">Warehouse / Site Manager</option>
+                        <option value="Admin / Facility Head">Admin / Facility Head</option>
+                        <option value="Other">Other</option>
+                      </select>
+                    </div>
+
+                    <div class="col-md-6 form-group-wrap">
+                      <label for="orgSize">Size of Organization <span class="req-star">*</span></label>
+                      <select id="orgSize" class="recruiter-control" required>
+                        <option value="">-- Select Employee Count --</option>
+                        <option value="1-10 Employees">1 - 10 Employees (Startup / Small)</option>
+                        <option value="11-50 Employees">11 - 50 Employees</option>
+                        <option value="51-200 Employees">51 - 200 Employees (Mid-size)</option>
+                        <option value="201-500 Employees">201 - 500 Employees (Large)</option>
+                        <option value="500+ Employees">500+ Employees (Enterprise)</option>
+                      </select>
+                    </div>
+
+                    <div class="col-md-6 form-group-wrap">
+                      <label for="fillUrgency">How Soon Want to Fill the Position? <span
+                          class="req-star">*</span></label>
+                      <select id="fillUrgency" class="recruiter-control" required>
+                        <option value="">-- Select Urgency --</option>
+                        <option value="Immediately (Within 24-48 Hours)">Immediately (Within 24-48 Hours) - Urgent
+                        </option>
+                        <option value="Within 1 Week">Within 1 Week</option>
+                        <option value="Within 2-4 Weeks">Within 2 - 4 Weeks</option>
+                        <option value="Planning / Future Pipeline">Planning / Future Pipeline</option>
+                      </select>
+                    </div>
+
+                    <div class="col-md-6 form-group-wrap">
+                      <label for="hiringFrequency">How Often Do You Need to Hire? <span
+                          class="req-star">*</span></label>
+                      <select id="hiringFrequency" class="recruiter-control" required>
+                        <option value="">-- Select Hiring Frequency --</option>
+                        <option value="One-Time Requirement">One-Time Requirement</option>
+                        <option value="Monthly / Regular Ongoing">Monthly / Regular Ongoing</option>
+                        <option value="Quarterly / Project Basis">Quarterly / Project Basis</option>
+                        <option value="Seasonal / Festival Surge">Seasonal / Festival Surge (Peak Volume)</option>
+                      </select>
+                    </div>
+
+                    <div class="col-12 form-group-wrap">
+                      <label for="jobAddress">Job Address / Work Site Location <span class="req-star">*</span></label>
+                      <textarea id="jobAddress" class="recruiter-control" rows="3"
+                        placeholder="Enter full address of warehouse, office, plant, or facility site where personnel will work..."
+                        required></textarea>
+                      <span class="field-hint">Helps us match nearby verified candidates living in that vicinity</span>
+                    </div>
+                  </div>
+
+                  <div class="wizard-footer">
+                    <div></div>
+                    <button type="button" class="btn-step-next" onclick="goToStep(2)">
+                      Next: Job Description <i class="bi bi-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- STEP 2: Job Description -->
+                <div class="form-step" id="step2">
+                  <div class="step-intro">
+                    <h3><i class="bi bi-file-earmark-text"></i> Step 2: Job Description</h3>
+                    <p>Define candidate communication windows, necessary skills, shifts, and special requirements.</p>
+                  </div>
+
+                  <div class="row g-3">
+                    <div class="col-12 form-group-wrap">
+                      <label>Candidate Can Call Me <span class="req-star">*</span></label>
+                      <div class="pill-options-grid">
+                        <div class="pill-radio-card">
+                          <input type="radio" name="callWindow" id="callEveryday" value="Everyday (Mon - Sun)" checked>
+                          <label for="callEveryday" class="pill-label">
+                            <i class="bi bi-calendar-check"></i>
+                            <span>Everyday (Mon - Sun)</span>
+                          </label>
+                        </div>
+                        <div class="pill-radio-card">
+                          <input type="radio" name="callWindow" id="callMonFri" value="Monday to Friday">
+                          <label for="callMonFri" class="pill-label">
+                            <i class="bi bi-briefcase"></i>
+                            <span>Monday to Friday</span>
+                          </label>
+                        </div>
+                        <div class="pill-radio-card">
+                          <input type="radio" name="callWindow" id="callMonSat" value="Monday to Saturday">
+                          <label for="callMonSat" class="pill-label">
+                            <i class="bi bi-calendar-week"></i>
+                            <span>Monday to Saturday</span>
+                          </label>
+                        </div>
+                        <div class="pill-radio-card">
+                          <input type="radio" name="callWindow" id="callCustom" value="Custom Timings"
+                            onchange="toggleCustomCallField(true)">
+                          <label for="callCustom" class="pill-label">
+                            <i class="bi bi-clock-history"></i>
+                            <span>Custom Window</span>
+                          </label>
+                        </div>
+                      </div>
+                      <div id="customCallWrap" style="display: none; margin-top: 10px;">
+                        <input type="text" id="customCallText" class="recruiter-control"
+                          placeholder="E.g., Mon-Sat 10:00 AM to 6:00 PM only">
+                      </div>
+                    </div>
+
+                    <div class="col-md-6 form-group-wrap">
+                      <label for="skillsRequired">Key Skills Required <span class="req-star">*</span></label>
+                      <input type="text" id="skillsRequired" class="recruiter-control"
+                        placeholder="E.g., Barcode scanning, Packing, Material Sorting, Basic Hindi/Kannada" required>
+                      <span class="field-hint">Comma separated skills or duties</span>
+                    </div>
+
+                    <div class="col-md-6 form-group-wrap">
+                      <label for="jobTimings">Job Timings / Shifts <span class="req-star">*</span></label>
+                      <select id="jobTimings" class="recruiter-control" required>
+                        <option value="">-- Select Shift Timings --</option>
+                        <option value="General Day Shift (9:00 AM - 6:00 PM)">General Day Shift (9:00 AM - 6:00 PM)
+                        </option>
+                        <option value="Morning Shift (6:00 AM - 2:00 PM)">Morning Shift (6:00 AM - 2:00 PM)</option>
+                        <option value="Afternoon/Evening Shift (2:00 PM - 10:00 PM)">Afternoon/Evening Shift (2:00 PM -
+                          10:00 PM)</option>
+                        <option value="Night Shift (10:00 PM - 6:00 AM)">Night Shift (10:00 PM - 6:00 AM)</option>
+                        <option value="Rotational 8-Hour Shifts">Rotational 8-Hour Shifts (3 Shifts)</option>
+                        <option value="12-Hour Security Guard Shift">12-Hour Security Guard Shift</option>
+                        <option value="Flexible Timings">Flexible / Project Timings</option>
+                      </select>
+                    </div>
+
+                    <div class="col-12 form-group-wrap">
+                      <label for="additionalInfo">Additional Personal Details & Role Info</label>
+                      <textarea id="additionalInfo" class="recruiter-control" rows="4"
+                        placeholder="Mention extra perks or requirements: E.g., Free transport provided, lunch facility, safety shoes mandatory, physical fitness criteria, etc."></textarea>
+                    </div>
+                  </div>
+
+                  <div class="wizard-footer">
+                    <button type="button" class="btn-step-prev" onclick="goToStep(1)">
+                      <i class="bi bi-arrow-left"></i> Back
+                    </button>
+                    <button type="button" class="btn-step-next" onclick="goToStep(3)">
+                      Next: Job Type <i class="bi bi-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- STEP 3: Job Type & Details -->
+                <div class="form-step" id="step3">
+                  <div class="step-intro">
+                    <h3><i class="bi bi-briefcase"></i> Step 3: Job Type & Openings</h3>
+                    <p>Specify the job title, employment contract model, location, and total vacancies.</p>
+                  </div>
+
+                  <div class="row g-3">
+                    <div class="col-md-6 form-group-wrap">
+                      <label for="jobTitle">Job Title / Role <span class="req-star">*</span></label>
+                      <input type="text" id="jobTitle" class="recruiter-control"
+                        placeholder="E.g., Warehouse Associate, Security Guard, Housekeeper" required>
+                    </div>
+
+                    <div class="col-md-6 form-group-wrap">
+                      <label for="jobType">Job Type <span class="req-star">*</span></label>
+                      <select id="jobType" class="recruiter-control" required>
+                        <option value="">-- Select Job Type --</option>
+                        <option value="Full-Time">Full-Time (Direct / Permanent)</option>
+                        <option value="Part-Time">Part-Time</option>
+                        <option value="Contract Staffing">Contract Staffing (Monthly Third-Party Payroll)</option>
+                        <option value="Temporary / Daily Staffing">Temporary / Daily Staffing</option>
+                      </select>
+                    </div>
+
+                    <div class="col-md-6 form-group-wrap">
+                      <label for="jobLocation">Job Location / Area in Bangalore <span class="req-star">*</span></label>
+                      <input type="text" id="jobLocation" class="recruiter-control"
+                        placeholder="E.g., Whitefield, Electronic City, Peenya, Bommasandra" required>
+                    </div>
+
+                    <div class="col-md-6 form-group-wrap">
+                      <label for="noOfOpenings">Number of Openings <span class="req-star">*</span></label>
+                      <input type="number" id="noOfOpenings" class="recruiter-control" min="1"
+                        placeholder="E.g., 5, 20, 50" required>
+                      <span class="field-hint">Total candidate count required</span>
+                    </div>
+                  </div>
+
+                  <div class="wizard-footer">
+                    <button type="button" class="btn-step-prev" onclick="goToStep(2)">
+                      <i class="bi bi-arrow-left"></i> Back
+                    </button>
+                    <button type="button" class="btn-step-next" onclick="goToStep(4)">
+                      Next: Candidate Requirements <i class="bi bi-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- STEP 4: Candidate Requirements & Salary -->
+                <div class="form-step" id="step4">
+                  <div class="step-intro">
+                    <h3><i class="bi bi-cash-stack"></i> Step 4: Candidate Requirements & Salary</h3>
+                    <p>Outline required experience levels, monthly in-hand compensation, and bonus structures.</p>
+                  </div>
+
+                  <div class="row g-3">
+                    <div class="col-12 form-group-wrap">
+                      <label>Total Experience of Candidate <span class="req-star">*</span></label>
+                      <div class="pill-options-grid">
+                        <div class="pill-radio-card">
+                          <input type="radio" name="candidateExp" id="expAny" value="Any (Freshers or Experienced)"
+                            checked onchange="toggleMinExpField(false)">
+                          <label for="expAny" class="pill-label">
+                            <i class="bi bi-people"></i>
+                            <span>Any (Fresher or Experienced)</span>
+                          </label>
+                        </div>
+                        <div class="pill-radio-card">
+                          <input type="radio" name="candidateExp" id="expFreshers" value="Freshers Only"
+                            onchange="toggleMinExpField(false)">
+                          <label for="expFreshers" class="pill-label">
+                            <i class="bi bi-mortarboard"></i>
+                            <span>Freshers Only</span>
+                          </label>
+                        </div>
+                        <div class="pill-radio-card">
+                          <input type="radio" name="candidateExp" id="expExperienced" value="Experienced Only"
+                            onchange="toggleMinExpField(true)">
+                          <label for="expExperienced" class="pill-label">
+                            <i class="bi bi-award"></i>
+                            <span>Experienced Only</span>
+                          </label>
+                        </div>
+                      </div>
+
+                      <div id="minExpWrap" style="display: none; margin-top: 14px;">
+                        <label for="minYearsExp" style="font-size: 13px; font-weight: 600; color: #e2e2e2;">Minimum
+                          Years of Experience</label>
+                        <select id="minYearsExp" class="recruiter-control">
+                          <option value="6 Months - 1 Year">6 Months - 1 Year</option>
+                          <option value="1 - 2 Years">1 - 2 Years</option>
+                          <option value="2 - 5 Years">2 - 5 Years</option>
+                          <option value="5+ Years">5+ Years</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6 form-group-wrap">
+                      <label for="salaryMin">Monthly In-Hand Salary (Min ₹) <span class="req-star">*</span></label>
+                      <input type="number" id="salaryMin" class="recruiter-control" placeholder="E.g., 15000" min="5000"
+                        required>
+                      <span class="field-hint">Minimum net monthly take-home</span>
+                    </div>
+
+                    <div class="col-md-6 form-group-wrap">
+                      <label for="salaryMax">Monthly In-Hand Salary (Max ₹) <span class="req-star">*</span></label>
+                      <input type="number" id="salaryMax" class="recruiter-control" placeholder="E.g., 22000" min="5000"
+                        required>
+                      <span class="field-hint">Maximum net monthly take-home</span>
+                    </div>
+
+                    <div class="col-12 form-group-wrap">
+                      <label>Do You Offer Bonus in Addition to Monthly Salary? <span class="req-star">*</span></label>
+                      <div class="pill-options-grid" style="grid-template-columns: repeat(2, 1fr); max-width: 360px;">
+                        <div class="pill-radio-card">
+                          <input type="radio" name="bonusOffer" id="bonusYes" value="Yes"
+                            onchange="toggleBonusField(true)">
+                          <label for="bonusYes" class="pill-label">
+                            <i class="bi bi-check-circle"></i>
+                            <span>Yes, Bonus Offered</span>
+                          </label>
+                        </div>
+                        <div class="pill-radio-card">
+                          <input type="radio" name="bonusOffer" id="bonusNo" value="No" checked
+                            onchange="toggleBonusField(false)">
+                          <label for="bonusNo" class="pill-label">
+                            <i class="bi bi-x-circle"></i>
+                            <span>No Bonus</span>
+                          </label>
+                        </div>
+                      </div>
+
+                      <div id="bonusDetailsWrap" style="display: none; margin-top: 14px;">
+                        <label for="bonusDetails" style="font-size: 13px; font-weight: 600; color: #e2e2e2;">Bonus
+                          Details / Incentives</label>
+                        <input type="text" id="bonusDetails" class="recruiter-control"
+                          placeholder="E.g., ₹1,500 monthly attendance bonus + quarterly festival incentive">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="wizard-footer">
+                    <button type="button" class="btn-step-prev" onclick="goToStep(3)">
+                      <i class="bi bi-arrow-left"></i> Back
+                    </button>
+                    <button type="submit" id="btnSubmitReq" class="btn-submit-req">
+                      <i class="bi bi-send-fill"></i> Submit Requirement
+                    </button>
+                  </div>
+                </div>
+
+              </form>
+
+              <!-- Submission Success State -->
+              <div class="submission-success-card" id="submissionSuccessCard">
+                <div class="success-icon-wrap">
+                  <i class="bi bi-check2"></i>
+                </div>
+                <h3>Requirement Received!</h3>
+                <p>Thank you for submitting your hiring requirement to <strong>Sourceone Management Services</strong>.
+                  Our enterprise recruitment team will review your specifications and connect with you within <strong>2
+                    hours</strong> with matched candidate profiles.</p>
+                <div class="lead-ref-badge" id="leadRefBadge">
+                  Reference ID: <strong id="leadRefNum">SRC-REQ-XXXX</strong>
+                </div>
+                <div>
+                  <button type="button" class="btn-step-next" onclick="resetRecruiterForm()"
+                    style="margin: 0 auto; display: inline-flex;">
+                    <i class="bi bi-plus-circle me-1"></i> Post Another Requirement
+                  </button>
+                  <a href="index.html" class="btn-step-prev ms-3" style="text-decoration: none; display: inline-flex;">
+                    Back to Home
+                  </a>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Recruiter Trust Strip -->
+            <div class="recruiter-trust-strip" data-aos="fade-up" data-aos-delay="200">
+              <div class="row g-4">
+                <div class="col-md-4">
+                  <div class="trust-stat-item">
+                    <div class="trust-stat-icon"><i class="bi bi-lightning-charge-fill"></i></div>
+                    <div class="trust-stat-info">
+                      <h5>24 - 48 Hour Mobilization</h5>
+                      <p>Rapid candidate deployment across all major Bangalore industrial hubs.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="trust-stat-item">
+                    <div class="trust-stat-icon"><i class="bi bi-shield-check"></i></div>
+                    <div class="trust-stat-info">
+                      <h5>Police-Verified Candidates</h5>
+                      <p>100% Aadhaar authenticated & background-checked workforce.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="trust-stat-item">
+                    <div class="trust-stat-icon"><i class="bi bi-patch-check-fill"></i></div>
+                    <div class="trust-stat-info">
+                      <h5>Statutory Compliance</h5>
+                      <p>Full PF, ESIC, labor law and minimum wage adherence guaranteed.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer" class="footer position-relative dark-background">
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Sourceone</strong> <span>All Rights Reserved</span></p>
+      <div class="mt-2">
+        <a href="recruiter.html" class="text-light text-decoration-underline me-3">For Recruiters</a>
+        <a href="jobs.html" class="text-light text-decoration-underline me-3">Job Openings</a>
+        <a href="index.html#contact" class="text-light text-decoration-underline">Contact Us</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+
+  <!-- Main JS File for Header Scroll & Navigation -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- Firebase Legacy Compat SDK (Matches existing project setup) -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+  <!-- Custom Recruiter Multi-Step Form Logic -->
+  <script>
+    // Firebase Config provided by User
+    const firebaseConfig = {
+      apiKey: "AIzaSyAENr32Pk-Sq44tuBPj8c_xXk4qzEa3GJw",
+      authDomain: "login-9338e.firebaseapp.com",
+      databaseURL: "https://login-9338e-default-rtdb.firebaseio.com",
+      projectId: "login-9338e",
+      storageBucket: "login-9338e.appspot.com",
+      messagingSenderId: "649880075591",
+      appId: "1:649880075591:web:a5cd336a03d80e9b656062",
+      measurementId: "G-GT8TRDM62Y",
+    };
+
+    // Initialize Firebase
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
+    const db = firebase.database();
+
+    // Current Active Step
+    let currentStep = 1;
+    const totalSteps = 4;
+
+    document.addEventListener("DOMContentLoaded", () => {
+      // AOS init
+      if (typeof AOS !== "undefined") {
+        AOS.init({ duration: 800, once: true });
+      }
+
+      // Handle Call Window radio change
+      document.querySelectorAll('input[name="callWindow"]').forEach(radio => {
+        radio.addEventListener('change', (e) => {
+          toggleCustomCallField(e.target.value === "Custom Timings");
+        });
+      });
+
+      // Handle Form Submit
+      const form = document.getElementById('recruiterForm');
+      if (form) {
+        form.addEventListener('submit', handleRecruiterFormSubmit);
+      }
+    });
+
+    // Step Navigation Function with Validation
+    function goToStep(targetStep) {
+      if (targetStep > currentStep) {
+        // Validate current step before advancing
+        if (!validateStep(currentStep)) {
+          return;
+        }
+      }
+
+      // Hide all steps
+      for (let i = 1; i <= totalSteps; i++) {
+        const stepEl = document.getElementById('step' + i);
+        const nodeEl = document.getElementById('stepNode' + i);
+        if (stepEl) stepEl.classList.remove('active');
+        if (nodeEl) {
+          nodeEl.classList.remove('active');
+          if (i < targetStep) {
+            nodeEl.classList.add('completed');
+          } else {
+            nodeEl.classList.remove('completed');
+          }
+        }
+      }
+
+      // Activate target step
+      const targetStepEl = document.getElementById('step' + targetStep);
+      const targetNodeEl = document.getElementById('stepNode' + targetStep);
+      if (targetStepEl) targetStepEl.classList.add('active');
+      if (targetNodeEl) targetNodeEl.classList.add('active');
+
+      // Update progress fill line
+      const progressFill = document.getElementById('stepperProgressFill');
+      if (progressFill) {
+        const pct = ((targetStep - 1) / (totalSteps - 1)) * 100;
+        progressFill.style.width = pct + '%';
+      }
+
+      currentStep = targetStep;
+
+      // Smooth scroll to top of wizard card if on mobile
+      const wizardCard = document.querySelector('.wizard-card');
+      if (wizardCard && window.innerWidth < 768) {
+        wizardCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    // Validation per step
+    function validateStep(step) {
+      if (step === 1) {
+        const company = document.getElementById('companyName').value.trim();
+        const contactPerson = document.getElementById('contactPersonName').value.trim();
+        const phone = document.getElementById('contactPhone').value.trim();
+        const email = document.getElementById('contactEmail').value.trim();
+        const profile = document.getElementById('contactProfile').value;
+        const orgSize = document.getElementById('orgSize').value;
+        const urgency = document.getElementById('fillUrgency').value;
+        const frequency = document.getElementById('hiringFrequency').value;
+        const address = document.getElementById('jobAddress').value.trim();
+
+        if (!company) { alert("Please enter your Company Name."); document.getElementById('companyName').focus(); return false; }
+        if (!contactPerson) { alert("Please enter Contact Person Name."); document.getElementById('contactPersonName').focus(); return false; }
+        if (!phone || phone.replace(/\D/g, '').length !== 10) { alert("Please enter a valid 10-digit Phone Number."); document.getElementById('contactPhone').focus(); return false; }
+        if (!email || !email.includes('@')) { alert("Please enter a valid Official Email Address."); document.getElementById('contactEmail').focus(); return false; }
+        if (!profile) { alert("Please select Contact Person Profile/Designation."); document.getElementById('contactProfile').focus(); return false; }
+        if (!orgSize) { alert("Please select your Organization Size."); document.getElementById('orgSize').focus(); return false; }
+        if (!urgency) { alert("Please select how soon you want to fill the position."); document.getElementById('fillUrgency').focus(); return false; }
+        if (!frequency) { alert("Please select hiring frequency."); document.getElementById('hiringFrequency').focus(); return false; }
+        if (!address) { alert("Please enter the Job Address/Work Site Location."); document.getElementById('jobAddress').focus(); return false; }
+        return true;
+      }
+
+      if (step === 2) {
+        const skills = document.getElementById('skillsRequired').value.trim();
+        const timings = document.getElementById('jobTimings').value;
+        const isCustomCall = document.getElementById('callCustom').checked;
+        const customCallText = document.getElementById('customCallText').value.trim();
+
+        if (isCustomCall && !customCallText) {
+          alert("Please specify custom calling timings/window.");
+          document.getElementById('customCallText').focus();
+          return false;
+        }
+        if (!skills) { alert("Please specify Key Skills Required."); document.getElementById('skillsRequired').focus(); return false; }
+        if (!timings) { alert("Please select Job Timings / Shifts."); document.getElementById('jobTimings').focus(); return false; }
+        return true;
+      }
+
+      if (step === 3) {
+        const title = document.getElementById('jobTitle').value.trim();
+        const type = document.getElementById('jobType').value;
+        const location = document.getElementById('jobLocation').value.trim();
+        const openings = parseInt(document.getElementById('noOfOpenings').value, 10);
+
+        if (!title) { alert("Please enter Job Title / Role."); document.getElementById('jobTitle').focus(); return false; }
+        if (!type) { alert("Please select Job Type."); document.getElementById('jobType').focus(); return false; }
+        if (!location) { alert("Please enter Job Location / Area in Bangalore."); document.getElementById('jobLocation').focus(); return false; }
+        if (!openings || openings < 1) { alert("Please enter a valid Number of Openings (at least 1)."); document.getElementById('noOfOpenings').focus(); return false; }
+        return true;
+      }
+
+      return true;
+    }
+
+    // Toggle custom calling hours input
+    function toggleCustomCallField(show) {
+      const wrap = document.getElementById('customCallWrap');
+      if (wrap) wrap.style.display = show ? 'block' : 'none';
+    }
+
+    // Toggle minimum experience dropdown
+    function toggleMinExpField(show) {
+      const wrap = document.getElementById('minExpWrap');
+      if (wrap) wrap.style.display = show ? 'block' : 'none';
+    }
+
+    // Toggle bonus details field
+    function toggleBonusField(show) {
+      const wrap = document.getElementById('bonusDetailsWrap');
+      if (wrap) wrap.style.display = show ? 'block' : 'none';
+    }
+
+    // Handle Full Form Submission
+    async function handleRecruiterFormSubmit(e) {
+      e.preventDefault();
+
+      // Final step validation
+      const salaryMin = parseInt(document.getElementById('salaryMin').value, 10);
+      const salaryMax = parseInt(document.getElementById('salaryMax').value, 10);
+      const isBonusYes = document.getElementById('bonusYes').checked;
+      const bonusDetails = document.getElementById('bonusDetails').value.trim();
+
+      if (isNaN(salaryMin) || salaryMin < 1000) {
+        alert("Please enter a valid Minimum Monthly In-Hand Salary.");
+        document.getElementById('salaryMin').focus();
+        return;
+      }
+      if (isNaN(salaryMax) || salaryMax < salaryMin) {
+        alert("Maximum Salary must be equal to or greater than Minimum Salary.");
+        document.getElementById('salaryMax').focus();
+        return;
+      }
+      if (isBonusYes && !bonusDetails) {
+        alert("Please provide brief details of the bonus offered.");
+        document.getElementById('bonusDetails').focus();
+        return;
+      }
+
+      // Collect complete payload
+      const candidateExpRadio = document.querySelector('input[name="candidateExp"]:checked');
+      let candidateExp = candidateExpRadio ? candidateExpRadio.value : 'Any';
+      if (candidateExp === 'Experienced Only') {
+        const minYears = document.getElementById('minYearsExp').value;
+        candidateExp += ` (${minYears})`;
+      }
+
+      const callWindowRadio = document.querySelector('input[name="callWindow"]:checked');
+      let callWindow = callWindowRadio ? callWindowRadio.value : 'Everyday';
+      if (callWindow === 'Custom Timings') {
+        callWindow += `: ${document.getElementById('customCallText').value.trim()}`;
+      }
+
+      const cleanPhone = document.getElementById('contactPhone').value.replace(/\D/g, '').slice(-10);
+
+      const payload = {
+        // Step 1: Company Details
+        companyName: document.getElementById('companyName').value.trim(),
+        contactPersonName: document.getElementById('contactPersonName').value.trim(),
+        contactPhone: cleanPhone,
+        contactEmail: document.getElementById('contactEmail').value.trim(),
+        contactProfile: document.getElementById('contactProfile').value,
+        organizationSize: document.getElementById('orgSize').value,
+        fillUrgency: document.getElementById('fillUrgency').value,
+        hiringFrequency: document.getElementById('hiringFrequency').value,
+        jobAddress: document.getElementById('jobAddress').value.trim(),
+
+        // Step 2: Job Description
+        candidateCallWindow: callWindow,
+        skillsRequired: document.getElementById('skillsRequired').value.trim(),
+        jobTimings: document.getElementById('jobTimings').value,
+        additionalInfo: document.getElementById('additionalInfo').value.trim() || 'N/A',
+
+        // Step 3: Job Type & Openings
+        jobTitle: document.getElementById('jobTitle').value.trim(),
+        jobType: document.getElementById('jobType').value,
+        jobLocation: document.getElementById('jobLocation').value.trim(),
+        numberOfOpenings: parseInt(document.getElementById('noOfOpenings').value, 10),
+
+        // Step 4: Candidate Requirements & Salary
+        candidateExperience: candidateExp,
+        monthlySalaryMin: salaryMin,
+        monthlySalaryMax: salaryMax,
+        bonusOffered: isBonusYes ? `Yes (${bonusDetails})` : 'No',
+
+        // Metadata
+        status: "new_lead",
+        source: "website_recruiter_portal",
+        timestamp: firebase.database.ServerValue.TIMESTAMP
+      };
+
+      const submitBtn = document.getElementById('btnSubmitReq');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> Submitting...';
+
+      try {
+        // Save to Firebase under recruiter_leads
+        const leadRef = db.ref("recruiter_leads").push();
+        await leadRef.set(payload);
+
+        // Generate friendly Reference ID
+        const refId = "SRC-" + Math.floor(100000 + Math.random() * 900000);
+        document.getElementById('leadRefNum').textContent = refId;
+
+        // Show Success screen
+        document.getElementById('recruiterForm').style.display = 'none';
+        document.getElementById('stepperHeader').style.display = 'none';
+        document.getElementById('submissionSuccessCard').style.display = 'block';
+
+      } catch (err) {
+        console.error("Failed to submit recruiter requirement:", err);
+        alert("An error occurred while saving your requirement. Please check your connection or contact us directly at +91-9741965944.");
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="bi bi-send-fill"></i> Submit Requirement';
+      }
+    }
+
+    // Reset Form for another posting
+    function resetRecruiterForm() {
+      document.getElementById('recruiterForm').reset();
+      document.getElementById('recruiterForm').style.display = 'block';
+      document.getElementById('stepperHeader').style.display = 'flex';
+      document.getElementById('submissionSuccessCard').style.display = 'none';
+      toggleCustomCallField(false);
+      toggleMinExpField(false);
+      toggleBonusField(false);
+      goToStep(1);
+      const submitBtn = document.getElementById('btnSubmitReq');
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="bi bi-send-fill"></i> Submit Requirement';
+      }
+    }
+  </script>
+
+  <!-- Prevent source inspection shortcuts -->
+  <script>
+    document.addEventListener("contextmenu", function (e) { e.preventDefault(); });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "F12") { e.preventDefault(); return false; }
+      if (e.ctrlKey && e.shiftKey && ["I", "J", "C", "K"].includes(e.key.toUpperCase())) { e.preventDefault(); return false; }
+      if (e.ctrlKey && e.key.toUpperCase() === "U") { e.preventDefault(); return false; }
+      if (e.ctrlKey && e.key.toUpperCase() === "S") { e.preventDefault(); return false; }
+      if (e.ctrlKey && e.key.toUpperCase() === "P") { e.preventDefault(); return false; }
+    });
+  </script>
+
+</body>
+
+</html>

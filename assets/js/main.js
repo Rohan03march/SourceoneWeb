@@ -15,8 +15,9 @@
   function toggleScrolled() {
     const selectBody = document.querySelector('body');
     const selectHeader = document.querySelector('#header');
+    if (!selectHeader) return;
     if (!selectHeader.classList.contains('scroll-up-sticky') && !selectHeader.classList.contains('sticky-top') && !selectHeader.classList.contains('fixed-top')) return;
-    window.scrollY > 100 ? selectBody.classList.add('scrolled') : selectBody.classList.remove('scrolled');
+    window.scrollY > 30 ? selectBody.classList.add('scrolled') : selectBody.classList.remove('scrolled');
   }
 
   document.addEventListener('scroll', toggleScrolled);
@@ -29,10 +30,14 @@
 
   function mobileNavToogle() {
     document.querySelector('body').classList.toggle('mobile-nav-active');
-    mobileNavToggleBtn.classList.toggle('bi-list');
-    mobileNavToggleBtn.classList.toggle('bi-x');
+    if (mobileNavToggleBtn) {
+      mobileNavToggleBtn.classList.toggle('bi-list');
+      mobileNavToggleBtn.classList.toggle('bi-x');
+    }
   }
-  mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
+  if (mobileNavToggleBtn) {
+    mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
+  }
 
   /**
    * Hide mobile nav on same-page/hash links
@@ -128,9 +133,9 @@
   /**
    * Initiate glightbox
    */
-  const glightbox = GLightbox({
+  const glightbox = (typeof GLightbox !== 'undefined') ? GLightbox({
     selector: '.glightbox'
-  });
+  }) : null;
 
   /**
    * Init isotope layout and filters
@@ -233,6 +238,9 @@
      */
 
     // 🔑 Initialize EmailJS (PUBLIC KEY ONLY)
+    if (typeof emailjs === 'undefined') {
+      return;
+    }
     emailjs.init("bQeh4P_XaN0fbDxXr");
 
     const form = document.getElementById("contact-form");

@@ -264,6 +264,163 @@
       color: #fff;
     }
 
+    .job-card-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      width: 100%;
+    }
+
+    .job-card-actions .btn-apply-now {
+      flex: 1;
+    }
+
+    .btn-app-card {
+      background: #0b0b0d;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-weight: 600;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      white-space: nowrap;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn-app-card:hover {
+      background: #191920;
+      border-color: #2ecc71;
+      color: #2ecc71;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(46, 204, 113, 0.25);
+    }
+
+    .job-badge.location-count-badge {
+      background: rgba(255, 255, 255, 0.08);
+      color: #e0e0e0;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .job-badge.app-featured-badge {
+      background: rgba(46, 204, 113, 0.12);
+      color: #2ecc71;
+      border: 1px solid rgba(46, 204, 113, 0.3);
+    }
+
+    /* Picker & Packer App Banner */
+    .picker-app-banner {
+      background: linear-gradient(135deg, rgba(201, 54, 96, 0.15) 0%, rgba(20, 20, 24, 0.95) 60%, rgba(30, 30, 36, 0.95) 100%);
+      border: 1px solid rgba(201, 54, 96, 0.35);
+      border-radius: 16px;
+      padding: 22px 28px;
+      margin-bottom: 28px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .picker-app-banner::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle, rgba(201, 54, 96, 0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .app-banner-icon {
+      width: 52px;
+      height: 52px;
+      background: rgba(201, 54, 96, 0.2);
+      border: 1px solid rgba(201, 54, 96, 0.4);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      color: var(--accent-color);
+      flex-shrink: 0;
+    }
+
+    .app-banner-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: #2ecc71;
+      margin-bottom: 4px;
+    }
+
+    .app-banner-title {
+      font-size: 19px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .app-banner-desc {
+      font-size: 13px;
+      color: #b8b8b8;
+      line-height: 1.5;
+      margin-bottom: 0;
+    }
+
+    .btn-playstore-large {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #000000;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      padding: 8px 18px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    .btn-playstore-large:hover {
+      background: #111115;
+      border-color: var(--accent-color);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(201, 54, 96, 0.25);
+      color: #ffffff;
+    }
+
+    .btn-playstore-large .play-icon {
+      font-size: 26px;
+      color: #2ecc71;
+    }
+
+    .btn-playstore-large .btn-text-wrap {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .btn-playstore-large .btn-subtext {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      color: #a0a0a0;
+      text-transform: uppercase;
+    }
+
+    .btn-playstore-large .btn-maintext {
+      font-size: 15px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.3px;
+    }
+
     /* Spinner */
     .spinner-container {
       display: flex;
@@ -477,16 +634,19 @@
               <li><a href="index.html#team">Our Team</a></li>
               <li><a href="index.html#contact">Contact</a></li>
               <li><a href="jobs.html" class="active">Jobs</a></li>
+              <li><a href="https://play.google.com/store/apps/details?id=com.sourceone.app&pcampaignid=web_share" target="_blank" rel="noopener noreferrer"><i class="bi bi-google-play me-1 text-success"></i> Picker & Packer App</a></li>
               <!-- Mobile Drawer Quote Button -->
               <li class="mobile-drawer-quote-li d-xl-none mt-2 pt-2 border-top border-secondary border-opacity-25">
-                <a class="btn-drawer-quote" href="index.html#contact"><i class="bi bi-chat-quote-fill"></i> Get a Free Quote</a>
+                <a class="btn-drawer-quote" href="index.html#contact"><i class="bi bi-chat-quote-fill"></i> Get a Free
+                  Quote</a>
               </li>
             </ul>
             <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
           </nav>
 
           <a class="btn-nav-quote" href="index.html#contact">
-            <i class="bi bi-chat-quote-fill"></i> <span class="btn-quote-text"><span class="d-none d-sm-inline">Get a </span>Quote</span>
+            <i class="bi bi-chat-quote-fill"></i> <span class="btn-quote-text"><span class="d-none d-sm-inline">Get a
+              </span>Quote</span>
           </a>
         </div>
       </div>
@@ -513,8 +673,10 @@
           <div class="row g-3 align-items-center">
             <div class="col-lg-4 col-md-6">
               <div style="position: relative;">
-                <i class="bi bi-search" style="position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--accent-color); font-size: 14px;"></i>
-                <input type="text" id="searchInput" class="filter-control" style="padding-left: 38px;" placeholder="Search position or keywords...">
+                <i class="bi bi-search"
+                  style="position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--accent-color); font-size: 14px;"></i>
+                <input type="text" id="searchInput" class="filter-control" style="padding-left: 38px;"
+                  placeholder="Search position or keywords...">
               </div>
             </div>
             <div class="col-lg-3 col-md-6">
@@ -544,6 +706,33 @@
     <section class="jobs-section">
       <div class="container">
 
+        <!-- Picker & Packer Mobile App Card -->
+        <div class="picker-app-banner" data-aos="fade-up">
+          <div class="row align-items-center g-3">
+            <div class="col-lg-8 col-md-7">
+              <div class="d-flex align-items-center gap-3">
+                <div class="app-banner-icon">
+                  <i class="bi bi-google-play"></i>
+                </div>
+                <div>
+                  <span class="app-banner-tag"><i class="bi bi-check-circle-fill me-1"></i> Official Mobile App</span>
+                  <h4 class="app-banner-title">Applying for Picker & Packer Roles?</h4>
+                  <p class="app-banner-desc">Download the official <strong>SourceOne App</strong> on Google Play Store for instant verification, digital onboarding, and shift tracking.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-5 text-md-end text-start">
+              <a href="https://play.google.com/store/apps/details?id=com.sourceone.app&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" class="btn-playstore-large">
+                <i class="bi bi-google-play play-icon"></i>
+                <div class="btn-text-wrap">
+                  <span class="btn-subtext">GET IT ON</span>
+                  <span class="btn-maintext">Google Play</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
         <!-- Loading State -->
         <div id="loadingSpinner" class="spinner-container">
           <div class="premium-spinner"></div>
@@ -562,7 +751,8 @@
           <h3 style="font-weight: 700; margin-bottom: 8px;">No Openings Found</h3>
           <p style="color: var(--default-color); max-width: 500px; margin: 0 auto 20px;">There are no current openings
             matching your search criteria. Try modifying your filters or check back later.</p>
-          <button type="button" class="btn-modal-cancel" onclick="resetFilters()" style="display: inline-flex; align-items: center; gap: 6px;">
+          <button type="button" class="btn-modal-cancel" onclick="resetFilters()"
+            style="display: inline-flex; align-items: center; gap: 6px;">
             <i class="bi bi-arrow-counterclockwise"></i> Clear Filters
           </button>
         </div>
@@ -581,6 +771,12 @@
   <footer id="footer" class="footer position-relative dark-background">
     <div class="container copyright text-center mt-4">
       <p>© <span>Copyright</span> <strong class="px-1 sitename">Sourceone</strong> <span>All Rights Reserved</span></p>
+      <div class="mt-2">
+        <a href="https://play.google.com/store/apps/details?id=com.sourceone.app&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" class="text-light text-decoration-underline me-3"><i class="bi bi-google-play me-1"></i> Picker & Packer App</a>
+        <a href="privacy-policy.html" class="text-light text-decoration-underline me-3">Privacy Policy</a>
+        <a href="delete-account.html" class="text-light text-decoration-underline me-3">Account Deletion</a>
+        <a href="index.html#contact" class="text-light text-decoration-underline">Contact Us</a>
+      </div>
     </div>
   </footer>
 
@@ -616,7 +812,8 @@
                 <option value="Full-Time">Full-Time</option>
                 <option value="Part-Time">Part-Time</option>
               </select>
-              <small id="modalJobTypeHelp" style="display: none; color: #9da3af; font-size: 11px; margin-top: 5px;">This position offers both options. Please choose one.</small>
+              <small id="modalJobTypeHelp" style="display: none; color: #9da3af; font-size: 11px; margin-top: 5px;">This
+                position offers both options. Please choose one.</small>
             </div>
           </div>
 
@@ -641,9 +838,19 @@
                 <option value="Other">Others</option>
               </select>
             </div>
-            <div class="col-md-6 form-group">
-              <label for="applicantLocation">Preferred Location</label>
+            <div class="col-md-6 form-group" id="modalLocationContainer">
+              <label for="applicantLocation" id="modalLocationLabel">Preferred Location</label>
               <input type="text" id="applicantLocation" class="filter-control readonly-field" readonly required>
+              <select id="applicantLocationSelect" class="filter-control" style="display: none;">
+                <option value="">-- Select Preferred Location --</option>
+              </select>
+              <small id="modalLocationHelp"
+                style="display: none; color: #9da3af; font-size: 11px; margin-top: 5px;">This position is available at
+                multiple locations. Please choose your preferred one.</small>
+              <select id="applicantLocationSelect" class="filter-control" style="display: none;">
+                <option value="">-- Select Preferred Location --</option>
+              </select>
+              <small id="modalLocationHelp" style="display: none; color: #9da3af; font-size: 11px; margin-top: 5px;">This position is available at multiple locations. Please choose your preferred one.</small>
             </div>
           </div>
         </div>
@@ -710,7 +917,7 @@
       if (resetBtn) resetBtn.addEventListener('click', resetFilters);
     });
 
-    // Fetch jobs from Firebase Realtime DB
+    // Fetch jobs from Firebase Realtime DB and group identical positions with multiple locations
     function loadJobs() {
       const loadingSpinner = document.getElementById('loadingSpinner');
       const jobsList = document.getElementById('jobsList');
@@ -724,14 +931,120 @@
 
       db.ref("jobs").once("value")
         .then((snapshot) => {
-          allJobs = [];
+          const rawJobs = [];
 
           if (snapshot.exists()) {
             snapshot.forEach((childSnapshot) => {
               const job = { id: childSnapshot.key, ...childSnapshot.val() };
-              allJobs.push(job);
+              rawJobs.push(job);
             });
           }
+
+          // Helper: parse individual locations from a location string
+          function parseLocations(locStr) {
+            if (!locStr) return [];
+            return String(locStr)
+              .split(/[,/|;]+/)
+              .map(s => s.trim())
+              .filter(s => s.length > 0);
+          }
+
+          // Helper: normalize position key for grouping
+          function getPositionKey(pos) {
+            if (!pos) return '';
+            return String(pos)
+              .trim()
+              .toLowerCase()
+              .replace(/&/g, 'and')
+              .replace(/\s+/g, ' ');
+          }
+
+          // Group jobs by normalized position key so multiple locations produce ONE card
+          const groups = new Map();
+
+          rawJobs.forEach(job => {
+            const posName = (job.position || '').trim();
+            if (!posName) return;
+
+            // Do not give picker packer card (handled via official mobile app)
+            if (/picker|packer/i.test(posName)) return;
+
+            const posKey = getPositionKey(posName);
+            const locList = parseLocations(job.location);
+
+            if (!groups.has(posKey)) {
+              groups.set(posKey, {
+                id: job.id,
+                allIds: [job.id],
+                position: posName,
+                locationsMap: new Map(), // lowerCase -> originalCase
+                jobTypes: new Set(),
+                requirements: job.requirements || '',
+                createdAt: job.createdAt || 0
+              });
+            }
+
+            const group = groups.get(posKey);
+            group.allIds.push(job.id);
+
+            // Accumulate unique locations
+            locList.forEach(loc => {
+              const lowerLoc = loc.toLowerCase();
+              if (!group.locationsMap.has(lowerLoc)) {
+                group.locationsMap.set(lowerLoc, loc);
+              }
+            });
+
+            // Accumulate jobTypes
+            if (job.jobType) {
+              group.jobTypes.add(String(job.jobType).trim());
+            }
+
+            // Keep longest or latest requirements
+            if ((job.requirements || '').length > (group.requirements || '').length) {
+              group.requirements = job.requirements;
+            }
+
+            // Keep highest createdAt timestamp and newest position title casing
+            if ((job.createdAt || 0) > group.createdAt) {
+              group.createdAt = job.createdAt || 0;
+              group.position = posName;
+            }
+          });
+
+          // Build consolidated jobs list
+          allJobs = [];
+          groups.forEach(group => {
+            const locations = Array.from(group.locationsMap.values());
+
+            // Determine consolidated jobType
+            let consolidatedJobType = 'Full-Time';
+            const typesArr = Array.from(group.jobTypes);
+            const hasFull = typesArr.some(t => t.toLowerCase().includes('full'));
+            const hasPart = typesArr.some(t => t.toLowerCase().includes('part'));
+            const hasBoth = typesArr.some(t => t.toLowerCase() === 'both');
+
+            if (hasBoth || (hasFull && hasPart)) {
+              consolidatedJobType = 'both';
+            } else if (hasPart) {
+              consolidatedJobType = 'Part-Time';
+            } else if (hasFull) {
+              consolidatedJobType = 'Full-Time';
+            } else if (typesArr.length > 0) {
+              consolidatedJobType = typesArr[0];
+            }
+
+            allJobs.push({
+              id: group.id,
+              allIds: group.allIds,
+              position: group.position,
+              locations: locations.length > 0 ? locations : ['Bangalore'],
+              location: locations.length > 0 ? locations.join(', ') : 'Bangalore',
+              jobType: consolidatedJobType,
+              requirements: group.requirements,
+              createdAt: group.createdAt
+            });
+          });
 
           // Sort jobs by createdAt desc
           allJobs.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
@@ -751,7 +1064,7 @@
         });
     }
 
-    // Populate locations dynamically from loaded jobs
+    // Populate locations dynamically from loaded jobs (individual unique locations)
     function populateLocationFilter() {
       const locSelect = document.getElementById('locationFilter');
       if (!locSelect) return;
@@ -759,9 +1072,11 @@
       const currentVal = locSelect.value;
       const locations = new Set();
       allJobs.forEach(job => {
-        if (job.location && job.location.trim()) {
-          locations.add(job.location.trim());
-        }
+        (job.locations || []).forEach(loc => {
+          if (loc && loc.trim()) {
+            locations.add(loc.trim());
+          }
+        });
       });
 
       const sortedLocs = Array.from(locations).sort((a, b) => a.localeCompare(b));
@@ -785,18 +1100,22 @@
 
       const filtered = allJobs.filter(job => {
         const position = (job.position || '').toLowerCase();
-        const location = (job.location || '').toLowerCase();
         const requirements = (job.requirements || '').toLowerCase();
         const jobType = (job.jobType || '').toLowerCase();
+        const locations = (job.locations || []).map(l => l.toLowerCase());
+        const locationStr = (job.location || '').toLowerCase();
 
-        // Search text matching across title, location, requirements
+        // Search text matching across title, locations, requirements
         const matchesSearch = !searchTerm ||
           position.includes(searchTerm) ||
-          location.includes(searchTerm) ||
+          locationStr.includes(searchTerm) ||
+          locations.some(l => l.includes(searchTerm)) ||
           requirements.includes(searchTerm);
 
-        // Location matching
-        const matchesLocation = !selectedLocation || location === selectedLocation;
+        // Location matching: matches if any of the position's locations match selected location
+        const matchesLocation = !selectedLocation ||
+          locations.includes(selectedLocation) ||
+          locationStr.includes(selectedLocation);
 
         // Job type matching
         let matchesType = true;
@@ -825,7 +1144,7 @@
       filterJobs();
     }
 
-    // Render cards using grid layout
+    // Render cards using grid layout (1 card per position)
     function renderJobs(jobsToRender) {
       const jobsList = document.getElementById('jobsList');
       const emptyState = document.getElementById('emptyState');
@@ -852,7 +1171,12 @@
       jobsList.style.display = 'grid';
       jobsList.innerHTML = '';
 
+      const playStoreAppUrl = 'https://play.google.com/store/apps/details?id=com.sourceone.app&pcampaignid=web_share';
+
       list.forEach(job => {
+        // Do not give picker packer card (handled via official mobile app)
+        if (/picker|packer/i.test(job.position || '')) return;
+
         const card = document.createElement('div');
         card.className = 'job-card';
 
@@ -879,19 +1203,27 @@
           displayType = 'Contract';
         }
 
+        const hasMultipleLocations = (job.locations && job.locations.length > 1);
+        const encodedLocations = encodeURIComponent(JSON.stringify(job.locations || []));
+        const encodedPos = encodeURIComponent(job.position || '');
+        const encodedType = encodeURIComponent(rawType || '');
+
         // Render card content
         card.innerHTML = `
           <div>
-            <span class="job-badge ${badgeClass}">${displayType}</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-2">
+              <span class="job-badge ${badgeClass}">${displayType}</span>
+              ${hasMultipleLocations ? `<span class="job-badge location-count-badge"><i class="bi bi-geo-alt-fill me-1"></i>${job.locations.length} Locations</span>` : ''}
+            </div>
             <h4 class="job-card-title">${job.position || 'N/A'}</h4>
             <div class="job-card-meta">
-              <span><i class="bi bi-geo-alt"></i> ${job.location || 'N/A'}</span>
+              <span title="${job.location || 'N/A'}"><i class="bi bi-geo-alt"></i> ${job.location || 'N/A'}</span>
               <span><i class="bi bi-clock"></i> ${displayType}</span>
             </div>
             <p class="job-card-req">${job.requirements || ''}</p>
           </div>
-          <div>
-            <button class="btn-apply-now" onclick="openApplyModal('${job.id}', '${encodeURIComponent(job.position || '')}', '${encodeURIComponent(rawType || '')}', '${encodeURIComponent(job.location || '')}')">
+          <div class="job-card-actions">
+            <button class="btn-apply-now" onclick="openApplyModal('${job.id}', '${encodedPos}', '${encodedType}', '${encodedLocations}')">
               Apply Now <i class="bi bi-arrow-right"></i>
             </button>
           </div>
@@ -900,16 +1232,65 @@
       });
     }
 
-    // Modal triggers
-    function openApplyModal(jobId, position, jobType, location) {
+    // Modal triggers with multiple preferred locations support
+    function openApplyModal(jobId, position, jobType, locationsParam) {
       const decodedPos = decodeURIComponent(position || '');
       const decodedType = decodeURIComponent(jobType || '');
-      const decodedLoc = decodeURIComponent(location || '');
+      let decodedLocs = [];
+      try {
+        decodedLocs = JSON.parse(decodeURIComponent(locationsParam || '[]'));
+      } catch (e) {
+        const raw = decodeURIComponent(locationsParam || '');
+        decodedLocs = raw ? raw.split(/[,/|;]+/).map(s => s.trim()).filter(Boolean) : [];
+      }
 
       document.getElementById('modalJobId').value = jobId;
       document.getElementById('modalPosition').value = decodedPos;
-      document.getElementById('applicantLocation').value = decodedLoc;
 
+      // Handle Preferred Location selection (dropdown if multiple locations, readonly input if single)
+      const locInput = document.getElementById('applicantLocation');
+      const locSelect = document.getElementById('applicantLocationSelect');
+      const locHelp = document.getElementById('modalLocationHelp');
+      const locLabel = document.getElementById('modalLocationLabel');
+
+      // Check if user currently has a location selected in the filter
+      const activeFilterLoc = (document.getElementById('locationFilter')?.value || '').trim().toLowerCase();
+
+      if (decodedLocs.length > 1) {
+        locInput.style.display = 'none';
+        locInput.removeAttribute('required');
+        locInput.value = '';
+
+        locSelect.innerHTML = '<option value="">-- Select Preferred Location --</option>';
+        decodedLocs.forEach(loc => {
+          const opt = document.createElement('option');
+          opt.value = loc;
+          opt.textContent = loc;
+          if (activeFilterLoc && loc.toLowerCase() === activeFilterLoc) {
+            opt.selected = true;
+          }
+          locSelect.appendChild(opt);
+        });
+
+        locSelect.style.display = 'block';
+        locSelect.setAttribute('required', 'required');
+
+        if (locHelp) locHelp.style.display = 'block';
+        if (locLabel) locLabel.innerHTML = 'Preferred Location <span style="color: var(--accent-color);">*</span>';
+      } else {
+        locSelect.style.display = 'none';
+        locSelect.removeAttribute('required');
+        locSelect.value = '';
+
+        locInput.style.display = 'block';
+        locInput.setAttribute('required', 'required');
+        locInput.value = decodedLocs[0] || '';
+
+        if (locHelp) locHelp.style.display = 'none';
+        if (locLabel) locLabel.textContent = 'Preferred Location';
+      }
+
+      // Handle Job Type selection
       const normType = decodedType.toLowerCase().trim();
       const isBoth = normType === 'both' || (normType.includes('full') && normType.includes('part'));
 
@@ -954,6 +1335,8 @@
       document.getElementById('applyForm').reset();
       const typeSelect = document.getElementById('modalJobTypeSelect');
       if (typeSelect) typeSelect.value = '';
+      const locSelect = document.getElementById('applicantLocationSelect');
+      if (locSelect) locSelect.value = '';
     }
 
     // Phone normalization (matches admin system)
@@ -968,9 +1351,25 @@
       const name = document.getElementById('applicantName').value.trim();
       const rawPhone = document.getElementById('applicantPhone').value.trim();
       const gender = document.getElementById('applicantGender').value;
-      const location = document.getElementById('applicantLocation').value.trim();
       const position = document.getElementById('modalPosition').value;
 
+      // Location resolution (either from dropdown when multiple locations, or from input)
+      const locSelect = document.getElementById('applicantLocationSelect');
+      const isLocSelectVisible = locSelect && locSelect.style.display !== 'none';
+      let location = '';
+
+      if (isLocSelectVisible) {
+        location = locSelect.value.trim();
+        if (!location) {
+          alert("Please select your preferred location.");
+          locSelect.focus();
+          return;
+        }
+      } else {
+        location = document.getElementById('applicantLocation').value.trim();
+      }
+
+      // Job Type resolution
       const typeSelect = document.getElementById('modalJobTypeSelect');
       const isSelectVisible = typeSelect && typeSelect.style.display !== 'none';
       let jobType = '';
@@ -1021,7 +1420,12 @@
             timestamp: firebase.database.ServerValue.TIMESTAMP
           });
 
-          alert("Application submitted successfully! Our team will contact you soon.");
+          const isPickerPacker = /picker|packer/i.test(position || '');
+          if (isPickerPacker) {
+            alert("Application submitted successfully! Our team will contact you soon.\n\nTip: You can also download the SourceOne Picker & Packer App from Google Play Store for faster onboarding!");
+          } else {
+            alert("Application submitted successfully! Our team will contact you soon.");
+          }
           closeApplyModal();
         }
       } catch (err) {

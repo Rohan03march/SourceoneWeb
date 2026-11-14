@@ -1310,6 +1310,12 @@ section,
   color: #ffffff;
 }
 
+.hero .hero-btns-sub {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
 /* Hero Quote Button (Sleek, Lightweight & Modern) */
 .hero .btn-hero-quote {
   display: inline-flex;
@@ -1476,8 +1482,7 @@ section,
     width: 100%;
   }
 
-  .hero .btn-hero-quote,
-  .hero .btn-hero-secondary {
+  .hero .btn-hero-quote {
     width: 100%;
     display: flex;
     align-items: center;
@@ -1489,19 +1494,34 @@ section,
     letter-spacing: 0.2px;
     border-radius: 50px;
     box-sizing: border-box;
-  }
-
-  .hero .btn-hero-quote {
     background: var(--accent-color);
     color: #ffffff;
     border: 1px solid rgba(255, 255, 255, 0.22);
     box-shadow: 0 4px 14px rgba(201, 54, 96, 0.35);
   }
 
+  .hero .hero-btns-sub {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+  }
+
   .hero .btn-hero-secondary {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 11px 10px;
+    font-size: 13.5px;
+    font-weight: 500;
+    border-radius: 50px;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.16);
     color: rgba(255, 255, 255, 0.95);
+    white-space: nowrap;
+    box-sizing: border-box;
   }
 
   .hero .hero-stats-strip {

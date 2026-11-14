@@ -1463,32 +1463,27 @@ section,
 
   .hero .hero-btns {
     display: flex;
-    flex-direction: column;
-    align-items: stretch;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
     gap: 10px;
-    margin-top: 22px;
-    width: 100%;
-    max-width: 320px;
+    margin-top: 20px;
   }
 
   .hero .btn-hero-quote {
-    width: 100%;
-    justify-content: center;
-    text-align: center;
-    padding: 12px 22px;
-    font-size: 14.5px;
+    width: auto;
+    padding: 9px 18px;
+    font-size: 13.5px;
     font-weight: 500;
     letter-spacing: 0.2px;
     border-radius: 50px;
-    box-shadow: 0 4px 14px rgba(201, 54, 96, 0.35);
+    box-shadow: 0 2px 8px rgba(201, 54, 96, 0.25);
   }
 
   .hero .btn-hero-secondary {
-    width: 100%;
-    justify-content: center;
-    text-align: center;
-    padding: 11px 22px;
-    font-size: 14px;
+    width: auto;
+    padding: 9px 16px;
+    font-size: 13.5px;
     font-weight: 500;
     border-radius: 50px;
     background: rgba(255, 255, 255, 0.05);

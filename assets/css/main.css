@@ -1469,35 +1469,39 @@ section,
 
   .hero .hero-btns {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: stretch;
     gap: 10px;
-    margin-top: 20px;
+    margin-top: 22px;
     width: 100%;
-    margin-left: auto;
-    margin-right: auto;
   }
 
-  .hero .btn-hero-quote {
-    width: auto;
-    padding: 9px 18px;
-    font-size: 13.5px;
+  .hero .btn-hero-quote,
+  .hero .btn-hero-secondary {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 12px 20px;
+    font-size: 14.5px;
     font-weight: 500;
     letter-spacing: 0.2px;
     border-radius: 50px;
-    box-shadow: 0 2px 8px rgba(201, 54, 96, 0.25);
+    box-sizing: border-box;
+  }
+
+  .hero .btn-hero-quote {
+    background: var(--accent-color);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    box-shadow: 0 4px 14px rgba(201, 54, 96, 0.35);
   }
 
   .hero .btn-hero-secondary {
-    width: auto;
-    padding: 9px 16px;
-    font-size: 13.5px;
-    font-weight: 500;
-    border-radius: 50px;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.16);
+    color: rgba(255, 255, 255, 0.95);
   }
 
   .hero .hero-stats-strip {

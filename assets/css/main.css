@@ -60,9 +60,34 @@
 }
 
 
-/* Smooth scroll */
-:root {
-  scroll-behavior: smooth;
+/* Smooth Scroll Base */
+html,
+body {
+  scroll-behavior: auto !important;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Glowing Top Reading Progress Bar */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent-color) 0%, #ff5e87 50%, #2ecc71 100%);
+  box-shadow: 0 0 12px rgba(201, 54, 96, 0.8), 0 0 4px rgba(46, 204, 113, 0.5);
+  z-index: 100001;
+  pointer-events: none;
+  transition: width 0.08s ease-out;
 }
 
 /*--------------------------------------------------------------
@@ -1229,16 +1254,20 @@ section,
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
-.hero img {
+.hero img,
+.hero .hero-parallax-bg {
   position: absolute;
-  inset: 0;
+  top: -15%;
+  left: 0;
   display: block;
   width: 100%;
-  height: 100%;
+  height: 130%;
   object-fit: cover;
   z-index: 1;
+  will-change: transform;
 }
 
 .hero:before {
@@ -3434,5 +3463,297 @@ body {
   .contact .btn-action-primary,
   .contact .btn-action-outline {
     width: 100%;
+  }
+}
+
+/*--------------------------------------------------------------
+# Parallax Engine & 3D Interactive Physics
+--------------------------------------------------------------*/
+.hero-parallax-bg-wrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-parallax-content {
+  position: relative;
+  z-index: 3;
+  will-change: transform, opacity;
+}
+
+/* Ambient Floating Glow Spheres for Atmospheric Depth */
+.hero-ambient-orb,
+.section-ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(95px);
+  -webkit-filter: blur(95px);
+  will-change: transform;
+  opacity: 0.28;
+  z-index: 1;
+}
+
+.hero-orb-1 {
+  top: 15%;
+  right: 5%;
+  width: 440px;
+  height: 440px;
+  background: radial-gradient(circle, rgba(201, 54, 96, 0.65) 0%, rgba(201, 54, 96, 0) 70%);
+}
+
+.hero-orb-2 {
+  bottom: 8%;
+  left: -5%;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(138, 43, 226, 0.45) 0%, rgba(138, 43, 226, 0) 70%);
+}
+
+.about-orb-1 {
+  top: 25%;
+  left: -8%;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(201, 54, 96, 0.45) 0%, rgba(201, 54, 96, 0) 70%);
+}
+
+.cards-orb-1 {
+  bottom: 10%;
+  right: -5%;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(201, 54, 96, 0.35) 0%, rgba(201, 54, 96, 0) 70%);
+}
+
+.services-orb-1 {
+  top: 20%;
+  left: 5%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(201, 54, 96, 0.35) 0%, rgba(201, 54, 96, 0) 70%);
+}
+
+.contact-orb-1 {
+  bottom: 15%;
+  right: 5%;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(201, 54, 96, 0.4) 0%, rgba(201, 54, 96, 0) 70%);
+}
+
+/* Watermark Section Heading Parallax Drift */
+.section-title span {
+  will-change: transform;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+  letter-spacing: 2px;
+}
+
+/* 3D Perspective Card Tilt Physics with Dynamic Spotlight Glow */
+.tilt-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.18s cubic-bezier(0.2, 0, 0.2, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.tilt-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle 280px at var(--mouse-x, -999px) var(--mouse-y, -999px),
+      rgba(201, 54, 96, 0.2),
+      transparent 70%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+
+.tilt-card:hover::after {
+  opacity: 1;
+}
+
+.tilt-card>* {
+  position: relative;
+  z-index: 3;
+}
+
+/* Subpage Banners Smooth Parallax */
+.hero-recruiter,
+.hero-jobs,
+.hero-privacy,
+.hero-deletion {
+  background-attachment: scroll !important;
+  will-change: background-position;
+}
+
+/* Accessibility: Respect Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .hero-parallax-bg,
+  .hero-ambient-orb,
+  .section-ambient-orb,
+  .about-img-frame img,
+  .about-floating-badge,
+  .tilt-card,
+  .section-title span {
+    transform: none !important;
+  }
+}
+
+/*--------------------------------------------------------------
+# Luxury Custom Interactive Brand Cursor
+--------------------------------------------------------------*/
+@media (hover: hover) and (pointer: fine) {
+
+  body.has-custom-cursor,
+  body.has-custom-cursor a,
+  body.has-custom-cursor button,
+  body.has-custom-cursor .btn,
+  body.has-custom-cursor [role="button"],
+  body.has-custom-cursor select,
+  body.has-custom-cursor .tilt-card,
+  body.has-custom-cursor .service-item,
+  body.has-custom-cursor .capability-card {
+    cursor: none !important;
+  }
+
+  body.has-custom-cursor input[type="text"],
+  body.has-custom-cursor input[type="email"],
+  body.has-custom-cursor input[type="search"],
+  body.has-custom-cursor input[type="tel"],
+  body.has-custom-cursor input[type="number"],
+  body.has-custom-cursor input[type="password"],
+  body.has-custom-cursor textarea,
+  body.has-custom-cursor [contenteditable="true"] {
+    cursor: text !important;
+  }
+
+  /* Precision Core Dot (Exact click point, zero latency) */
+  .so-cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    margin-left: -3px;
+    margin-top: -3px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 0 0 1.5px var(--accent-color), 0 0 8px rgba(201, 54, 96, 0.9), 0 0 12px rgba(255, 255, 255, 0.8);
+    pointer-events: none !important;
+    z-index: 10000002;
+    opacity: 0;
+    will-change: transform;
+    transition: opacity 0.2s ease, background 0.2s ease;
+  }
+
+  /* Smooth Trailing Follower Halo (Frosted Glass Magnetic Lens) */
+  .so-cursor-follower {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    margin-left: -20px;
+    margin-top: -20px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, rgba(201, 54, 96, 0.08) 60%, transparent 80%);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2), 0 0 16px rgba(201, 54, 96, 0.2);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    pointer-events: none !important;
+    z-index: 10000001;
+    opacity: 0;
+    will-change: transform;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+      height 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+      margin 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 0.25s ease,
+      background 0.25s ease,
+      box-shadow 0.25s ease,
+      opacity 0.25s ease;
+  }
+
+  /* Translucent White SourceOne Logo inside Follower (Not solid white) */
+  .so-cursor-logo {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    filter: brightness(0) invert(1) drop-shadow(0 0 3px rgba(255, 255, 255, 0.45));
+    opacity: 0.6;
+    transform: scale(0.92);
+    transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), filter 0.25s ease;
+    pointer-events: none;
+    user-select: none;
+    display: block;
+  }
+
+  /* Hover state over clickable elements */
+  body.has-custom-cursor.cursor-hover .so-cursor-follower {
+    width: 56px;
+    height: 56px;
+    margin-left: -28px;
+    margin-top: -28px;
+    border-color: rgba(255, 255, 255, 0.75);
+    background: radial-gradient(circle, rgba(201, 54, 96, 0.32) 0%, rgba(255, 255, 255, 0.1) 60%, transparent 85%);
+    box-shadow: 0 0 25px rgba(201, 54, 96, 0.65), 0 0 12px rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+
+  body.has-custom-cursor.cursor-hover .so-cursor-logo {
+    opacity: 0.95;
+    transform: scale(1.2);
+    filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(255, 255, 255, 0.85));
+  }
+
+  body.has-custom-cursor.cursor-hover .so-cursor-dot {
+    opacity: 0 !important;
+  }
+
+  /* Click / Active state */
+  body.has-custom-cursor.cursor-active .so-cursor-follower {
+    width: 32px;
+    height: 32px;
+    margin-left: -16px;
+    margin-top: -16px;
+    border-color: #2ecc71;
+    background: rgba(46, 204, 113, 0.25);
+    box-shadow: 0 0 18px rgba(46, 204, 113, 0.8);
+  }
+
+  body.has-custom-cursor.cursor-active .so-cursor-logo {
+    opacity: 0.85;
+    transform: scale(0.78);
+  }
+
+  body.has-custom-cursor.cursor-active .so-cursor-dot {
+    background: #2ecc71;
+    box-shadow: 0 0 12px #2ecc71;
+  }
+
+  /* Typing state on inputs */
+  body.has-custom-cursor.cursor-text .so-cursor-dot,
+  body.has-custom-cursor.cursor-text .so-cursor-follower {
+    opacity: 0 !important;
   }
 }

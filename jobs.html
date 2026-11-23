@@ -917,144 +917,142 @@
       emptyState.style.display = 'none';
       if (countBar) countBar.style.display = 'none';
 
-      db.ref("jobs").once("value")
-        .then((snapshot) => {
-          const rawJobs = [];
+      db.ref("jobs").on("value", (snapshot) => {
+        const rawJobs = [];
 
-          if (snapshot.exists()) {
-            snapshot.forEach((childSnapshot) => {
-              const job = { id: childSnapshot.key, ...childSnapshot.val() };
-              rawJobs.push(job);
+        if (snapshot.exists()) {
+          snapshot.forEach((childSnapshot) => {
+            const job = { id: childSnapshot.key, ...childSnapshot.val() };
+            rawJobs.push(job);
+          });
+        }
+
+        // Helper: parse individual locations from a location string
+        function parseLocations(locStr) {
+          if (!locStr) return [];
+          return String(locStr)
+            .split(/[,/|;]+/)
+            .map(s => s.trim())
+            .filter(s => s.length > 0);
+        }
+
+        // Helper: normalize position key for grouping
+        function getPositionKey(pos) {
+          if (!pos) return '';
+          return String(pos)
+            .trim()
+            .toLowerCase()
+            .replace(/&/g, 'and')
+            .replace(/\s+/g, ' ');
+        }
+
+        // Group jobs by normalized position key so multiple locations produce ONE card
+        const groups = new Map();
+
+        rawJobs.forEach(job => {
+          // Only show active jobs on public careers page (managed via userAdmin toggle)
+          if (job.isActive === false || job.status === 'inactive') return;
+
+          const posName = (job.position || '').trim();
+          if (!posName) return;
+
+          // Do not give picker packer card (handled via official mobile app)
+          if (/picker|packer/i.test(posName)) return;
+
+          const posKey = getPositionKey(posName);
+          const locList = (Array.isArray(job.locations) && job.locations.length > 0)
+            ? job.locations
+            : parseLocations(job.location);
+
+          if (!groups.has(posKey)) {
+            groups.set(posKey, {
+              id: job.id,
+              allIds: [job.id],
+              position: posName,
+              locationsMap: new Map(), // lowerCase -> originalCase
+              jobTypes: new Set(),
+              requirements: job.requirements || '',
+              createdAt: job.createdAt || 0
             });
           }
 
-          // Helper: parse individual locations from a location string
-          function parseLocations(locStr) {
-            if (!locStr) return [];
-            return String(locStr)
-              .split(/[,/|;]+/)
-              .map(s => s.trim())
-              .filter(s => s.length > 0);
-          }
+          const group = groups.get(posKey);
+          group.allIds.push(job.id);
 
-          // Helper: normalize position key for grouping
-          function getPositionKey(pos) {
-            if (!pos) return '';
-            return String(pos)
-              .trim()
-              .toLowerCase()
-              .replace(/&/g, 'and')
-              .replace(/\s+/g, ' ');
-          }
-
-          // Group jobs by normalized position key so multiple locations produce ONE card
-          const groups = new Map();
-
-          rawJobs.forEach(job => {
-            // Only show active jobs on public careers page (managed via userAdmin toggle)
-            if (job.isActive === false || job.status === 'inactive') return;
-
-            const posName = (job.position || '').trim();
-            if (!posName) return;
-
-            // Do not give picker packer card (handled via official mobile app)
-            if (/picker|packer/i.test(posName)) return;
-
-            const posKey = getPositionKey(posName);
-            const locList = (Array.isArray(job.locations) && job.locations.length > 0)
-              ? job.locations
-              : parseLocations(job.location);
-
-            if (!groups.has(posKey)) {
-              groups.set(posKey, {
-                id: job.id,
-                allIds: [job.id],
-                position: posName,
-                locationsMap: new Map(), // lowerCase -> originalCase
-                jobTypes: new Set(),
-                requirements: job.requirements || '',
-                createdAt: job.createdAt || 0
-              });
-            }
-
-            const group = groups.get(posKey);
-            group.allIds.push(job.id);
-
-            // Accumulate unique locations
-            locList.forEach(loc => {
-              const lowerLoc = loc.toLowerCase();
-              if (!group.locationsMap.has(lowerLoc)) {
-                group.locationsMap.set(lowerLoc, loc);
-              }
-            });
-
-            // Accumulate jobTypes
-            if (job.jobType) {
-              group.jobTypes.add(String(job.jobType).trim());
-            }
-
-            // Keep longest or latest requirements
-            if ((job.requirements || '').length > (group.requirements || '').length) {
-              group.requirements = job.requirements;
-            }
-
-            // Keep highest createdAt timestamp and newest position title casing
-            if ((job.createdAt || 0) > group.createdAt) {
-              group.createdAt = job.createdAt || 0;
-              group.position = posName;
+          // Accumulate unique locations
+          locList.forEach(loc => {
+            const lowerLoc = loc.toLowerCase();
+            if (!group.locationsMap.has(lowerLoc)) {
+              group.locationsMap.set(lowerLoc, loc);
             }
           });
 
-          // Build consolidated jobs list
-          allJobs = [];
-          groups.forEach(group => {
-            const locations = Array.from(group.locationsMap.values());
+          // Accumulate jobTypes
+          if (job.jobType) {
+            group.jobTypes.add(String(job.jobType).trim());
+          }
 
-            // Determine consolidated jobType
-            let consolidatedJobType = 'Full-Time';
-            const typesArr = Array.from(group.jobTypes);
-            const hasFull = typesArr.some(t => t.toLowerCase().includes('full'));
-            const hasPart = typesArr.some(t => t.toLowerCase().includes('part'));
-            const hasBoth = typesArr.some(t => t.toLowerCase() === 'both');
+          // Keep longest or latest requirements
+          if ((job.requirements || '').length > (group.requirements || '').length) {
+            group.requirements = job.requirements;
+          }
 
-            if (hasBoth || (hasFull && hasPart)) {
-              consolidatedJobType = 'both';
-            } else if (hasPart) {
-              consolidatedJobType = 'Part-Time';
-            } else if (hasFull) {
-              consolidatedJobType = 'Full-Time';
-            } else if (typesArr.length > 0) {
-              consolidatedJobType = typesArr[0];
-            }
+          // Keep highest createdAt timestamp and newest position title casing
+          if ((job.createdAt || 0) > group.createdAt) {
+            group.createdAt = job.createdAt || 0;
+            group.position = posName;
+          }
+        });
 
-            allJobs.push({
-              id: group.id,
-              allIds: group.allIds,
-              position: group.position,
-              locations: locations.length > 0 ? locations : ['Bangalore'],
-              location: locations.length > 0 ? locations.join(', ') : 'Bangalore',
-              jobType: consolidatedJobType,
-              requirements: group.requirements,
-              createdAt: group.createdAt
-            });
+        // Build consolidated jobs list
+        allJobs = [];
+        groups.forEach(group => {
+          const locations = Array.from(group.locationsMap.values());
+
+          // Determine consolidated jobType
+          let consolidatedJobType = 'Full-Time';
+          const typesArr = Array.from(group.jobTypes);
+          const hasFull = typesArr.some(t => t.toLowerCase().includes('full'));
+          const hasPart = typesArr.some(t => t.toLowerCase().includes('part'));
+          const hasBoth = typesArr.some(t => t.toLowerCase() === 'both');
+
+          if (hasBoth || (hasFull && hasPart)) {
+            consolidatedJobType = 'both';
+          } else if (hasPart) {
+            consolidatedJobType = 'Part-Time';
+          } else if (hasFull) {
+            consolidatedJobType = 'Full-Time';
+          } else if (typesArr.length > 0) {
+            consolidatedJobType = typesArr[0];
+          }
+
+          allJobs.push({
+            id: group.id,
+            allIds: group.allIds,
+            position: group.position,
+            locations: locations.length > 0 ? locations : ['Bangalore'],
+            location: locations.length > 0 ? locations.join(', ') : 'Bangalore',
+            jobType: consolidatedJobType,
+            requirements: group.requirements,
+            createdAt: group.createdAt
           });
+        });
 
-          // Sort jobs by createdAt desc
-          allJobs.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+        // Sort jobs by createdAt desc
+        allJobs.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
 
-          // Populate location filter dropdown
-          populateLocationFilter();
+        // Populate location filter dropdown
+        populateLocationFilter();
 
-          // Render with active filters
-          filterJobs();
-        })
-        .catch((error) => {
-          console.error("Error loading jobs from Firebase:", error);
-          loadingSpinner.innerHTML = `
+        // Render with active filters
+        filterJobs();
+      }, (error) => {
+        console.error("Error loading jobs from Firebase:", error);
+        loadingSpinner.innerHTML = `
             <i class="bi bi-exclamation-triangle" style="font-size: 32px; color: var(--accent-color); margin-bottom: 8px;"></i>
             <p class="text-danger" style="font-weight: 500;">Failed to load job listings. Please check your internet connection.</p>
           `;
-        });
+      });
     }
 
     // Populate locations dynamically from loaded jobs (individual unique locations)

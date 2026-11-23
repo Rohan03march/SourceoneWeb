@@ -951,6 +951,9 @@
           const groups = new Map();
 
           rawJobs.forEach(job => {
+            // Only show active jobs on public careers page (managed via userAdmin toggle)
+            if (job.isActive === false || job.status === 'inactive') return;
+
             const posName = (job.position || '').trim();
             if (!posName) return;
 
@@ -958,7 +961,9 @@
             if (/picker|packer/i.test(posName)) return;
 
             const posKey = getPositionKey(posName);
-            const locList = parseLocations(job.location);
+            const locList = (Array.isArray(job.locations) && job.locations.length > 0)
+              ? job.locations
+              : parseLocations(job.location);
 
             if (!groups.has(posKey)) {
               groups.set(posKey, {
